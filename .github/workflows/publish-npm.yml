@@ -20,7 +20,6 @@ jobs:
     environment: npm-publish
     env:
       DIST_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.dist_tag || 'latest' }}
-      NPM_CONFIG_PROVENANCE: 'true'
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
