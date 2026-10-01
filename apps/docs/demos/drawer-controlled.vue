@@ -98,7 +98,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerHeading,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const isOpen = ref(false)
 const helperOpen = ref(false)

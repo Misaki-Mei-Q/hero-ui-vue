@@ -9,4 +9,4 @@ export {
 export { default as InputOTPGroup } from './InputOTPGroup.vue'
 export { default as InputOTPSlot } from './InputOTPSlot.vue'
 export { default as InputOTPSeparator } from './InputOTPSeparator.vue'
-export type { InputOTPVariants } from '@rysinal/heroui-vue-styles'
+export type { InputOTPVariants } from '@misaki-mei-q/heroui-vue-styles'

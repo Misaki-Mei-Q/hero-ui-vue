@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, inject, ref, watch } from 'vue'
 import { CheckboxIndicator, CheckboxRoot } from 'radix-vue'
-import { checkboxVariants } from '@rysinal/heroui-vue-styles'
+import { checkboxVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 import { CHECKBOX_GROUP_CONTEXT_KEY } from '../checkbox-group/context'
 

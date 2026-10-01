@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, provide, watchEffect } from 'vue'
-import { drawerVariants } from '@rysinal/heroui-vue-styles'
+import { drawerVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { DRAWER_CONTEXT_KEY, type DrawerPlacement } from './context'
 

@@ -5,7 +5,7 @@ Layout wrapper for related toggle buttons.
 ## Import
 
 ```ts
-import { ToggleButtonGroup, ToggleButtonGroupSeparator } from '@rysinal/heroui-vue'
+import { ToggleButtonGroup, ToggleButtonGroupSeparator } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

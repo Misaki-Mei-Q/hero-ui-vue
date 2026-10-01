@@ -12,7 +12,7 @@
 
     <div class="demo-search-field-shortcut">
       <span>Press</span>
-      <Kbd :keys="['⇧']">S</Kbd>
+      <Kbd :keys="['S']">S</Kbd>
       <span>to focus the search field</span>
     </div>
   </div>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import { Description, Kbd, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@rysinal/heroui-vue'
+import { Description, Kbd, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@misaki-mei-q/heroui-vue'
 
 const value = ref('')
 

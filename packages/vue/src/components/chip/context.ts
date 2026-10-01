@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { chipVariants } from '@rysinal/heroui-vue-styles'
+import type { chipVariants } from '@misaki-mei-q/heroui-vue-styles'
 
 export interface ChipContext {
   slots: ReturnType<typeof chipVariants>

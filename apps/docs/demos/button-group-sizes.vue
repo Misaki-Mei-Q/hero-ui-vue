@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button, ButtonGroup, ButtonGroupSeparator } from '@rysinal/heroui-vue'
+import { Button, ButtonGroup, ButtonGroupSeparator } from '@misaki-mei-q/heroui-vue'
 
 const sizes = [
   { label: 'Small', value: 'sm' },

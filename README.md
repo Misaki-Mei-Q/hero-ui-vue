@@ -6,16 +6,16 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img src="https://img.shields.io/npm/l/@rysinal/heroui-vue?style=flat" alt="License">
+    <img src="https://img.shields.io/npm/l/@misaki-mei-q/heroui-vue?style=flat" alt="License">
   </a>
-  <a href="https://www.npmjs.com/package/@rysinal/heroui-vue">
-    <img src="https://img.shields.io/npm/dm/@rysinal/heroui-vue.svg?style=flat-round" alt="npm downloads">
+  <a href="https://www.npmjs.com/package/@misaki-mei-q/heroui-vue">
+    <img src="https://img.shields.io/npm/dm/@misaki-mei-q/heroui-vue.svg?style=flat-round" alt="npm downloads">
   </a>
 </p>
 
 **HeroUI Vue** is a beautiful and modern Vue 3 UI library - a complete port of HeroUI React to Vue 3 with Composition API.
 
-Documentation: [https://hero-ui-vue.pages.dev](https://hero-ui-vue.pages.dev)
+Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
 
 > ⚠️ **Work in Progress**: This library is currently under active development. Not ready for production use.
 
@@ -23,7 +23,7 @@ Documentation: [https://hero-ui-vue.pages.dev](https://hero-ui-vue.pages.dev)
 
 - 🎨 **Beautiful by Default** - Stunning components out of the box
 - 🎯 **Customizable by Design** - Easy to customize with Tailwind CSS v4
-- ♿ **Accessible** - Built on Radix Vue primitives with full ARIA support
+- �?**Accessible** - Built on Radix Vue primitives with full ARIA support
 - 🔧 **TypeScript** - Full TypeScript support with strict types
 - 🚀 **Modern** - Vue 3 Composition API
 - 📦 **Tree-shakeable** - Import only what you need
@@ -44,15 +44,15 @@ Install HeroUI Vue and required styles:
 
 ```bash
 # npm
-npm install @rysinal/heroui-vue @rysinal/heroui-vue-styles
+npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 
 # pnpm
-pnpm add @rysinal/heroui-vue @rysinal/heroui-vue-styles
+pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 
 # yarn
-yarn add @rysinal/heroui-vue @rysinal/heroui-vue-styles
+yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -75,7 +75,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@rysinal/heroui-vue-styles/styles.css";
+@import "@misaki-mei-q/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -90,7 +90,7 @@ import './style.css'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@rysinal/heroui-vue';
+import { Button } from '@misaki-mei-q/heroui-vue';
 </script>
 
 <template>
@@ -100,12 +100,12 @@ import { Button } from '@rysinal/heroui-vue';
 
 ### What's Next?
 
-- [Browse the documentation](https://hero-ui-vue.pages.dev)
-- [Explore components](https://hero-ui-vue.pages.dev/components/)
+- [Browse the documentation](https://misaki-mei-q.github.io/hero-ui-vue)
+- [Explore components](https://misaki-mei-q.github.io/hero-ui-vue/components/)
 
 ## Documentation
 
-Visit the [documentation site](https://hero-ui-vue.pages.dev) for full documentation.
+Visit the [documentation site](https://misaki-mei-q.github.io/hero-ui-vue) for full documentation.
 
 ## Component Coverage
 
@@ -151,10 +151,12 @@ hero-ui-vue/
 │   ├── styles/       # Tailwind CSS styles and variants
 │   └── standard/     # Shared configurations
 ├── apps/
-│   ├── docs/         # Documentation site
-│   └── storybook/    # Component development
-└── react-source/     # Original HeroUI React source
+│   └── docs/         # Documentation site (VitePress)
+├── scripts/          # Maintenance and release scripts
+└── .github/          # CI workflows (lint, test, publish)
 ```
+
+The Vue port tracks the [HeroUI React](https://github.com/heroui-inc/heroui) component API. The React source itself is not vendored into this repository; parity checks are performed against the public `@heroui/react` package and the HeroUI docs site.
 
 ## Contributing
 
@@ -166,7 +168,7 @@ This project is a Vue 3 port of [HeroUI](https://github.com/heroui-inc/heroui) b
 
 ## License
 
-Apache-2.0 — see [LICENSE](LICENSE)
+Apache-2.0 �?see [LICENSE](LICENSE)
 
 ## Acknowledgments
 

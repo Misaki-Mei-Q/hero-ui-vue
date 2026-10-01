@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, inject, provide, ref, watch } from 'vue'
-import { disclosureVariants } from '@rysinal/heroui-vue-styles'
+import { disclosureVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { DISCLOSURE_GROUP_CONTEXT_KEY, type DisclosureGroupKey } from '../disclosure-group/context'
 import { DISCLOSURE_CONTEXT_KEY } from './context'

@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { Description, Label, Radio, RadioGroup } from '@rysinal/heroui-vue'
+import { Description, Label, Radio, RadioGroup } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, Spinner } from '@rysinal/heroui-vue'
+import { Button, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, Spinner } from '@misaki-mei-q/heroui-vue'
 
 const value = ref('')
 const isComplete = ref(false)

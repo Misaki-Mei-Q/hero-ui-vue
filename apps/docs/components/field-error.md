@@ -6,7 +6,7 @@ A component for displaying error messages associated with form fields.
 
 ```vue
 <script setup lang="ts">
-import { FieldError } from '@rysinal/heroui-vue'
+import { FieldError } from '@misaki-mei-q/heroui-vue'
 </script>
 ```
 

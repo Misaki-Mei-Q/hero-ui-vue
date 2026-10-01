@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { CloseButton } from '@rysinal/heroui-vue'
+import { CloseButton } from '@misaki-mei-q/heroui-vue'
 
 const XIcon = defineComponent({
   setup() {

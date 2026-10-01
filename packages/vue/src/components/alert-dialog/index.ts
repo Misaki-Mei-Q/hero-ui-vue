@@ -15,4 +15,4 @@ export type {
   AlertDialogSize,
   AlertDialogStatus,
 } from './context'
-export type { AlertDialogVariants } from '@rysinal/heroui-vue-styles'
+export type { AlertDialogVariants } from '@misaki-mei-q/heroui-vue-styles'

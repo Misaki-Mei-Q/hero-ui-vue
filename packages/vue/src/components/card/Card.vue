@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import { cardVariants } from '@rysinal/heroui-vue-styles'
+import { cardVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 import { CARD_CONTEXT_KEY } from './context'
 

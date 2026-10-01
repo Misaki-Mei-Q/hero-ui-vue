@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { progressCircleVariants } from '@rysinal/heroui-vue-styles'
+import { progressCircleVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 
 interface ProgressCircleProps {

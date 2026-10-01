@@ -5,7 +5,7 @@ Linear progress indicator.
 ## Import
 
 ```ts
-import { ProgressBar } from '@rysinal/heroui-vue'
+import { ProgressBar } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { Switch } from '@rysinal/heroui-vue'
+import { Switch } from '@misaki-mei-q/heroui-vue'
 </script>

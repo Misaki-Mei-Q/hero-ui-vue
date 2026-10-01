@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@rysinal/heroui-vue'
+import { Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

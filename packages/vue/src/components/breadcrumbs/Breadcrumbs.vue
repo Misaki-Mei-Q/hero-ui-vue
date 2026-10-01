@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, useSlots } from 'vue'
-import { breadcrumbsVariants } from '@rysinal/heroui-vue-styles'
+import { breadcrumbsVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { BREADCRUMBS_CONTEXT_KEY } from './context'
 

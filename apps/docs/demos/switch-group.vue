@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import { Label, Switch, SwitchGroup } from '@rysinal/heroui-vue'
+import { Label, Switch, SwitchGroup } from '@misaki-mei-q/heroui-vue'
 </script>

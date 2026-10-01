@@ -86,7 +86,7 @@ import {
   ModalHeader,
   ModalHeading,
   ModalIcon,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { Radio, RadioGroup } from '@rysinal/heroui-vue'
+import { Radio, RadioGroup } from '@misaki-mei-q/heroui-vue'
 </script>

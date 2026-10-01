@@ -27,7 +27,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const items = [
   {

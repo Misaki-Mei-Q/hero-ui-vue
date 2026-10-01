@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { cardVariants } from '@rysinal/heroui-vue-styles'
+import type { cardVariants } from '@misaki-mei-q/heroui-vue-styles'
 
 export interface CardContext {
   slots: ReturnType<typeof cardVariants>

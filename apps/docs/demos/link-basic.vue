@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import { Link } from '@rysinal/heroui-vue'
+import { Link } from '@misaki-mei-q/heroui-vue'
 </script>

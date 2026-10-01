@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor } from '@rysinal/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor } from '@misaki-mei-q/heroui-vue'
 
 const avatarUrl = 'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/green.jpg'
 const colors = ['accent', 'success', 'warning', 'danger'] as const

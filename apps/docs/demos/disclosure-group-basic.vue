@@ -123,7 +123,7 @@ import {
   DisclosureIndicator,
   DisclosureTrigger,
   Separator,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const expandedKeys = ref<Set<string | number>>(new Set(['preview']))
 </script>

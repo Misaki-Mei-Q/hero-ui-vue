@@ -5,7 +5,7 @@ A low-level error message component for displaying errors in non-form components
 ## Import
 
 ```ts
-import { ErrorMessage } from '@rysinal/heroui-vue'
+import { ErrorMessage } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ Use `ErrorMessage` for non-form components. For form fields, prefer [Field Error
 
 ## Styling
 
-The component uses the `.error-message` class from `@rysinal/heroui-vue-styles`.
+The component uses the `.error-message` class from `@misaki-mei-q/heroui-vue-styles`.
 
 ## API
 

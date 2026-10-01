@@ -20,8 +20,8 @@ All notable changes to HeroUI Vue are documented here.
 
 ### Packages
 
-- `@rysinal/heroui-vue@0.0.5`
-- `@rysinal/heroui-vue-styles@0.0.5`
+- `@misaki-mei-q/heroui-vue@0.0.5`
+- `@misaki-mei-q/heroui-vue-styles@0.0.5`
 
 ## 0.0.4
 
@@ -38,14 +38,14 @@ All notable changes to HeroUI Vue are documented here.
 
 ### Packages
 
-- `@rysinal/heroui-vue@0.0.4`
-- `@rysinal/heroui-vue-styles@0.0.4`
+- `@misaki-mei-q/heroui-vue@0.0.4`
+- `@misaki-mei-q/heroui-vue-styles@0.0.4`
 
 ## 0.0.3
 
 ### Added
 
-- Added npm package README files for `@rysinal/heroui-vue` and `@rysinal/heroui-vue-styles`.
+- Added npm package README files for `@misaki-mei-q/heroui-vue` and `@misaki-mei-q/heroui-vue-styles`.
 - Added changelog-based GitHub Release publishing to the npm publish workflow.
 - Added package tarball checks to ensure npm README files are included before publishing.
 
@@ -55,20 +55,20 @@ All notable changes to HeroUI Vue are documented here.
 
 ### Packages
 
-- `@rysinal/heroui-vue@0.0.3`
-- `@rysinal/heroui-vue-styles@0.0.3`
+- `@misaki-mei-q/heroui-vue@0.0.3`
+- `@misaki-mei-q/heroui-vue-styles@0.0.3`
 
 ## 0.0.2
 
 ### Added
 
-- Published `@rysinal/heroui-vue` and `@rysinal/heroui-vue-styles` through GitHub Actions Trusted Publishing.
+- Published `@misaki-mei-q/heroui-vue` and `@misaki-mei-q/heroui-vue-styles` through GitHub Actions Trusted Publishing.
 - Verified the tag-triggered npm publish workflow with GitHub OIDC.
 
 ### Packages
 
-- `@rysinal/heroui-vue@0.0.2`
-- `@rysinal/heroui-vue-styles@0.0.2`
+- `@misaki-mei-q/heroui-vue@0.0.2`
+- `@misaki-mei-q/heroui-vue-styles@0.0.2`
 
 ## 0.0.1
 
@@ -79,5 +79,5 @@ All notable changes to HeroUI Vue are documented here.
 
 ### Packages
 
-- `@rysinal/heroui-vue@0.0.1`
-- `@rysinal/heroui-vue-styles@0.0.1`
+- `@misaki-mei-q/heroui-vue@0.0.1`
+- `@misaki-mei-q/heroui-vue-styles@0.0.1`

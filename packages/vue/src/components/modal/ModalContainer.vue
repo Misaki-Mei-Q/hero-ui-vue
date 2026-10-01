@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, provide, watchEffect } from 'vue'
-import { modalVariants } from '@rysinal/heroui-vue-styles'
+import { modalVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import {
   MODAL_CONTEXT_KEY,

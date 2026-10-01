@@ -6,7 +6,7 @@ Autocomplete lets users choose one option from a searchable list.
 
 ```vue
 <script setup lang="ts">
-import { Autocomplete } from '@rysinal/heroui-vue'
+import { Autocomplete } from '@misaki-mei-q/heroui-vue'
 </script>
 ```
 

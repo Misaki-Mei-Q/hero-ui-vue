@@ -12,7 +12,7 @@ import {
   DisclosureHeading,
   DisclosureIndicator,
   DisclosureTrigger,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

@@ -70,7 +70,7 @@ import {
   DrawerDialog,
   DrawerHeader,
   DrawerHeading,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 type IconSegment = {
   attrs: Record<string, string | number>

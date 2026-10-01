@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { separatorVariants } from '@rysinal/heroui-vue-styles'
+import { separatorVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
 interface SeparatorProps {

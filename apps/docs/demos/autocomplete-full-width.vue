@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Autocomplete, Surface } from '@rysinal/heroui-vue'
+import { Autocomplete, Surface } from '@misaki-mei-q/heroui-vue'
 
 const selectedState = ref<string | number | null>(null)
 

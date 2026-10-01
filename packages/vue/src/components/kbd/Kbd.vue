@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { kbdVariants } from '@rysinal/heroui-vue-styles'
+import { kbdVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
 interface KbdProps {

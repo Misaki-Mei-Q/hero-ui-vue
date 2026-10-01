@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { Button, FieldError, Tag, TagGroup } from '@rysinal/heroui-vue'
+import { Button, FieldError, Tag, TagGroup } from '@misaki-mei-q/heroui-vue'
 
 const selectedKeys = ref<Array<string | number>>([])
 const showError = ref(false)

@@ -18,7 +18,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Button, Checkbox, Label } from '@rysinal/heroui-vue'
+import { Button, Checkbox, Label } from '@misaki-mei-q/heroui-vue'
 
 const message = ref('')
 

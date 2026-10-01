@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { Toggle } from 'radix-vue'
-import { toggleButtonVariants } from '@rysinal/heroui-vue-styles'
+import { toggleButtonVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 
 interface ToggleButtonProps {

@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { Autocomplete } from '@rysinal/heroui-vue'
+import { Autocomplete } from '@misaki-mei-q/heroui-vue'
 
 const states = [
   { id: 'florida', label: 'Florida' },

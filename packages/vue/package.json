@@ -1,5 +1,5 @@
 {
-  "name": "@rysinal/heroui-vue",
+  "name": "@misaki-mei-q/heroui-vue",
   "version": "0.0.5",
   "description": "Beautiful and modern Vue 3 UI library built with Tailwind CSS 4.0",
   "keywords": [
@@ -10,13 +10,13 @@
     "components",
     "tailwindcss"
   ],
-  "homepage": "https://hero-ui-vue.pages.dev",
+  "homepage": "https://misaki-mei-q.github.io/hero-ui-vue",
   "bugs": {
-    "url": "https://github.com/rysinal/hero-ui-vue/issues"
+    "url": "https://github.com/Misaki-Mei-Q/hero-ui-vue/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rysinal/hero-ui-vue.git",
+    "url": "git+https://github.com/Misaki-Mei-Q/hero-ui-vue.git",
     "directory": "packages/vue"
   },
   "license": "Apache-2.0",
@@ -44,7 +44,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@rysinal/heroui-vue-styles": "workspace:*",
+    "@misaki-mei-q/heroui-vue-styles": "workspace:*",
     "@internationalized/date": "^3.12.1",
     "@vueuse/core": "^11.3.0",
     "radix-vue": "^1.9.11",
@@ -52,7 +52,7 @@
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
-    "@rysinal/heroui-vue-standard": "workspace:*",
+    "@misaki-mei-q/heroui-vue-standard": "workspace:*",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "tailwindcss": "^4.1.18",

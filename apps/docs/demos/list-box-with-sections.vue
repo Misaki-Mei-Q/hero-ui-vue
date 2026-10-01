@@ -13,7 +13,7 @@
             <Label>New file</Label>
             <Description>Create a new file</Description>
           </div>
-          <Kbd class="demo-list-box-kbd" :keys="['⌘']" variant="light">N</Kbd>
+          <Kbd class="demo-list-box-kbd" :keys="['N']" variant="light">N</Kbd>
         </ListBoxItem>
         <ListBoxItem id="edit-file" text-value="Edit file">
           <div class="demo-list-box-action-icon">
@@ -25,7 +25,7 @@
             <Label>Edit file</Label>
             <Description>Make changes</Description>
           </div>
-          <Kbd class="demo-list-box-kbd" :keys="['⌘']" variant="light">E</Kbd>
+          <Kbd class="demo-list-box-kbd" :keys="['N']" variant="light">E</Kbd>
         </ListBoxItem>
       </ListBoxSection>
       <Separator />
@@ -41,7 +41,7 @@
             <Label>Delete file</Label>
             <Description>Move to trash</Description>
           </div>
-          <Kbd class="demo-list-box-kbd" :keys="['⌘', '⇧']" variant="light">D</Kbd>
+          <Kbd class="demo-list-box-kbd" :keys="['D', 'D']" variant="light">D</Kbd>
         </ListBoxItem>
       </ListBoxSection>
     </ListBox>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { Description, Header, Kbd, Label, ListBox, ListBoxItem, ListBoxSection, Separator, Surface } from '@rysinal/heroui-vue'
+import { Description, Header, Kbd, Label, ListBox, ListBoxItem, ListBoxSection, Separator, Surface } from '@misaki-mei-q/heroui-vue'
 
 const handleAction = (key: string | number) => {
   window.alert(`Selected item: ${key}`)

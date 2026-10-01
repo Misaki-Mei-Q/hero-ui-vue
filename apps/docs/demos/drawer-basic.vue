@@ -34,5 +34,5 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerHeading,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 </script>

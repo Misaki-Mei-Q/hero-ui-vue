@@ -1,5 +1,5 @@
 {
-  "extends": "@rysinal/heroui-vue-standard/tsconfig",
+  "extends": "@misaki-mei-q/heroui-vue-standard/tsconfig",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { emptyStateVariants } from '@rysinal/heroui-vue-styles'
+import { emptyStateVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
 interface EmptyStateProps {

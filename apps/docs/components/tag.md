@@ -5,7 +5,7 @@ Selectable or removable tag.
 ## Import
 
 ```ts
-import { Tag, TagGroup, TagRemoveButton } from '@rysinal/heroui-vue'
+import { Tag, TagGroup, TagRemoveButton } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

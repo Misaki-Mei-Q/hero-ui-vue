@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import { linkVariants } from '@rysinal/heroui-vue-styles'
+import { linkVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 import { LINK_CONTEXT_KEY, type LinkContext } from './context'
 

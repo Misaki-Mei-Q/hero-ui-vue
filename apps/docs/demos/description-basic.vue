@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { Description } from '@rysinal/heroui-vue'
+import { Description } from '@misaki-mei-q/heroui-vue'
 </script>

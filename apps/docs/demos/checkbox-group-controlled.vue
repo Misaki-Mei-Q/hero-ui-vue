@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Checkbox, CheckboxGroup, Label } from '@rysinal/heroui-vue'
+import { Checkbox, CheckboxGroup, Label } from '@misaki-mei-q/heroui-vue'
 
 const selectedSkills = ref<string[]>(['coding', 'design'])
 </script>

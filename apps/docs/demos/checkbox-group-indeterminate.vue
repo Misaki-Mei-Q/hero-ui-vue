@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Checkbox, CheckboxGroup, Label } from '@rysinal/heroui-vue'
+import { Checkbox, CheckboxGroup, Label } from '@misaki-mei-q/heroui-vue'
 
 const allOptions = ['coding', 'design', 'writing']
 const selectedValues = ref<string[]>(['coding'])

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, provide } from 'vue'
-import { tagVariants } from '@rysinal/heroui-vue-styles'
+import { tagVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 import { TAG_CONTEXT_KEY } from './context'
 import { TAG_GROUP_CONTEXT_KEY } from '../tag-group/context'

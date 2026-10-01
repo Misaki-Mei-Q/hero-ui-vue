@@ -104,7 +104,7 @@ import {
   DisclosureContent,
   DisclosureHeading,
   DisclosureTrigger,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const showcaseItems = [
   {

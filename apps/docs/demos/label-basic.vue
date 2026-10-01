@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import { Label } from '@rysinal/heroui-vue'
+import { Label } from '@misaki-mei-q/heroui-vue'
 </script>

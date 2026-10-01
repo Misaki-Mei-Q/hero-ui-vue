@@ -5,7 +5,7 @@ A clickable button component with multiple variants and states.
 ## Import
 
 ```ts
-import { Button } from '@rysinal/heroui-vue'
+import { Button } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

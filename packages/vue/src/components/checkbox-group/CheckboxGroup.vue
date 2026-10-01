@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, provide, ref, watch } from 'vue'
-import { checkboxGroupVariants } from '@rysinal/heroui-vue-styles'
+import { checkboxGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { CHECKBOX_GROUP_CONTEXT_KEY } from './context'
 

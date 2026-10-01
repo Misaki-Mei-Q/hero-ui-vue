@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-import { Input } from '@rysinal/heroui-vue'
+import { Input } from '@misaki-mei-q/heroui-vue'
 </script>

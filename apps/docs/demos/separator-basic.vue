@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { Separator } from '@rysinal/heroui-vue'
+import { Separator } from '@misaki-mei-q/heroui-vue'
 </script>

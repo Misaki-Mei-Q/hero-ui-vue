@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { progressBarVariants } from '@rysinal/heroui-vue-styles'
+import { progressBarVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 
 interface ProgressBarProps {

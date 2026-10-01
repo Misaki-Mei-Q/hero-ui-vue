@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Label, Switch } from '@rysinal/heroui-vue'
+import { Label, Switch } from '@misaki-mei-q/heroui-vue'
 
 const isSelected = ref(false)
 </script>

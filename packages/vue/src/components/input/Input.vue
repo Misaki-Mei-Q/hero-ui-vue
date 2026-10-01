@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* global Event, FocusEvent, HTMLInputElement */
 import { computed, ref, watch } from 'vue'
-import { inputVariants } from '@rysinal/heroui-vue-styles'
+import { inputVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 
 interface InputProps {

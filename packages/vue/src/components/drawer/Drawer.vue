@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* global MouseEvent */
 import { computed, provide, ref, watch } from 'vue'
-import { drawerVariants } from '@rysinal/heroui-vue-styles'
+import { drawerVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { DRAWER_CONTEXT_KEY, type DrawerPlacement } from './context'
 
 interface DrawerProps {

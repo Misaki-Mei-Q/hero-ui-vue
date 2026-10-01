@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Button, Description, FieldError, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, Spinner } from '@rysinal/heroui-vue'
+import { Button, Description, FieldError, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, Spinner } from '@misaki-mei-q/heroui-vue'
 
 const stockAvailable = 3
 const value = ref<number | undefined>()

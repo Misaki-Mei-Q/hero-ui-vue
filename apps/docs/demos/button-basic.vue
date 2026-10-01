@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { Button } from '@rysinal/heroui-vue'
+import { Button } from '@misaki-mei-q/heroui-vue'
 
 const handlePress = () => {
   console.log('Button pressed')

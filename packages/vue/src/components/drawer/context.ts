@@ -1,5 +1,5 @@
 import type { ComputedRef, InjectionKey } from 'vue'
-import type { drawerVariants } from '@rysinal/heroui-vue-styles'
+import type { drawerVariants } from '@misaki-mei-q/heroui-vue-styles'
 
 export type DrawerPlacement = 'bottom' | 'top' | 'left' | 'right'
 export type DrawerBackdropVariant = 'transparent' | 'opaque' | 'blur'

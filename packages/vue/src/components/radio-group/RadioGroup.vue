@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, provide, ref, watch } from 'vue'
 import { RadioGroupRoot } from 'radix-vue'
-import { radioGroupVariants } from '@rysinal/heroui-vue-styles'
+import { radioGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { RADIO_GROUP_CONTEXT_KEY } from './context'
 

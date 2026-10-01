@@ -1,5 +1,5 @@
 {
-  "name": "@rysinal/heroui-vue-docs",
+  "name": "@misaki-mei-q/heroui-vue-docs",
   "version": "0.0.5",
   "private": true,
   "type": "module",
@@ -9,8 +9,8 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@rysinal/heroui-vue-styles": "workspace:*",
-    "@rysinal/heroui-vue": "workspace:*",
+    "@misaki-mei-q/heroui-vue-styles": "workspace:*",
+    "@misaki-mei-q/heroui-vue": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import { buttonGroupVariants } from '@rysinal/heroui-vue-styles'
+import { buttonGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { BUTTON_GROUP_CONTEXT_KEY } from './context'
 

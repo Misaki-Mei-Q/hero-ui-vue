@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import { Meter } from '@rysinal/heroui-vue'
+import { Meter } from '@misaki-mei-q/heroui-vue'
 </script>

@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   title: 'HeroUI Vue',
-  description: 'A modern Vue 3 UI component library built with Tailwind CSS. Docs: https://hero-ui-vue.pages.dev',
+  description: 'A modern Vue 3 UI component library built with Tailwind CSS. Docs: https://misaki-mei-q.github.io/hero-ui-vue',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#3b82f6' }],
@@ -28,7 +28,7 @@ export default defineConfig({
     nav: [
       { text: 'Getting Started', link: '/guide/quick-start', activeMatch: '^/guide/' },
       { text: 'Components', link: '/components/' },
-      { text: 'GitHub', link: 'https://github.com/rysinal/hero-ui-vue' }
+      { text: 'GitHub', link: 'https://github.com/Misaki-Mei-Q/hero-ui-vue' }
     ],
 
     sidebar: {
@@ -131,7 +131,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/rysinal/hero-ui-vue' }
+      { icon: 'github', link: 'https://github.com/Misaki-Mei-Q/hero-ui-vue' }
     ],
 
     search: {
@@ -139,7 +139,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/rysinal/hero-ui-vue/edit/develop/apps/docs/:path',
+      pattern: 'https://github.com/Misaki-Mei-Q/hero-ui-vue/edit/develop/apps/docs/:path',
       text: 'Edit this page on GitHub'
     },
 
@@ -158,15 +158,15 @@ export default defineConfig({
     resolve: {
       alias: [
         {
-          find: '@rysinal/heroui-vue',
+          find: '@misaki-mei-q/heroui-vue',
           replacement: path.resolve(__dirname, '../../../packages/vue/src')
         },
         {
-          find: '@rysinal/heroui-vue-styles',
+          find: '@misaki-mei-q/heroui-vue-styles',
           replacement: path.resolve(__dirname, '../../../packages/styles/src')
         },
         {
-          find: '@rysinal/heroui-vue-styles',
+          find: '@misaki-mei-q/heroui-vue-styles',
           replacement: path.resolve(__dirname, '../../../packages/styles/src')
         }
       ],

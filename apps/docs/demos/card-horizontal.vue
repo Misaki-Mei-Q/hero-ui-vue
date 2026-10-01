@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Card, CardDescription, CardFooter, CardHeader, CardTitle, CloseButton } from '@rysinal/heroui-vue'
+import { Button, Card, CardDescription, CardFooter, CardHeader, CardTitle, CloseButton } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

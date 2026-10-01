@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Autocomplete, Button } from '@rysinal/heroui-vue'
+import { Autocomplete, Button } from '@misaki-mei-q/heroui-vue'
 
 const selectedState = ref<string | number | null>(null)
 const selectedCountry = ref<string | number | null>(null)

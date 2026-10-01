@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@rysinal/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

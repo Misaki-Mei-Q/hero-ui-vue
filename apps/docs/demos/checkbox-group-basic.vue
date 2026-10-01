@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Checkbox, CheckboxGroup, Description, Label } from '@rysinal/heroui-vue'
+import { Checkbox, CheckboxGroup, Description, Label } from '@misaki-mei-q/heroui-vue'
 
 const selectedInterests = ref<string[]>(['coding'])
 </script>

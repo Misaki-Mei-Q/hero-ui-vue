@@ -50,7 +50,7 @@ import {
   ModalHeading,
   ModalIcon,
   type ModalBackdropVariant,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const variants: ModalBackdropVariant[] = ['opaque', 'blur', 'transparent']
 

@@ -5,7 +5,7 @@ Section heading primitive.
 ## Import
 
 ```ts
-import { Header } from '@rysinal/heroui-vue'
+import { Header } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

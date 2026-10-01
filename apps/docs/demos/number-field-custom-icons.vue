@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Description, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@rysinal/heroui-vue'
+import { Description, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@misaki-mei-q/heroui-vue'
 
 const SearchMinusIcon = defineComponent({
   setup: () => () => h('svg', { height: 16, viewBox: '0 0 16 16', width: 16 }, [

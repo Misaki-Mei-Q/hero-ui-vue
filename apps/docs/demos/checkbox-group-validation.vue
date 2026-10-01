@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { Button, Checkbox, CheckboxGroup, FieldError, Label } from '@rysinal/heroui-vue'
+import { Button, Checkbox, CheckboxGroup, FieldError, Label } from '@misaki-mei-q/heroui-vue'
 
 const selectedPreferences = ref<string[]>([])
 const showError = ref(false)

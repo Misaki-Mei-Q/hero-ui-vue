@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { FieldError } from '@rysinal/heroui-vue'
+import { FieldError } from '@misaki-mei-q/heroui-vue'
 </script>

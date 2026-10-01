@@ -5,7 +5,7 @@ Circular progress indicator.
 ## Import
 
 ```ts
-import { ProgressCircle } from '@rysinal/heroui-vue'
+import { ProgressCircle } from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

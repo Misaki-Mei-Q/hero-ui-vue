@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import { Switch, Label } from '@rysinal/heroui-vue'
+import { Switch, Label } from '@misaki-mei-q/heroui-vue'
 </script>

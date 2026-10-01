@@ -62,7 +62,7 @@ import {
   ModalHeading,
   ModalIcon,
   type ModalSize,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const sizes: ModalSize[] = ['xs', 'sm', 'md', 'lg', 'cover', 'full']
 

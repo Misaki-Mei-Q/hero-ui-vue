@@ -1,5 +1,5 @@
 import type { ComputedRef, InjectionKey } from 'vue'
-import type { modalVariants } from '@rysinal/heroui-vue-styles'
+import type { modalVariants } from '@misaki-mei-q/heroui-vue-styles'
 
 export type ModalPlacement = 'auto' | 'top' | 'center' | 'bottom'
 export type ModalSize = 'xs' | 'sm' | 'md' | 'lg' | 'cover' | 'full'

@@ -24,5 +24,5 @@
 </template>
 
 <script setup>
-import { Card, CardContent, Tab, TabList, TabPanel, Tabs } from '@rysinal/heroui-vue'
+import { Card, CardContent, Tab, TabList, TabPanel, Tabs } from '@misaki-mei-q/heroui-vue'
 </script>

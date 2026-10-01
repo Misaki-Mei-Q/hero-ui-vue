@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@rysinal/heroui-vue-standard':
+      '@misaki-mei-q/heroui-vue-standard':
         specifier: workspace:*
         version: link:packages/standard
       '@tailwindcss/vite':
@@ -65,10 +65,10 @@ importers:
 
   apps/docs:
     dependencies:
-      '@rysinal/heroui-vue':
+      '@misaki-mei-q/heroui-vue':
         specifier: workspace:*
         version: link:../../packages/vue
-      '@rysinal/heroui-vue-styles':
+      '@misaki-mei-q/heroui-vue-styles':
         specifier: workspace:*
         version: link:../../packages/styles
       vue:
@@ -117,6 +117,9 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.31.0
         version: 9.33.0(eslint@9.39.4(jiti@2.6.1))
+      globals:
+        specifier: ^15.14.0
+        version: 15.15.0
       typescript:
         specifier: ^5.8.3
         version: 5.9.3
@@ -133,7 +136,7 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
     devDependencies:
-      '@rysinal/heroui-vue-standard':
+      '@misaki-mei-q/heroui-vue-standard':
         specifier: workspace:*
         version: link:../standard
       '@tailwindcss/vite':
@@ -151,7 +154,7 @@ importers:
       '@internationalized/date':
         specifier: ^3.12.1
         version: 3.12.1
-      '@rysinal/heroui-vue-styles':
+      '@misaki-mei-q/heroui-vue-styles':
         specifier: workspace:*
         version: link:../styles
       '@vueuse/core':
@@ -167,7 +170,7 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(tailwind-merge@3.5.0)(tailwindcss@4.2.4)
     devDependencies:
-      '@rysinal/heroui-vue-standard':
+      '@misaki-mei-q/heroui-vue-standard':
         specifier: workspace:*
         version: link:../standard
       '@vitejs/plugin-vue':
@@ -1774,6 +1777,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@15.15.0:
+    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
   graceful-fs@4.2.11:
@@ -4241,6 +4248,8 @@ snapshots:
       type-fest: 0.20.2
 
   globals@14.0.0: {}
+
+  globals@15.15.0: {}
 
   graceful-fs@4.2.11: {}
 

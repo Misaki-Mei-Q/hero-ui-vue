@@ -1,8 +1,8 @@
-# @rysinal/heroui-vue
+# @misaki-mei-q/heroui-vue
 
 Beautiful and modern Vue 3 UI components inspired by HeroUI, built with Tailwind CSS 4.
 
-Documentation: https://hero-ui-vue.pages.dev
+Documentation: https://misaki-mei-q.github.io/hero-ui-vue
 
 > Work in progress: this package is still under active development and is not ready for production use.
 
@@ -20,17 +20,17 @@ Get started with HeroUI Vue in minutes.
 Install HeroUI Vue and required styles:
 
 ```bash
-npm install @rysinal/heroui-vue @rysinal/heroui-vue-styles
+npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-pnpm add @rysinal/heroui-vue @rysinal/heroui-vue-styles
+pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-yarn add @rysinal/heroui-vue @rysinal/heroui-vue-styles
+yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -53,7 +53,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@rysinal/heroui-vue-styles/styles.css";
+@import "@misaki-mei-q/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -68,7 +68,7 @@ import './style.css'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@rysinal/heroui-vue'
+import { Button } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <template>
@@ -78,19 +78,19 @@ import { Button } from '@rysinal/heroui-vue'
 
 ### What's Next?
 
-- Documentation: https://hero-ui-vue.pages.dev
-- Components: https://hero-ui-vue.pages.dev/components/
+- Documentation: https://misaki-mei-q.github.io/hero-ui-vue
+- Components: https://misaki-mei-q.github.io/hero-ui-vue/components/
 
 ## Packages
 
-- `@rysinal/heroui-vue`: Vue 3 component library.
-- `@rysinal/heroui-vue-styles`: shared styles, Tailwind variants, and CSS entrypoints.
+- `@misaki-mei-q/heroui-vue`: Vue 3 component library.
+- `@misaki-mei-q/heroui-vue-styles`: shared styles, Tailwind variants, and CSS entrypoints.
 
 ## Links
 
-- Documentation: https://hero-ui-vue.pages.dev
-- Repository: https://github.com/rysinal/hero-ui-vue
-- Issues: https://github.com/rysinal/hero-ui-vue/issues
+- Documentation: https://misaki-mei-q.github.io/hero-ui-vue
+- Repository: https://github.com/Misaki-Mei-Q/hero-ui-vue
+- Issues: https://github.com/Misaki-Mei-Q/hero-ui-vue/issues
 
 ## License
 

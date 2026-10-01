@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { Description, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, Surface } from '@rysinal/heroui-vue'
+import { Description, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, Surface } from '@misaki-mei-q/heroui-vue'
 </script>
 
 <style lang="less">

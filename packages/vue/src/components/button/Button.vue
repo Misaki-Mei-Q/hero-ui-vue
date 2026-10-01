@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, type ButtonHTMLAttributes } from 'vue'
-import { buttonVariants } from '@rysinal/heroui-vue-styles'
+import { buttonVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 import { BUTTON_GROUP_CONTEXT_KEY, type ButtonGroupContext } from '../button-group/context'
 

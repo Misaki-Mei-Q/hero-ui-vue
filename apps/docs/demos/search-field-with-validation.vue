@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Description, FieldError, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@rysinal/heroui-vue'
+import { Description, FieldError, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon } from '@misaki-mei-q/heroui-vue'
 
 const value = ref('')
 const isInvalid = computed(() => value.value.length > 0 && value.value.length < 3)

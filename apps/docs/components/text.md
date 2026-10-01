@@ -6,7 +6,7 @@ A component for displaying text content with various styles and semantic meaning
 
 ```vue
 <script setup lang="ts">
-import { Text } from '@rysinal/heroui-vue'
+import { Text } from '@misaki-mei-q/heroui-vue'
 </script>
 ```
 

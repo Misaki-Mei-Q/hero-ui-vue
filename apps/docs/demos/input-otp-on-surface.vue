@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, Link, Surface } from '@rysinal/heroui-vue'
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label, Link, Surface } from '@misaki-mei-q/heroui-vue'
 
 const value = ref('')
 </script>

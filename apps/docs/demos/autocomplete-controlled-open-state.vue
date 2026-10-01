@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Autocomplete, Button } from '@rysinal/heroui-vue'
+import { Autocomplete, Button } from '@misaki-mei-q/heroui-vue'
 
 const isOpen = ref(false)
 const selectedState = ref<string | number | null>(null)

@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Link, TextField } from '@rysinal/heroui-vue'
+import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Link, TextField } from '@misaki-mei-q/heroui-vue'
 
 const email = ref('')
 const password = ref('')

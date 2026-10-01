@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import { Skeleton } from '@rysinal/heroui-vue'
+import { Skeleton } from '@misaki-mei-q/heroui-vue'
 </script>

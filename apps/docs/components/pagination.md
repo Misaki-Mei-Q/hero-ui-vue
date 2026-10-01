@@ -16,7 +16,7 @@ import {
   PaginationPrevious,
   PaginationPreviousIcon,
   PaginationSummary,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 ```
 
 ## Usage

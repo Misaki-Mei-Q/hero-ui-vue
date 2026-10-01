@@ -61,7 +61,7 @@ import {
   DrawerHeader,
   DrawerHeading,
   TextField,
-} from '@rysinal/heroui-vue'
+} from '@misaki-mei-q/heroui-vue'
 
 const form = reactive({
   bio: '',

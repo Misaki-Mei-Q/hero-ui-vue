@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { listboxItemVariants } from '@rysinal/heroui-vue-styles'
+import { listboxItemVariants } from '@misaki-mei-q/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { LIST_BOX_ITEM_CONTEXT_KEY } from './context'
 

@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { alertVariants } from '@rysinal/heroui-vue-styles'
+import type { alertVariants } from '@misaki-mei-q/heroui-vue-styles'
 
 export type AlertStatus = 'default' | 'accent' | 'success' | 'warning' | 'danger'
 
