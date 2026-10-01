@@ -17,7 +17,7 @@
 
 **HeroUI Vue** 是一套漂亮、现代的 Vue 3 UI 组件库 —— HeroUI React 到 Vue 3 (Composition API) 的完整移植版本。
 
-文档站点: 暂未部署到 `https://misaki-mei-q.github.io/hero-ui-vue`。在 GitHub Pages 站点发布之前，请在仓库根目录运行 `pnpm --filter docs dev` 本地查看。
+文档站点: 从 `apps/docs` 构建，通过 `.github/workflows/docs.yml` workflow 推送到 `https://misaki-mei-q.github.io/hero-ui-vue`。站点启用依赖仓库 **Settings → Pages → Source: GitHub Actions** 设置；启用后，每次 push 到 `master` 都会重新部署。在此之前，请在仓库根目录运行 `pnpm --filter docs dev` 本地查看。
 
 > ⚠️ **开发中**: 此项目已对全部 71 个 HeroUI React 组件提供 Vue 等价实现，但日历家族组件的渲染依赖上游 Radix Vue / reka-ui 中 `CalendarRoot` 的开放 bug，建议在浏览器端验证关键交互。
 
