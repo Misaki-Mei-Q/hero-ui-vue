@@ -10,7 +10,9 @@ export const avatarVariants = tv({
   slots: {
     base: 'avatar',
     fallback: 'avatar__fallback',
+    group: 'avatar-group',
     image: 'avatar__image',
+    more: 'avatar-group__more',
   },
   variants: {
     color: {

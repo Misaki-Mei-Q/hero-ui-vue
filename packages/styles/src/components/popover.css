@@ -6,23 +6,28 @@
   box-shadow: var(--shadow-overlay);
 
   /* Entering animations */
-  &[data-entering="true"] {
+  &[data-entering="true"],
+  &[data-state="open"] {
     @apply animate-in duration-150 ease-smooth fade-in-0 zoom-in-90;
 
     /* Placement-specific translations */
-    &[data-placement="top"] {
+    &[data-placement="top"],
+    &[data-side="top"] {
       @apply slide-in-from-bottom-1;
     }
 
-    &[data-placement="bottom"] {
+    &[data-placement="bottom"],
+    &[data-side="bottom"] {
       @apply slide-in-from-top-1;
     }
 
-    &[data-placement="left"] {
+    &[data-placement="left"],
+    &[data-side="left"] {
       @apply slide-in-from-right-1;
     }
 
-    &[data-placement="right"] {
+    &[data-placement="right"],
+    &[data-side="right"] {
       @apply slide-in-from-left-1;
     }
   }
@@ -33,7 +38,8 @@
   }
 
   &[data-exiting="true"],
-  &[data-entering="true"] {
+  &[data-entering="true"],
+  &[data-state="open"] {
     @apply will-change-[opacity,transform];
   }
 
@@ -43,15 +49,18 @@
   }
 
   /* Arrow rotation based on placement */
-  &[data-placement="bottom"] [data-slot="popover-overlay-arrow"] {
+  &[data-placement="bottom"] [data-slot="popover-overlay-arrow"],
+  &[data-side="bottom"] [data-slot="popover-overlay-arrow"] {
     rotate: 180deg;
   }
 
-  &[data-placement="left"] [data-slot="popover-overlay-arrow"] {
+  &[data-placement="left"] [data-slot="popover-overlay-arrow"],
+  &[data-side="left"] [data-slot="popover-overlay-arrow"] {
     rotate: -90deg;
   }
 
-  &[data-placement="right"] [data-slot="popover-overlay-arrow"] {
+  &[data-placement="right"] [data-slot="popover-overlay-arrow"],
+  &[data-side="right"] [data-slot="popover-overlay-arrow"] {
     rotate: 90deg;
   }
 }

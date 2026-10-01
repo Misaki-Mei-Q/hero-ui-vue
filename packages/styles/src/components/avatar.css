@@ -76,3 +76,25 @@
 .avatar--soft .avatar__fallback--danger {
   @apply bg-danger-soft text-danger-soft-foreground;
 }
+
+/* Avatar group */
+.avatar-group {
+  @apply flex items-center;
+
+  & > .avatar:not(:first-child) {
+    @apply -ms-2 border-2 border-background;
+  }
+
+  & > .avatar:not(:first-child):not(:last-child) {
+    @apply transition-all;
+  }
+
+  &:hover > .avatar:not(:first-child):not(:last-child) {
+    --avatar-translate-x: 0.25rem;
+  }
+}
+
+/* Avatar group "more" count badge */
+.avatar-group__more {
+  @apply -ms-2 flex items-center justify-center rounded-full border-2 border-background bg-default text-xs font-medium;
+}

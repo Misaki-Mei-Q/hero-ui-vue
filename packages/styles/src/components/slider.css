@@ -70,14 +70,14 @@
     }
 
     /* Disabled state */
-    &[data-disabled="true"] {
+    &[data-disabled] {
       @apply cursor-default;
     }
   }
 
   /* Disabled state */
   &:disabled,
-  &[data-disabled="true"],
+  &[data-disabled],
   &[aria-disabled="true"] {
     @apply status-disabled;
 
