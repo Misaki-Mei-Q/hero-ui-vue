@@ -17,7 +17,7 @@
 
 **HeroUI Vue** is a beautiful and modern Vue 3 UI library - a complete port of HeroUI React to Vue 3 with Composition API.
 
-Documentation: builds from `apps/docs` and publishes via the `.github/workflows/docs.yml` workflow to `https://misaki-mei-q.github.io/hero-ui-vue`. The site is gated behind **Settings → Pages → Source: GitHub Actions** in the repo settings; once enabled, every push to `master` redeploys. Until then, run `pnpm --filter docs dev` locally.
+Documentation: builds from `apps/docs` and is published to `https://misaki-mei-q.github.io/hero-ui-vue` via the `.github/workflows/docs.yml` workflow (GitHub Actions source). Every push to `master` redeploys.
 
 > ⚠️ **Work in Progress**: All 71 HeroUI React components now have a Vue equivalent, but the date family (Calendar / RangeCalendar / DatePicker / DateRangePicker) renders through Radix Vue's `CalendarRoot`, which has an open upstream bug (https://github.com/unovue/reka-ui). Verify critical interactions there in a real browser before shipping.
 
