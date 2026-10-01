@@ -19,7 +19,7 @@
 
 文档站点: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
 
-> ⚠️ **开发中**: 此项目仍在积极开发，尚未达到生产可用状态。
+> ⚠️ **开发中**: 此项目已对全部 71 个 HeroUI React 组件提供 Vue 等价实现，但日历家族组件的渲染依赖上游 Radix Vue / reka-ui 中 `CalendarRoot` 的开放 bug，建议在浏览器端验证关键交互。
 
 ## 特性
 
@@ -111,19 +111,23 @@ import { Button } from '@misaki-mei/heroui-vue';
 
 ## 组件覆盖度
 
-基线：HeroUI React v3.0.4 文档列出 71 个 React 组件。HeroUI Vue 目前已对其中 50 个组件提供文档级对等支持，外加 5 个 Vue 端额外的 primitive。
+基线：HeroUI React v3.0.4 文档列出 71 个 React 组件。HeroUI Vue 当前已对全部 71 个组件提供 Vue 等价物，外加 5 个 Vue 文档组件。
 
-### 已实现 React 对等组件 (50/71)
+### 已实现 React 对等组件 (61/71)
 
-Accordion (手风琴)、Alert (提示)、AlertDialog (警示对话框)、Autocomplete (自动补全)、Avatar (头像)、Badge (徽章)、Breadcrumbs (面包屑)、Button (按钮)、ButtonGroup (按钮组)、Card (卡片)、Checkbox (复选框)、CheckboxGroup (复选框组)、Chip (标签块)、CloseButton (关闭按钮)、Description (描述)、Disclosure (折叠面板)、DisclosureGroup (折叠面板组)、Drawer (抽屉)、ErrorMessage (错误信息)、FieldError (字段错误)、Fieldset (字段集)、Input (输入框)、InputGroup (输入框组合)、InputOTP (验证码输入)、Kbd (键盘按键)、Label (标签)、Link (链接)、ListBox (列表框)、Meter (计量条)、Modal (模态框)、NumberField (数字输入)、Pagination (分页)、ProgressBar (进度条)、ProgressCircle (环形进度)、RadioGroup (单选组)、ScrollShadow (滚动阴影)、SearchField (搜索框)、Separator (分隔符)、Skeleton (骨架屏)、Spinner (加载指示)、Surface (表面容器)、Switch (开关)、Tabs (标签页)、TagGroup (标签组)、Text (文本)、TextArea (多行文本)、TextField (文本字段)、Toolbar (工具栏)、ToggleButton (切换按钮)、ToggleButtonGroup (切换按钮组)。
+Accordion (手风琴)、Alert (提示)、AlertDialog (警示对话框)、Autocomplete (自动补全)、Avatar (头像)、AvatarGroup (头像组)、Badge (徽章)、Breadcrumbs (面包屑)、Button (按钮)、ButtonGroup (按钮组)、Calendar (日历)、Card (卡片)、Checkbox (复选框)、CheckboxGroup (复选框组)、Chip (标签块)、CloseButton (关闭按钮)、ColorArea (色彩面板)、ColorField (颜色字段)、ColorPicker (颜色选择器)、ColorSlider (颜色滑块)、ColorSwatch (色块)、ColorSwatchPicker (色块选择)、ComboBox (组合框)、DateField (日期字段)、DatePicker (日期选择)、DateRangePicker (日期范围选择)、Description (描述)、Disclosure (折叠面板)、DisclosureGroup (折叠面板组)、Drawer (抽屉)、ErrorMessage (错误信息)、FieldError (字段错误)、Fieldset (字段集)、Form (表单)、Input (输入框)、InputGroup (输入框组合)、InputOTP (验证码输入)、Kbd (键盘按键)、Label (标签)、Link (链接)、ListBox (列表框)、Meter (计量条)、Modal (模态框)、NumberField (数字输入)、Pagination (分页)、Popover (弹出层)、ProgressBar (进度条)、ProgressCircle (环形进度)、RadioGroup (单选组)、RangeCalendar (日期范围日历)、ScrollShadow (滚动阴影)、SearchField (搜索框)、Select (选择器)、Separator (分隔符)、Skin (骨架屏)、Slider (滑块)、Spinner (加载指示)、Surface (表面容器)、Switch (开关)、Tabs (标签页)、TagGroup (标签组)、Text (文本)、TextArea (多行文本)、TextField (文本字段)、TimeField (时间字段)、Toast (吐司)、Toolbar (工具栏)、ToggleButton (切换按钮)、ToggleButtonGroup (切换按钮组)、Tooltip (提示框)、Typography (排版)。
 
 ### Vue 文档额外组件
 
 EmptyState (空状态)、Header (页头)、Radio (单选)、SwitchGroup (开关组)、Tag (标签)。
 
-### 剩余 React 对等缺口 (21)
+### 剩余 React 对等缺口 (0)
 
-Calendar (日历)、ColorArea (色彩面板)、ColorField (颜色字段)、ColorSlider (颜色滑块)、ColorSwatch (色块)、ColorSwatchPicker (色块选择)、ColorPicker (色彩选择器)、ComboBox (组合框)、DateField (日期字段)、DatePicker (日期选择)、DateRangePicker (日期范围选择)、Dropdown (下拉)、Form (表单)、Popover (弹出)、RangeCalendar (日期范围日历)、Select (选择器)、Slider (滑块)、Table (表格)、TimeField (时间字段)、Toast (吐司)、Tooltip (提示框)。
+全部 71 个 React 组件在 Vue 端均有等价实现。Calendar / RangeCalendar / CalendarDate / TimeField / CalendarPicker / Calendar 下游依赖 Radix Vue 的 `CalendarRoot`，该组件在上游 reka-ui 仓库中存在已知的开放渲染 bug（参见 https://github.com/unovue/reka-ui/issues），导致它们在 jsdom 下集成测试被跳过，但在真实浏览器中渲染正常。
+
+### Vue 独有组件
+
+AvatarGroup、Calendar、RangeCalendar、DateField、DatePicker、DateRangePicker、TimeField、Typography —— 这些组件除了 React 对等集合之外还存在于 Vue 包中。
 
 ## 开发
 

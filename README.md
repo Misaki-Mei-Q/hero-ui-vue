@@ -19,7 +19,7 @@
 
 Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
 
-> ⚠️ **Work in Progress**: This library is currently under active development. Not ready for production use.
+> ⚠️ **Work in Progress**: All 71 HeroUI React components now have a Vue equivalent, but the date family (Calendar / RangeCalendar / DatePicker / DateRangePicker) renders through Radix Vue's `CalendarRoot`, which has an open upstream bug (https://github.com/unovue/reka-ui). Verify critical interactions there in a real browser before shipping.
 
 ## Features
 
@@ -127,7 +127,9 @@ All 71 React components have a Vue equivalent. Calendar / RangeCalendar / DatePi
 
 ### Vue-specific components
 
-AvatarGroup, DateField, TimeField, DatePicker, DateRangePicker — present in the Vue package in addition to the React parity set.
+### Vue-specific components
+
+`AvatarGroup`, `DateField`, `TimeField`, `DatePicker`, `DateRangePicker` — present in the Vue package in addition to the React parity set.
 
 ## Development
 
