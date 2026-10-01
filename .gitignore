@@ -49,3 +49,6 @@ apps/docs/.vitepress/dist/
 
 # Planning documents (internal use only)
 .planning/
+
+# Local research / build scratch
+.tmp/
