@@ -1,0 +1,30 @@
+{
+  "name": "@misaki-mei/heroui-vue-compare",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroui/react": "3.2.6",
+    "@heroui/styles": "3.2.6",
+    "@misaki-mei/heroui-vue": "workspace:*",
+    "@misaki-mei/heroui-vue-styles": "workspace:*",
+    "react": "^19.0.0",
+    "react-aria-components": "^1.21.1",
+    "react-dom": "^19.0.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.7",
+    "vue-tsc": "^2.1.10"
+  }
+}
