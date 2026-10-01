@@ -4,7 +4,7 @@
 
   /* Checkered background pattern for transparency */
   background:
-    linear-gradient(var(--color-swatch-current), var(--color-swatch-current)),
+    linear-gradient(var(--swatch-current), var(--swatch-current)),
     repeating-conic-gradient(#efefef 0% 25%, #f7f7f7 0% 50%) 50% / 16px 16px;
 
   /* Default border for visibility against similar backgrounds */

@@ -2,7 +2,7 @@
 .link {
   @apply relative inline-flex h-fit w-fit items-center rounded-xl text-sm font-medium text-link underline decoration-separator-tertiary decoration-[1.5px] underline-offset-4 no-highlight;
 
-  color: var(--color-link);
+  color: var(--link);
 
   /**
    * Transitions

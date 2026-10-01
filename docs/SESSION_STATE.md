@@ -64,14 +64,41 @@
 - 再做：每个组件 CSS 与 React 上游 `packages/styles/src/components/*.css` 逐个 diff
 - 最后：补 `Form` 组件到 Vue 包（让 compare Vue 端不再用裸 `<form>`）
 
-### 已知问题（**新会话第一件事**）
+## Phase 3 起点（实际形态已修正）
 
-1. **样式 token 差异**：本仓库 `packages/styles/src/themes/shared/theme.css` 用 `--color-accent`、`--color-accent-soft-foreground` 双层结构；React v3.2.x 已统一为 `--accent`、`--accent-soft`、`--accent-soft-foreground` 单层结构。需要决定：
-   - (A) 全量重写 `packages/styles/` 以同 `@heroui/styles` 的 token 命名
-   - (B) 在 `@misaki-mei/heroui-vue-styles` 里加映射别名（`--accent: var(--color-accent)` 等），保留双层但暴露单层 API
-   - (C) 直接换 `@heroui/styles` 替换本仓库的 `packages/styles`
-2. **每个组件 CSS 对比**：用 `heroui-react_get_component_source_styles` 与 `packages/styles/src/components/*.css` 逐个 diff
-4. **Vue 端口 API 风格**：保持 Vue 习惯（`@click`、`v-model`、`v-slot`）而非 React 的 `onPress` / render prop
+### 关键修正（原 SESSION_STATE 误判）
+
+SESSION_STATE 原文件里写"上游 v3.2.x 已统一为 `--accent` 单层"——**经 2026-10-01 验证是**错的。上游 `@heroui/styles@3.2.6` 的 dist CSS（`themes/shared/theme.css` + `themes/default/variables.css`）**依然保留 `--color-accent` / `--color-accent-soft-foreground` 等双层结构**。实际差异是 **inline `color-mix()` vs 具名 token**。
+
+### 真实差异（已核对 upstream 3.2.6）
+
+- **本仓库**：双层结构 (`--color-accent` 等) 已存在 ✓；但下游计算的 token 大量 inline `color-mix()` 在 `@theme inline` 里
+- **上游**：同样双层结构，但把 inline 计算全部**抽成具名 token**（`--accent-soft`、`--accent-soft-foreground`、`--background-secondary`、`--field-hover`、`--scrollbar-thumb` 等），让主题层能 override
+
+具体差距清单：
+
+| Token | 上游 v3.2.6 | 本仓库现版 |
+|---|---|---|
+| `--color-accent-soft-foreground` | `color-mix(accent 70%, fg 30%)` | 错位为 `var(--accent)` |
+| `--default-soft` / `--default-soft-foreground` / `--default-soft-hover` | ✓ | **缺失** |
+| `--background-secondary` / `--background-tertiary` / `--background-inverse` | 具名 | inline |
+| `--surface-hover` | 具名 | inline |
+| `--field-hover`、`--field-focus`、`--field-border-hover`、`--field-border-focus` | 具名 | inline |
+| `--default-hover`、`--accent-hover`、`--success-hover`、`--warning-hover`、`--danger-hover` | 具名 | inline |
+| `--separator-secondary`、`--separator-tertiary` | 具名 | inline |
+| `--border-secondary`、`--border-tertiary` | 具名 | inline |
+| scrollbar (`--scrollbar-thumb/-track/-gutter/-width/-color`) | ✓ | **缺失** |
+| `--skeleton-animation`、`--tooltip-delay`、`--tooltip-close-delay` | ✓ | **缺失** |
+| `:host` shadow DOM 选择器 | ✓ | **缺失** |
+| `[data-vibrant-palette]` 主题变体 | ✓ | **缺失** |
+| 计算公式微差（accent-soft 15% vs 12%、soft-foreground 70:30 vs 80:30 等） | — | 需逐项对齐 |
+
+### 实施路径
+
+1. 同步 `themes/default/variables.css` 到上游 v3.2.6（含 dark、vibrant、:host、scrollbar、tooltip-delay 等）
+2. 同步 `themes/shared/theme.css` 到上游 v3.2.6（保持双层命名 + 改成引用具名 token）
+3. diff 组件 CSS（button / input / checkbox / switch 等）逐个与上游 `dist/components/*.css` 对齐
+4. 修复组件 Vue 实现里引用的硬编码颜色或错位 token
 
 ## 工作模式
 

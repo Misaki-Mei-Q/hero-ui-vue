@@ -287,27 +287,27 @@
 }
 
 .modal__icon.bg-default {
-  background-color: var(--color-default);
+  background-color: var(--default);
 }
 
 .modal__icon.bg-accent-soft {
-  background-color: var(--color-accent-soft);
+  background-color: var(--accent-soft);
 }
 
 .modal__icon.bg-success-soft {
-  background-color: var(--color-success-soft);
+  background-color: var(--success-soft);
 }
 
 .modal__icon.text-foreground {
-  color: var(--color-foreground);
+  color: var(--foreground);
 }
 
 .modal__icon.text-accent-soft-foreground {
-  color: var(--color-accent-soft-foreground);
+  color: var(--accent-soft-foreground);
 }
 
 .modal__icon.text-success-soft-foreground {
-  color: var(--color-success-soft-foreground);
+  color: var(--success-soft-foreground);
 }
 
 /**
