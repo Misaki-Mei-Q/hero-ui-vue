@@ -17,7 +17,7 @@
 
 **HeroUI Vue** 是一套漂亮、现代的 Vue 3 UI 组件库 —— HeroUI React 到 Vue 3 (Composition API) 的完整移植版本。
 
-文档站点: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
+文档站点: 暂未部署到 `https://misaki-mei-q.github.io/hero-ui-vue`。在 GitHub Pages 站点发布之前，请在仓库根目录运行 `pnpm --filter docs dev` 本地查看。
 
 > ⚠️ **开发中**: 此项目已对全部 71 个 HeroUI React 组件提供 Vue 等价实现，但日历家族组件的渲染依赖上游 Radix Vue / reka-ui 中 `CalendarRoot` 的开放 bug，建议在浏览器端验证关键交互。
 
@@ -102,12 +102,12 @@ import { Button } from '@misaki-mei/heroui-vue';
 
 ### 下一步
 
-- [浏览文档](https://misaki-mei-q.github.io/hero-ui-vue)
-- [查看组件](https://misaki-mei-q.github.io/hero-ui-vue/components/)
+- [浏览文档](https://misaki-mei-q.github.io/hero-ui-vue) — 暂未部署
+- [查看组件](https://misaki-mei-q.github.io/hero-ui-vue/components/) — 暂未部署
 
 ## 文档
 
-访问 [文档站点](https://misaki-mei-q.github.io/hero-ui-vue) 查看完整文档。
+访问文档站点（暂未部署） [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue) 查看完整文档。本地预览运行 `pnpm --filter docs dev`。
 
 ## 组件覆盖度
 
@@ -179,6 +179,6 @@ Apache-2.0 — 详见 [LICENSE](LICENSE)
 ## 鸣谢
 
 - [HeroUI](https://heroui.com) - 原始 React 组件库
-- [Radix Vue](https://www.radix-vue.com) - 可访问的 Vue primitives
+- [Radix Vue / reka-ui](https://reka-ui.com) - 可访问的 Vue primitives（Radix Vue 上游已更名为 reka-ui）
 - [Tailwind CSS](https://tailwindcss.com) - 实用优先的 CSS 框架
 - [Vue 3](https://vuejs.org) - 渐进式 JavaScript 框架

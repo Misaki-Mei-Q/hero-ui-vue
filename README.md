@@ -17,7 +17,7 @@
 
 **HeroUI Vue** is a beautiful and modern Vue 3 UI library - a complete port of HeroUI React to Vue 3 with Composition API.
 
-Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
+Documentation: pending deployment to `https://misaki-mei-q.github.io/hero-ui-vue`. Until the GitHub Pages site is published, run `pnpm --filter docs dev` from the repository root to view it locally.
 
 > ⚠️ **Work in Progress**: All 71 HeroUI React components now have a Vue equivalent, but the date family (Calendar / RangeCalendar / DatePicker / DateRangePicker) renders through Radix Vue's `CalendarRoot`, which has an open upstream bug (https://github.com/unovue/reka-ui). Verify critical interactions there in a real browser before shipping.
 
@@ -102,12 +102,12 @@ import { Button } from '@misaki-mei/heroui-vue';
 
 ### What's Next?
 
-- [Browse the documentation](https://misaki-mei-q.github.io/hero-ui-vue)
-- [Explore components](https://misaki-mei-q.github.io/hero-ui-vue/components/)
+- [Browse the documentation](https://misaki-mei-q.github.io/hero-ui-vue) — pending deployment
+- [Explore components](https://misaki-mei-q.github.io/hero-ui-vue/components/) — pending deployment
 
 ## Documentation
 
-Visit the [documentation site](https://misaki-mei-q.github.io/hero-ui-vue) for full documentation.
+Visit the documentation site (pending deployment) at [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue) for full documentation. To preview locally run `pnpm --filter docs dev`.
 
 ## Component Coverage
 
@@ -181,6 +181,6 @@ Apache-2.0 — see [LICENSE](LICENSE)
 ## Acknowledgments
 
 - [HeroUI](https://heroui.com) - Original React component library
-- [Radix Vue](https://www.radix-vue.com) - Accessible Vue primitives
+- [Radix Vue / reka-ui](https://reka-ui.com) - Accessible Vue primitives (Radix Vue was renamed to reka-ui upstream)
 - [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
 - [Vue 3](https://vuejs.org) - Progressive JavaScript framework
