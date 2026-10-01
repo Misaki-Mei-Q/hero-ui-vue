@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
+import { Comment, computed, useSlots } from 'vue'
 import { avatarVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
