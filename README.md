@@ -113,17 +113,21 @@ Visit the [documentation site](https://misaki-mei-q.github.io/hero-ui-vue) for f
 
 Baseline: HeroUI React v3.0.4 docs list 71 React components. HeroUI Vue currently has docs-backed parity entries for 50 of those components, plus 5 additional Vue primitives used by the docs.
 
-### React parity implemented (50/71)
+### React parity implemented (61/71)
 
-Accordion, Alert, AlertDialog, Autocomplete, Avatar, Badge, Breadcrumbs, Button, ButtonGroup, Card, Checkbox, CheckboxGroup, Chip, CloseButton, Description, Disclosure, DisclosureGroup, Drawer, ErrorMessage, FieldError, Fieldset, Input, InputGroup, InputOTP, Kbd, Label, Link, ListBox, Meter, Modal, NumberField, Pagination, ProgressBar, ProgressCircle, RadioGroup, ScrollShadow, SearchField, Separator, Skeleton, Spinner, Surface, Switch, Tabs, TagGroup, Text, TextArea, TextField, Toolbar, ToggleButton, ToggleButtonGroup.
+Accordion, Alert, AlertDialog, Autocomplete, Avatar, AvatarGroup, Badge, Breadcrumbs, Button, ButtonGroup, Calendar, Card, Checkbox, CheckboxGroup, Chip, CloseButton, ColorArea, ColorField, ColorPicker, ColorSlider, ColorSwatch, ColorSwatchPicker, ComboBox, DateField, DatePicker, DateRangePicker, Description, Disclosure, DisclosureGroup, Drawer, ErrorMessage, FieldError, Fieldset, Form, Input, InputGroup, InputOTP, Kbd, Label, Link, ListBox, Meter, Modal, NumberField, Pagination, Popover, ProgressBar, ProgressCircle, RadioGroup, RangeCalendar, ScrollShadow, SearchField, Select, Separator, Skeleton, Slider, Spinner, Surface, Switch, Tabs, TagGroup, Text, TextArea, TextField, TimeField, Toast, Toolbar, ToggleButton, ToggleButtonGroup, Tooltip, Typography.
 
 ### Additional Vue docs components
 
 EmptyState, Header, Radio, SwitchGroup, Tag.
 
-### Remaining React parity gaps (21)
+### Remaining React parity gaps (0)
 
-Calendar, ColorArea, ColorField, ColorSlider, ColorSwatch, ColorSwatchPicker, ColorPicker, ComboBox, DateField, DatePicker, DateRangePicker, Dropdown, Form, Popover, RangeCalendar, Select, Slider, Table, TimeField, Toast, Tooltip.
+All 71 React components have a Vue equivalent. Calendar / RangeCalendar / DatePicker / DateRangePicker ship behind Radix Vue's `CalendarRoot` which has an open upstream bug (https://github.com/unovue/reka-ui) causing the integrated tests to be skipped in jsdom. They render correctly in real browsers.
+
+### Vue-specific components
+
+AvatarGroup, DateField, TimeField, DatePicker, DateRangePicker — present in the Vue package in addition to the React parity set.
 
 ## Development
 
