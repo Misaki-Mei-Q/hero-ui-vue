@@ -1,7 +1,9 @@
 <template>
   <Button is-pending>
-    <Spinner color="current" size="sm" />
-    Uploading...
+    <template #default="{ isPending }">
+      <Spinner v-if="isPending" color="current" size="sm" />
+      Uploading...
+    </template>
   </Button>
 </template>
 

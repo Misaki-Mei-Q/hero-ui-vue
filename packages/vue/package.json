@@ -53,8 +53,10 @@
   },
   "devDependencies": {
     "@misaki-mei/heroui-vue-standard": "workspace:*",
+    "@testing-library/jest-dom": "^6.9.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
+    "jsdom": "^29.1.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.8.3",
     "vite": "^6.0.7",

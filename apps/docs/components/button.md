@@ -150,10 +150,27 @@ The Vue button emits the same state attributes expected by the React CSS source:
 
 | Event | Payload | Description |
 |-------|---------|-------------|
-| `click` | `MouseEvent` | Emitted when button is clicked |
+| `onPress` | `MouseEvent \| KeyboardEvent` | React-style handler fired on click or `Enter`/`Space` key press. Disabled while `isDisabled` or `isPending` is `true`. |
+| `click` | `MouseEvent` | Native DOM event. Still emitted; prefer `onPress` for parity with the React docs. |
 
-### Slots
+### Render Props
 
-| Slot | Description |
-|------|-------------|
-| `default` | Button content |
+The default slot can be used as a scoped slot to access interaction state, mirroring the React render prop pattern:
+
+```vue
+<Button is-pending>
+  <template #default="{ isPending, isPressed, isHovered, isFocused, isFocusVisible, isDisabled }">
+    <Spinner v-if="isPending" />
+    {{ isPending ? 'Uploading...' : 'Upload' }}
+  </template>
+</Button>
+```
+
+| Slot prop | Type | Description |
+|-----------|------|-------------|
+| `isPending` | `boolean` | Whether the button is in a loading state |
+| `isPressed` | `boolean` | Whether the button is currently pressed |
+| `isHovered` | `boolean` | Whether the button is hovered |
+| `isFocused` | `boolean` | Whether the button is focused |
+| `isFocusVisible` | `boolean` | Whether the button shows a focus indicator |
+| `isDisabled` | `boolean` | Whether the button is disabled |

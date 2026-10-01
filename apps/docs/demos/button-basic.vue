@@ -1,5 +1,5 @@
 <template>
-  <Button @click="handlePress">Click me</Button>
+  <Button @on-press="handlePress">Click me</Button>
 </template>
 
 <script setup>

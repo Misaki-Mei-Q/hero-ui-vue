@@ -4,6 +4,11 @@ All notable changes to HeroUI Vue are documented here.
 
 ## Unreleased
 
+### Refactored
+
+- `Button`: align with `@heroui/react@3.2.x`. Added `onPress` prop and a scoped default slot that exposes `isPending` / `isPressed` / `isHovered` / `isFocused` / `isFocusVisible` / `isDisabled` (the render-prop values from the React source). Variants, sizes, and the `data-pending` attribute already matched upstream. `Light` and `shadow` variants and `tiny`/`huge` sizes were not present to begin with. Loading demos in the docs now use the render-prop pattern.
+- Infrastructure: added `packages/vue/vitest.config.ts` so `pnpm -F @misaki-mei/heroui-vue test` runs under jsdom locally and in CI. Hoisted `@testing-library/jest-dom` and `jsdom` into the package's `devDependencies`. This also unblocks the existing `Input`, `Drawer`, `Modal`, and `DisclosureGroup` tests that were failing because the test environment was not configured from the workspace root.
+
 ## 0.1.0
 
 ### Changed
