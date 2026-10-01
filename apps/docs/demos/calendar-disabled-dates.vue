@@ -6,10 +6,12 @@ const today = new CalendarDate(2025, 0, 15)
 </script>
 
 <template>
-  <Calendar
-    :model-value="today"
-    :is-date-disabled="(date) => date.day < 8"
-    weekday-format="short"
-    :fixed-weeks="true"
-  />
+  <ClientOnly>
+    <Calendar
+      :model-value="today"
+      :is-date-disabled="(date) => date.day < 8"
+      weekday-format="short"
+      :fixed-weeks="true"
+    />
+  </ClientOnly>
 </template>

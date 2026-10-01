@@ -9,8 +9,10 @@ const range = {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
-    <Label>Stay dates</Label>
-    <DateRangePicker :model-value="range" label-text="Check-in – Check-out" />
-  </div>
+  <ClientOnly>
+    <div class="flex flex-col gap-2">
+      <Label>Stay dates</Label>
+      <DateRangePicker :model-value="range" label-text="Check-in - Check-out" />
+    </div>
+  </ClientOnly>
 </template>

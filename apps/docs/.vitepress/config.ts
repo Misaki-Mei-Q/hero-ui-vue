@@ -270,6 +270,7 @@ const zhCNSidebar = {
 export default defineConfig({
   title: 'HeroUI Vue',
   description: 'A modern Vue 3 UI component library built with Tailwind CSS. Docs: https://misaki-mei-q.github.io/hero-ui-vue',
+  base: '/hero-ui-vue/',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#3b82f6' }],
