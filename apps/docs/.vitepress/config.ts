@@ -137,7 +137,7 @@ const sharedThemeConfig = {
   },
 
   editLink: {
-    pattern: 'https://github.com/Misaki-Mei-Q/heroui-vue/edit/develop/apps/docs/:path',
+    pattern: 'https://github.com/Misaki-Mei-Q/heroui-vue/edit/master/apps/docs/:path',
     text: 'Edit this page on GitHub'
   },
 
@@ -152,9 +152,9 @@ const zhCNSidebar = {
     {
       text: '入门',
       items: [
-        { text: '简�?, link: '/zh-CN/guide/introduction' },
+        { text: '简介', link: '/zh-CN/guide/introduction' },
         { text: '安装', link: '/zh-CN/guide/installation' },
-        { text: '快速开�?, link: '/zh-CN/guide/quick-start' }
+        { text: '快速开始', link: '/zh-CN/guide/quick-start' }
       ]
     }
   ],
@@ -162,65 +162,65 @@ const zhCNSidebar = {
     {
       text: '入门',
       items: [
-        { text: '简�?, link: '/zh-CN/guide/introduction' },
+        { text: '简介', link: '/zh-CN/guide/introduction' },
         { text: '安装', link: '/zh-CN/guide/installation' },
-        { text: '快速开�?, link: '/zh-CN/guide/quick-start' }
+        { text: '快速开始', link: '/zh-CN/guide/quick-start' }
       ]
     },
     {
       text: '组件',
       items: [
         { text: '总览', link: '/zh-CN/components/' },
-        { text: 'Accordion 手风�?, link: '/zh-CN/components/accordion' },
+        { text: 'Accordion 手风琴', link: '/zh-CN/components/accordion' },
         { text: 'Alert 提示', link: '/zh-CN/components/alert' },
-        { text: 'AlertDialog 警示对话�?, link: '/zh-CN/components/alert-dialog' },
+        { text: 'AlertDialog 警示对话框', link: '/zh-CN/components/alert-dialog' },
         { text: 'Autocomplete 自动补全', link: '/zh-CN/components/autocomplete' },
         { text: 'Avatar 头像', link: '/zh-CN/components/avatar' },
-        { text: 'Avatar Group 头像�?, link: '/zh-CN/components/avatar-group' },
+        { text: 'Avatar Group 头像组', link: '/zh-CN/components/avatar-group' },
         { text: 'Badge 徽章', link: '/zh-CN/components/badge' },
-        { text: 'Breadcrumbs 面包�?, link: '/zh-CN/components/breadcrumbs' },
+        { text: 'Breadcrumbs 面包屑', link: '/zh-CN/components/breadcrumbs' },
         { text: 'Calendar 日历', link: '/zh-CN/components/calendar' },
         { text: 'Card 卡片', link: '/zh-CN/components/card' },
-        { text: 'Chip 标签�?, link: '/zh-CN/components/chip' },
+        { text: 'Chip 标签块', link: '/zh-CN/components/chip' },
         { text: 'ComboBox 复合输入', link: '/zh-CN/components/combo-box' },
-        { text: 'Color Area 颜色�?, link: '/zh-CN/components/color-area' },
+        { text: 'Color Area 颜色面', link: '/zh-CN/components/color-area' },
         { text: 'Color Field 颜色字段', link: '/zh-CN/components/color-field' },
-        { text: 'Color Picker 颜色选择�?, link: '/zh-CN/components/color-picker' },
+        { text: 'Color Picker 颜色选择器', link: '/zh-CN/components/color-picker' },
         { text: 'Color Slider 颜色滑块', link: '/zh-CN/components/color-slider' },
         { text: 'Color Swatch 色块', link: '/zh-CN/components/color-swatch' },
         { text: 'Color Swatch Picker 色块选择', link: '/zh-CN/components/color-swatch-picker' },
         { text: 'Disclosure 折叠面板', link: '/zh-CN/components/disclosure' },
-        { text: 'Disclosure Group 折叠面板�?, link: '/zh-CN/components/disclosure-group' },
-        { text: 'Empty State 空状�?, link: '/zh-CN/components/empty-state' },
-        { text: 'Skeleton 骨架�?, link: '/zh-CN/components/skeleton' },
+        { text: 'Disclosure Group 折叠面板组', link: '/zh-CN/components/disclosure-group' },
+        { text: 'Empty State 空状态', link: '/zh-CN/components/empty-state' },
+        { text: 'Skeleton 骨架屏', link: '/zh-CN/components/skeleton' },
         { text: 'Surface 表面容器', link: '/zh-CN/components/surface' },
         { text: 'Tag 标签', link: '/zh-CN/components/tag' },
-        { text: 'Tag Group 标签�?, link: '/zh-CN/components/tag-group' },
-        { text: 'Tabs 标签�?, link: '/zh-CN/components/tabs' }
+        { text: 'Tag Group 标签组', link: '/zh-CN/components/tag-group' },
+        { text: 'Tabs 标签页', link: '/zh-CN/components/tabs' }
       ]
     },
     {
       text: '表单',
       items: [
         { text: 'Button 按钮', link: '/zh-CN/components/button' },
-        { text: 'Button Group 按钮�?, link: '/zh-CN/components/button-group' },
+        { text: 'Button Group 按钮组', link: '/zh-CN/components/button-group' },
         { text: 'Checkbox 复选框', link: '/zh-CN/components/checkbox' },
-        { text: 'Checkbox Group 复选框�?, link: '/zh-CN/components/checkbox-group' },
-        { text: 'Fieldset 字段�?, link: '/zh-CN/components/fieldset' },
+        { text: 'Checkbox Group 复选框组', link: '/zh-CN/components/checkbox-group' },
+        { text: 'Fieldset 字段集', link: '/zh-CN/components/fieldset' },
         { text: 'Form 表单', link: '/zh-CN/components/form' },
-        { text: 'Input 输入�?, link: '/zh-CN/components/input' },
-        { text: 'Input Group 输入框组�?, link: '/zh-CN/components/input-group' },
-        { text: 'Input OTP 验证码输�?, link: '/zh-CN/components/input-otp' },
+        { text: 'Input 输入框', link: '/zh-CN/components/input' },
+        { text: 'Input Group 输入框组合', link: '/zh-CN/components/input-group' },
+        { text: 'Input OTP 验证码输入', link: '/zh-CN/components/input-otp' },
         { text: 'Number Field 数字输入', link: '/zh-CN/components/number-field' },
-        { text: 'Radio 单�?, link: '/zh-CN/components/radio' },
+        { text: 'Radio 单选', link: '/zh-CN/components/radio' },
         { text: 'Radio Group 单选组', link: '/zh-CN/components/radio-group' },
-        { text: 'Search Field 搜索�?, link: '/zh-CN/components/search-field' },
+        { text: 'Search Field 搜索框', link: '/zh-CN/components/search-field' },
         { text: 'Slider 滑块', link: '/zh-CN/components/slider' },
-        { text: 'Switch 开�?, link: '/zh-CN/components/switch' },
+        { text: 'Switch 开关', link: '/zh-CN/components/switch' },
         { text: 'Switch Group 开关组', link: '/zh-CN/components/switch-group' },
         { text: 'DateField 日期字段', link: '/zh-CN/components/date-field' },
-        { text: 'DatePicker 日期选择�?, link: '/zh-CN/components/date-picker' },
-        { text: 'Date Range Picker 日期范围选择�?, link: '/zh-CN/components/date-range-picker' },
+        { text: 'DatePicker 日期选择器', link: '/zh-CN/components/date-picker' },
+        { text: 'Date Range Picker 日期范围选择器', link: '/zh-CN/components/date-range-picker' },
         { text: 'TextField 文本字段', link: '/zh-CN/components/textfield' },
         { text: 'Textarea 多行文本', link: '/zh-CN/components/textarea' },
         { text: 'TimeField 时间字段', link: '/zh-CN/components/time-field' }
@@ -242,26 +242,26 @@ const zhCNSidebar = {
         { text: 'Header 页头', link: '/zh-CN/components/header' },
         { text: 'Kbd 键盘按键', link: '/zh-CN/components/kbd' },
         { text: 'Link 链接', link: '/zh-CN/components/link' },
-        { text: 'List Box 列表�?, link: '/zh-CN/components/list-box' },
-        { text: 'Meter 计量�?, link: '/zh-CN/components/meter' },
+        { text: 'List Box 列表框', link: '/zh-CN/components/list-box' },
+        { text: 'Meter 计量条', link: '/zh-CN/components/meter' },
         { text: 'Modal 模态框', link: '/zh-CN/components/modal' },
         { text: 'Drawer 抽屉', link: '/zh-CN/components/drawer' },
         { text: 'Dropdown 下拉菜单', link: '/zh-CN/components/dropdown' },
         { text: 'Pagination 分页', link: '/zh-CN/components/pagination' },
-        { text: 'Popover 弹出�?, link: '/zh-CN/components/popover' },
-        { text: 'Progress Bar 进度�?, link: '/zh-CN/components/progress-bar' },
+        { text: 'Popover 弹出层', link: '/zh-CN/components/popover' },
+        { text: 'Progress Bar 进度条', link: '/zh-CN/components/progress-bar' },
         { text: 'Progress Circle 环形进度', link: '/zh-CN/components/progress-circle' },
         { text: 'Range Calendar 范围日历', link: '/zh-CN/components/range-calendar' },
         { text: 'Scroll Shadow 滚动阴影', link: '/zh-CN/components/scroll-shadow' },
-        { text: 'Select 选择�?, link: '/zh-CN/components/select' },
-        { text: 'Separator 分隔�?, link: '/zh-CN/components/separator' },
+        { text: 'Select 选择器', link: '/zh-CN/components/select' },
+        { text: 'Separator 分隔符', link: '/zh-CN/components/separator' },
         { text: 'Spinner 加载指示', link: '/zh-CN/components/spinner' },
         { text: 'Text 文本', link: '/zh-CN/components/text' },
         { text: 'Tooltip 提示', link: '/zh-CN/components/tooltip' },
         { text: 'Toast 提示', link: '/zh-CN/components/toast' },
         { text: 'Toggle Button 切换按钮', link: '/zh-CN/components/toggle-button' },
-        { text: 'Toggle Button Group 切换按钮�?, link: '/zh-CN/components/toggle-button-group' },
-        { text: 'Toolbar 工具�?, link: '/zh-CN/components/toolbar' }
+        { text: 'Toggle Button Group 切换按钮组', link: '/zh-CN/components/toggle-button-group' },
+        { text: 'Toolbar 工具栏', link: '/zh-CN/components/toolbar' }
       ]
     }
   ]
@@ -270,9 +270,9 @@ const zhCNSidebar = {
 export default defineConfig({
   title: 'HeroUI Vue',
   description: 'A modern Vue 3 UI component library built with Tailwind CSS. Docs: https://misaki-mei-q.github.io/heroui-vue',
-  base: '/hero-ui-vue/',
+  base: '/heroui-vue/',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/heroui-vue/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#3b82f6' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'HeroUI Vue - Modern Vue 3 UI Components' }],
@@ -301,7 +301,7 @@ export default defineConfig({
       }
     },
     'zh-CN': {
-      label: '简体中�?,
+      label: '简体中文',
       lang: 'zh-CN',
       themeConfig: {
         ...sharedThemeConfig,
@@ -312,8 +312,8 @@ export default defineConfig({
         ],
         sidebar: zhCNSidebar,
         editLink: {
-          pattern: 'https://github.com/Misaki-Mei-Q/heroui-vue/edit/develop/apps/docs/zh-CN/:path',
-          text: '�?GitHub 上编辑此�?
+          pattern: 'https://github.com/Misaki-Mei-Q/heroui-vue/edit/master/apps/docs/zh-CN/:path',
+          text: '在 GitHub 上编辑此页'
         }
       }
     }

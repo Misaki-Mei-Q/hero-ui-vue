@@ -60,15 +60,15 @@ demo-preview=../demos/kbd-basic.vue
 ```vue
 <template>
   <div>
-    <Kbd>âŒ?/Kbd> Command
-    <Kbd>âŒ?/Kbd> Control
-    <Kbd>âŒ?/Kbd> Option
-    <Kbd>â‡?/Kbd> Shift
-    <Kbd>â?/Kbd> Return
-    <Kbd>âŒ?/Kbd> Delete
-    <Kbd>â?/Kbd> Escape
-    <Kbd>â‡?/Kbd> Tab
-    <Kbd>â‡?/Kbd> Caps Lock
+    <Kbd>âŒ˜</Kbd> Command
+    <Kbd>âŒƒ</Kbd> Control
+    <Kbd>âŒ¥</Kbd> Option
+    <Kbd>â‡§</Kbd> Shift
+    <Kbd>â</Kbd> Return
+    <Kbd>âŒ«</Kbd> Delete
+    <Kbd>â‹</Kbd> Escape
+    <Kbd>â‡¥</Kbd> Tab
+    <Kbd>â‡ª</Kbd> Caps Lock
   </div>
 </template>
 ```

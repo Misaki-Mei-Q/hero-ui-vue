@@ -86,8 +86,8 @@ The `AGENTS.md` file in the repository root summarises the constraints our agent
 
 ## Scripts
 
-- `scripts/maintenance/fix-truncated-utf8.py` â€?replaces incomplete UTF-8 byte sequences in `apps/docs/demos` introduced by an upstream commit. Idempotent.
-- `scripts/maintenance/fix-truncated-key-binding-kbd.py` â€?repairs the same upstream bug specifically in `:keys=` bindings on `<Kbd>` components.
+- `scripts/maintenance/fix-truncated-utf8.py` â€” replaces incomplete UTF-8 byte sequences in `apps/docs/demos` introduced by an upstream commit. Idempotent.
+- `scripts/maintenance/fix-truncated-key-binding-kbd.py` â€” repairs the same upstream bug specifically in `:keys=` bindings on `<Kbd>` components.
 
 These scripts were needed once to unblock the docs build after forking; they are kept here for reference and in case the bug ever reappears in an upstream cherry-pick.
 

@@ -32,12 +32,12 @@ pnpm dev
 ```
 hero-ui-vue/
 ├── packages/
-�?  ├── vue/          # Main component library
-�?  ├── styles/       # Tailwind CSS styles and variants
-�?  └── standard/     # Shared configurations (ESLint, TypeScript)
+│   ├── vue/          # Main component library
+│   ├── styles/       # Tailwind CSS styles and variants
+│   └── standard/     # Shared configurations (ESLint, TypeScript)
 ├── apps/
-�?  ├── docs/         # Documentation site (VitePress)
-�?  └── storybook/    # Component development (Storybook)
+│   ├── docs/         # Documentation site (VitePress)
+│   └── storybook/    # Component development (Storybook)
 └── react-source/     # Original HeroUI React source (reference)
 ```
 
