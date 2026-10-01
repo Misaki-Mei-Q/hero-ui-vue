@@ -2,7 +2,7 @@
   <div class="demo-close-button-stack">
     <CloseButton
       :aria-label="`Close (clicked ${count} times)`"
-      @click="count += 1"
+      @on-press="count += 1"
     />
     <span class="demo-close-button-label">Clicked: {{ count }} times</span>
   </div>

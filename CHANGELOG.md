@@ -9,6 +9,7 @@ All notable changes to HeroUI Vue are documented here.
 - `Button`: align with `@heroui/react@3.2.x`. Added `onPress` prop and a scoped default slot that exposes `isPending` / `isPressed` / `isHovered` / `isFocused` / `isFocusVisible` / `isDisabled` (the render-prop values from the React source). Variants, sizes, and the `data-pending` attribute already matched upstream. `Light` and `shadow` variants and `tiny`/`huge` sizes were not present to begin with. Loading demos in the docs now use the render-prop pattern.
 - `Badge`: confirmed `color`, `variant`, `size`, `placement`, and the `BadgeAnchor` / `BadgeLabel` exports already match `@heroui/react@3.2.x`. Exported the `BadgeVariants` type and added unit tests (7 tests).
 - `Chip`: confirmed `color`, `variant`, `size`, and the `ChipLabel` export already match `@heroui/react@3.2.x`. Exported the `ChipVariants` type and added unit tests (5 tests).
+- `CloseButton`: added `onPress` prop to match `@heroui/react@3.2.x`. Exported the `CloseButtonVariants` type and added unit tests (6 tests). The default close icon, `ariaLabel`, and disabled state behaviour already matched upstream.
 - Infrastructure: added `packages/vue/vitest.config.ts` so `pnpm -F @misaki-mei/heroui-vue test` runs under jsdom locally and in CI. Hoisted `@testing-library/jest-dom` and `jsdom` into the package's `devDependencies`. This also unblocks the existing `Input`, `Drawer`, `Modal`, and `DisclosureGroup` tests that were failing because the test environment was not configured from the workspace root.
 
 ## 0.1.0

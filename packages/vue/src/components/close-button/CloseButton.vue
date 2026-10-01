@@ -3,12 +3,13 @@ import { computed } from 'vue'
 import { closeButtonVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 
-interface CloseButtonProps {
+export interface CloseButtonProps {
   class?: string
   variant?: 'default'
   disabled?: boolean
   isDisabled?: boolean
   ariaLabel?: string
+  onPress?: (event: MouseEvent | KeyboardEvent) => void
 }
 
 const props = withDefaults(defineProps<CloseButtonProps>(), {
@@ -30,6 +31,18 @@ const closeButtonClass = computed(() => {
   })
   return composeTwClasses(props.class, styles)
 })
+
+const handleClick = (event: MouseEvent) => {
+  if (finalIsDisabled.value) return
+  props.onPress?.(event)
+}
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  interactionHandlers.keydown(event)
+  if ((event.key === 'Enter' || event.key === ' ') && !finalIsDisabled.value) {
+    props.onPress?.(event)
+  }
+}
 </script>
 
 <template>
@@ -42,7 +55,16 @@ const closeButtonClass = computed(() => {
     data-slot="close-button"
     type="button"
     v-bind="interactionAttrs"
-    v-on="interactionHandlers"
+    @blur="interactionHandlers.blur"
+    @click="handleClick"
+    @focus="interactionHandlers.focus"
+    @keydown="handleKeyDown"
+    @keyup="interactionHandlers.keyup"
+    @pointercancel="interactionHandlers.pointercancel"
+    @pointerdown="interactionHandlers.pointerdown"
+    @pointerenter="interactionHandlers.pointerenter"
+    @pointerleave="interactionHandlers.pointerleave"
+    @pointerup="interactionHandlers.pointerup"
   >
     <slot v-if="slots.default" />
     <svg
