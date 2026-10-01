@@ -132,3 +132,61 @@ CHANGELOG.md                              # Unreleased 段已有 Phase 1 条目
   3. 跑 apps/compare dev，挨个核对 13 个新组件的 CSS 与 React 上游的差异
   4. 补 Form 组件到 Vue 包，消除对比页里的裸 <form> 占位
 ```
+
+## Component Coverage Audit — 2026-10-01
+
+> 基线：HeroUI v3 官方文档（`https://heroui.com/react/llms.txt`，共 73 个 components 条目）。
+> 之前误用 MCP `list_components`（仅返回 npm 已发布组件，滞后于文档）导致结论错位。本节以 llms.txt 为准。
+
+### Vue 已与 v3 文档对齐（47/73）
+
+accordion, alert, alert-dialog, autocomplete, avatar, badge, breadcrumbs, button, button-group, card, checkbox, checkbox-group, chip, close-button, description, disclosure, disclosure-group, drawer, error-message, field-error, fieldset, input, input-group, input-otp, kbd, label, link, list-box, meter, modal, number-field, pagination, progress-bar, progress-circle, radio-group, scroll-shadow, search-field, separator, skeleton, spinner, surface, switch, tabs, tag-group, textarea, textfield, toggle-button, toggle-button-group, toolbar
+
+### v3 文档有但 Vue 缺失（23 个）
+
+- AvatarGroup
+- Calendar
+- ColorArea / ColorField / ColorPicker / ColorSlider / ColorSwatch / ColorSwatchPicker（颜色组件 6 个）
+- ComboBox
+- DateField / DatePicker / DateRangePicker / RangeCalendar（日期组件 4 个）
+- Dropdown
+- Form
+- Popover
+- Select
+- Slider
+- Table
+- TimeField
+- Toast
+- Tooltip
+- Typography（Vue 中仍叫 `text`，v3.0.5 已破坏性改名为 Typography，需重命名而非新增）
+
+### Vue 独有（v3 文档未列出，6 个）
+- empty-state（README "Additional Vue docs components"）
+- header（README "Additional Vue docs components"）
+- radio（v3 RadioGroup 用法下作为内部子组件）
+- switch-group（v3.2.1 发布，文档站可能尚未收录，需再核实）
+- tag（README "Additional Vue docs components"）
+- text（已重命名为 Typography，迁移而非保留）
+
+### 误判更正
+- `list_components` MCP 返回 40 个 ≠ v3 文档 73 个。MCP 数据源是 npm 包发布清单（v3.2.6），文档比发布更前瞻。
+- 之前在会话中列的 23 个"v3 已删除"组件——实际全部仍在 v3 文档中，需要补的是 Vue 移植，不是删除。
+- 真实任务：以 llms.txt 的 73 个为权威清单，向其收敛。Vue 独有的 6 个保留为 Vue 扩展，其中 `text → typography` 是命名迁移。
+
+### 优先级建议（开发会话从这里开始）
+
+1. **先补一组高需求组件**（解锁多数实际应用）：Select + Dropdown + Popover + Tooltip（底层 4 件套，被 ComboBox / DatePicker / Toast 依赖）
+2. **表单闭环**：Form + ComboBox + Slider
+3. **日期家族**：DateField / DatePicker / DateRangePicker / Calendar / RangeCalendar / TimeField
+4. **数据展示**：Table
+5. **反馈**：Toast
+6. **颜色组件整套（ColorArea/ColorField/ColorPicker/ColorSlider/ColorSwatch/ColorSwatchPicker）**——一组一次性做完
+7. **AvatarGroup** + **Typography 改名**
+8. **Vue 独有清理**：决定 `empty-state` / `header` / `tag` / `radio` / `switch-group` 是保留为 Vue 扩展还是与上游对齐（删除或重命名）。`text` 必须迁移到 `typography`。
+
+### 注意事项
+
+- 颜色组件（Color\*）底层依赖 `@react-stately/color` 的 Hue/Saturation/Value 模型——Vue 端需要找 Radix Vue 等价物或自实现（无现成 Vue 库覆盖 React Aria Color 这一层）
+- ComboBox / DatePicker / Dropdown 都建立在 Popover 之上——Popover 必须先做
+- Toast 涉及全局状态/Portal 队列，复杂度高
+- Table 涉及列定义/排序/选择/虚拟化（React 端用 React Aria Table + TanStack Virtual），Vue 端工作量大

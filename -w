@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Access-Control-Allow-Origin: *
+Age: 92103
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline
+Content-Length: 416501
+Content-Type: text/html; charset=utf-8
+Date: Thu, 01 Oct 2026 18:05:56 GMT
+Etag: "65aa359a5aadf21c01a963029f8becfb"
+Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", </.well-known/mcp>; rel="service"; type="application/json", </.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json", </openapi.json>; rel="service-desc"; type="application/vnd.oai.openapi+json", </llms.txt>; rel="service-doc"; type="text/plain", </llms-full.txt>; rel="describedby"; type="text/plain"
+Server: Vercel
+Strict-Transport-Security: max-age=63072000
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+X-Matched-Path: /en
+X-Nextjs-Prerender: 1
+X-Nextjs-Stale-Time: 300
+X-Vercel-Cache: HIT
+X-Vercel-Id: hnd1::6d4n7-1790877956957-b7af3d1ab0cd
+

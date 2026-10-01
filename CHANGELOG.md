@@ -16,7 +16,7 @@ All notable changes to HeroUI Vue are documented here.
 
 ### Changed
 
-- This is the first release under the new `@misaki-mei/*` scope and the new GitHub identity `Misaki-Mei-Q/hero-ui-vue`.
+- This is the first release under the new `@misaki-mei/*` scope and the new GitHub identity `Misaki-Mei-Q/heroui-vue`.
 - The fork continues from upstream `rysinal/hero-ui-vue` at `33406ed` (the published `0.0.5` tag). All prior `0.0.x` releases were published by the original author under `@rysinal/*`.
 - Demo files that were truncated upstream (UTF-8 half-codepoints in `<Kbd>` key bindings, the `card-with-form.vue` password placeholder, the `textfield-basic.vue` error attribute, and the `toggle-button-basic.vue` star glyph) are repaired so the docs build succeeds.
 - The shared ESLint configuration now declares browser and Node globals so component, test, and tooling source files lint cleanly.

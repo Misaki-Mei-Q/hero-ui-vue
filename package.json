@@ -2,8 +2,8 @@
   "name": "@misaki-mei/heroui-vue-monorepo",
   "version": "0.0.5",
   "private": true,
-  "description": "HeroUI Vue 3 - Beautiful and modern Vue UI library. Docs: https://misaki-mei-q.github.io/hero-ui-vue",
-  "homepage": "https://misaki-mei-q.github.io/hero-ui-vue",
+  "description": "HeroUI Vue 3 - Beautiful and modern Vue UI library. Docs: https://misaki-mei-q.github.io/heroui-vue",
+  "homepage": "https://misaki-mei-q.github.io/heroui-vue",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @misaki-mei/heroui-vue-docs dev",

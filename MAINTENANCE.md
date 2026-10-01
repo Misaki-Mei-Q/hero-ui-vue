@@ -4,7 +4,7 @@ This document describes how to maintain this fork of `rysinal/hero-ui-vue`. Read
 
 ## Repository Identity
 
-- **GitHub**: <https://github.com/Misaki-Mei-Q/hero-ui-vue>
+- **GitHub**: <https://github.com/Misaki-Mei-Q/heroui-vue>
 - **npm scope**: `@misaki-mei/*`
 - **upstream** (read-only): `https://github.com/rysinal/hero-ui-vue.git`
 
@@ -38,8 +38,8 @@ When this fork was created, every occurrence of the upstream npm scope was rewri
 | `@rysinal/heroui-vue-styles`  | `@misaki-mei/heroui-vue-styles`  |
 | `@rysinal/heroui-vue-docs`    | `@misaki-mei/heroui-vue-docs`    |
 | `@rysinal/heroui-vue-standard`| `@misaki-mei/heroui-vue-standard`|
-| `rysinal/hero-ui-vue` (URL)   | `Misaki-Mei-Q/hero-ui-vue` (URL)   |
-| `hero-ui-vue.pages.dev`       | `misaki-mei-q.github.io/hero-ui-vue` |
+| `rysinal/hero-ui-vue` (URL)   | `Misaki-Mei-Q/heroui-vue` (URL)   |
+| `hero-ui-vue.pages.dev`       | `misaki-mei-q.github.io/heroui-vue` |
 
 `docs/` site publishing now uses GitHub Pages (see `apps/docs/.vitepress/config.ts`). The previous Cloudflare Pages deployment is gone.
 

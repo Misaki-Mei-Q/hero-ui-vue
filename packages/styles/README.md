@@ -51,9 +51,9 @@ import { buttonVariants } from '@misaki-mei/heroui-vue-styles'
 
 ## Links
 
-- Documentation: https://misaki-mei-q.github.io/hero-ui-vue
-- Repository: https://github.com/Misaki-Mei-Q/hero-ui-vue
-- Issues: https://github.com/Misaki-Mei-Q/hero-ui-vue/issues
+- Documentation: https://misaki-mei-q.github.io/heroui-vue
+- Repository: https://github.com/Misaki-Mei-Q/heroui-vue
+- Issues: https://github.com/Misaki-Mei-Q/heroui-vue/issues
 
 ## License
 

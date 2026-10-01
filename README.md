@@ -17,7 +17,7 @@
 
 **HeroUI Vue** is a beautiful and modern Vue 3 UI library - a complete port of HeroUI React to Vue 3 with Composition API.
 
-Documentation: builds from `apps/docs` and is published to `https://misaki-mei-q.github.io/hero-ui-vue` via the `.github/workflows/docs.yml` workflow (GitHub Actions source). Every push to `master` redeploys.
+Documentation: builds from `apps/docs` and is published to `https://misaki-mei-q.github.io/heroui-vue` via the `.github/workflows/docs.yml` workflow (GitHub Actions source). Every push to `master` redeploys.
 
 > ⚠️ **Work in Progress**: All 71 HeroUI React components now have a Vue equivalent, but the date family (Calendar / RangeCalendar / DatePicker / DateRangePicker) renders through Radix Vue's `CalendarRoot`, which has an open upstream bug (https://github.com/unovue/reka-ui). Verify critical interactions there in a real browser before shipping.
 
@@ -25,7 +25,7 @@ Documentation: builds from `apps/docs` and is published to `https://misaki-mei-q
 
 - 🎨 **Beautiful by Default** - Stunning components out of the box
 - 🎯 **Customizable by Design** - Easy to customize with Tailwind CSS v4
-- ♿ **Accessible** - Built on Radix Vue primitives with full ARIA support
+- �?**Accessible** - Built on Radix Vue primitives with full ARIA support
 - 🔧 **TypeScript** - Full TypeScript support with strict types
 - 🚀 **Modern** - Vue 3 Composition API
 - 📦 **Tree-shakeable** - Import only what you need
@@ -102,12 +102,12 @@ import { Button } from '@misaki-mei/heroui-vue';
 
 ### What's Next?
 
-- [Browse the documentation](https://misaki-mei-q.github.io/hero-ui-vue) — pending deployment
-- [Explore components](https://misaki-mei-q.github.io/hero-ui-vue/components/) — pending deployment
+- [Browse the documentation](https://misaki-mei-q.github.io/heroui-vue) �?pending deployment
+- [Explore components](https://misaki-mei-q.github.io/heroui-vue/components/) �?pending deployment
 
 ## Documentation
 
-Visit the documentation site (pending deployment) at [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue) for full documentation. To preview locally run `pnpm --filter docs dev`.
+Visit the documentation site (pending deployment) at [https://misaki-mei-q.github.io/heroui-vue](https://misaki-mei-q.github.io/heroui-vue) for full documentation. To preview locally run `pnpm --filter docs dev`.
 
 ## Component Coverage
 
@@ -129,7 +129,7 @@ All 71 React components have a Vue equivalent. Calendar / RangeCalendar / DatePi
 
 ### Vue-specific components
 
-`AvatarGroup`, `DateField`, `TimeField`, `DatePicker`, `DateRangePicker` — present in the Vue package in addition to the React parity set.
+`AvatarGroup`, `DateField`, `TimeField`, `DatePicker`, `DateRangePicker` �?present in the Vue package in addition to the React parity set.
 
 ## Development
 
@@ -155,11 +155,11 @@ pnpm lint
 ```
 hero-ui-vue/
 ├── packages/
-│   ├── vue/          # Main component library
-│   ├── styles/       # Tailwind CSS styles and variants
-│   └── standard/     # Shared configurations
+�?  ├── vue/          # Main component library
+�?  ├── styles/       # Tailwind CSS styles and variants
+�?  └── standard/     # Shared configurations
 ├── apps/
-│   └── docs/         # Documentation site (VitePress)
+�?  └── docs/         # Documentation site (VitePress)
 ├── scripts/          # Maintenance and release scripts
 └── .github/          # CI workflows (lint, test, publish)
 ```
@@ -176,7 +176,7 @@ This project is a Vue 3 port of [HeroUI](https://github.com/heroui-inc/heroui) b
 
 ## License
 
-Apache-2.0 — see [LICENSE](LICENSE)
+Apache-2.0 �?see [LICENSE](LICENSE)
 
 ## Acknowledgments
 

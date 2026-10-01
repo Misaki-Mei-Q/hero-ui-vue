@@ -10,13 +10,13 @@
     "components",
     "tailwindcss"
   ],
-  "homepage": "https://misaki-mei-q.github.io/hero-ui-vue",
+  "homepage": "https://misaki-mei-q.github.io/heroui-vue",
   "bugs": {
-    "url": "https://github.com/Misaki-Mei-Q/hero-ui-vue/issues"
+    "url": "https://github.com/Misaki-Mei-Q/heroui-vue/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Misaki-Mei-Q/hero-ui-vue.git",
+    "url": "git+https://github.com/Misaki-Mei-Q/heroui-vue.git",
     "directory": "packages/vue"
   },
   "license": "Apache-2.0",

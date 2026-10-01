@@ -2,7 +2,7 @@
 
 Beautiful and modern Vue 3 UI components inspired by HeroUI, built with Tailwind CSS 4.
 
-Documentation: https://misaki-mei-q.github.io/hero-ui-vue
+Documentation: https://misaki-mei-q.github.io/heroui-vue
 
 > Work in progress: this package is still under active development and is not ready for production use.
 
@@ -78,8 +78,8 @@ import { Button } from '@misaki-mei/heroui-vue'
 
 ### What's Next?
 
-- Documentation: https://misaki-mei-q.github.io/hero-ui-vue
-- Components: https://misaki-mei-q.github.io/hero-ui-vue/components/
+- Documentation: https://misaki-mei-q.github.io/heroui-vue
+- Components: https://misaki-mei-q.github.io/heroui-vue/components/
 
 ## Packages
 
@@ -88,9 +88,9 @@ import { Button } from '@misaki-mei/heroui-vue'
 
 ## Links
 
-- Documentation: https://misaki-mei-q.github.io/hero-ui-vue
-- Repository: https://github.com/Misaki-Mei-Q/hero-ui-vue
-- Issues: https://github.com/Misaki-Mei-Q/hero-ui-vue/issues
+- Documentation: https://misaki-mei-q.github.io/heroui-vue
+- Repository: https://github.com/Misaki-Mei-Q/heroui-vue
+- Issues: https://github.com/Misaki-Mei-Q/heroui-vue/issues
 
 ## License
 
