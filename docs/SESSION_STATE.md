@@ -31,27 +31,38 @@
 - Build 通过（1845 modules，888KB CSS，494KB JS）
 - 用户**还没在本地 dev 看过视觉差异**
 
+### 3. Phase 2/3 compare pages（041baef）
+- 在 `apps/compare/src/components/` 新增 13 对 React ↔ Vue 对比页 + 注册到 `App.tsx`：
+  Input / Textarea / TextField / InputGroup /
+  Checkbox / CheckboxGroup / RadioGroup / Switch /
+  SearchField / NumberField / Fieldset / InputOTP / Form
+- 验证：`pnpm -r build` 通过；`pnpm test --run` 91/91 通过；`pnpm dev` 启动成功（端口 5174）
+- 已知差异（已在 commit message 注明）：
+  - **Form** 在 Vue 包里**未实现**——compare 页用裸 `<form>` + `TextField.error` 手动校验，并在 Vue 端页脚提示
+  - Vue `TextField` 是 all-in-one（`label` / `description` / `error` props），React 是 compound（`<Label>` / `<Input>` / `<Description>` / `<FieldError>` 子节点）；两边按 idiomatic 写法渲染
+  - Vue `Fieldset` 的 bio 字段改用裸 `Textarea`（Vue `TextField` 固定渲染 `<input>`）
+  - Vue `Checkbox` 没有 error slot，FieldError 渲染在同容器相邻位置
+  - Vue `Input` 没有 readOnly 段，只展示 disabled
+- 用户**还没在本地 dev 看过 Phase 2/3 视觉差异**
+
 ## 待用户回滚 / 决策
 
 - Button 加的 `onPress` + scoped slot 是否回退？（用户表达过"功能上保持 Vue 特性"——可能想让 Button 也回退到 `@click`）
 - CloseButton 加的 `onPress` 是否回退？
 
-## 待办（Phase 2 起点）
+## 待办（Phase 2 起点 → 已部分完成 compare 页）
 
-### Phase 2: 表单组件（13 个）
-- Input
-- TextArea
-- TextField (Root / Label / Input / Description / FieldError)
-- InputGroup (Root / Prefix / Suffix)
-- Checkbox (Root / Indicator / Label)
-- CheckboxGroup (Root / Label / Description / Items / ErrorMessage)
-- RadioGroup (Root / Items / Indicator / Label / Description)
-- Switch (Root / Thumb / Indicator)
-- SearchField (Root / Label / Input / StartIcon / EndIcon)
-- NumberField (Root / Label / Group / Input / Stepper / Description)
-- Fieldset (Root / Legend / Actions / Group / Label / Description)
-- InputOTP (Root / Group / Slot)
-- Form (Root)
+### Phase 2: 表单组件（13 个）— compare 页 ✅
+- Input / TextArea / TextField / InputGroup
+- Checkbox / CheckboxGroup / RadioGroup / Switch
+- SearchField / NumberField / Fieldset / InputOTP / Form
+  - 全部 13 对 React/Vue 对比页已写完（commit 041baef）
+  - **剩余**：用户视觉 review；CSS token / 样式 class 逐个 diff 修
+
+### Phase 3 起点的实际形态
+- 顺序建议：**先做 styles token 收口**（`--color-accent` 双层 → `--accent` 单层），不然新增组件越多越难对齐
+- 再做：每个组件 CSS 与 React 上游 `packages/styles/src/components/*.css` 逐个 diff
+- 最后：补 `Form` 组件到 Vue 包（让 compare Vue 端不再用裸 `<form>`）
 
 ### 已知问题（**新会话第一件事**）
 
@@ -87,5 +98,10 @@ CHANGELOG.md                              # Unreleased 段已有 Phase 1 条目
 ## 新会话开场建议
 
 ```
-继续 Phase 2，从 styles 包 token 差异修起：先让 Phase 1 现有组件在 compare 站点里两边一样，再做表单组件。
+继续 Phase 2/3：从 styles token 收口开始。
+建议路径：
+  1. 决定 token 方案 A/B/C（双层 vs 单层 vs 直接换上游 styles）
+  2. 重写 packages/styles/src/themes/shared/theme.css（或加映射别名）
+  3. 跑 apps/compare dev，挨个核对 13 个新组件的 CSS 与 React 上游的差异
+  4. 补 Form 组件到 Vue 包，消除对比页里的裸 <form> 占位
 ```
