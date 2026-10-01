@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Autocomplete } from '@misaki-mei-q/heroui-vue'
+import { Autocomplete } from '@misaki-mei/heroui-vue'
 
 const countries = [
   { id: 'us', label: 'United States' },

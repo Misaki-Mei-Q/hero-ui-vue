@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { badgeVariants } from '@misaki-mei-q/heroui-vue-styles'
+import type { badgeVariants } from '@misaki-mei/heroui-vue-styles'
 
 export interface BadgeContext {
   slots: ReturnType<typeof badgeVariants>

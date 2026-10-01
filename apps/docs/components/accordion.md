@@ -14,7 +14,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 </script>
 ```
 

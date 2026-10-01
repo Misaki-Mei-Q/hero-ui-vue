@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei/heroui-vue'
 
 const PersonIcon = defineComponent({
   setup() {

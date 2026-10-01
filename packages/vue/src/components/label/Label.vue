@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { labelVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { labelVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
 interface LabelProps {

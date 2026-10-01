@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Autocomplete } from '@misaki-mei-q/heroui-vue'
+import { Autocomplete } from '@misaki-mei/heroui-vue'
 
 const selectedStates = ref<(string | number)[]>(['california', 'texas'])
 

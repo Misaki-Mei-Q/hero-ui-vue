@@ -5,7 +5,7 @@ Display important messages and notifications with status-aware indicators.
 ## Import
 
 ```ts
-import { Alert, AlertContent, AlertDescription, AlertIndicator, AlertTitle } from '@misaki-mei-q/heroui-vue'
+import { Alert, AlertContent, AlertDescription, AlertIndicator, AlertTitle } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

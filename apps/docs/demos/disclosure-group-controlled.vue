@@ -181,7 +181,7 @@ import {
   DisclosureTrigger,
   Separator,
   useDisclosureGroupNavigation,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const expandedKeys = ref<Set<string | number>>(new Set(['preview']))
 const itemIds = ['preview', 'download']

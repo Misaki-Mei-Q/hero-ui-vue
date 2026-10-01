@@ -41,7 +41,7 @@ import {
   DrawerHeader,
   DrawerHeading,
   type DrawerPlacement,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const placements: DrawerPlacement[] = ['bottom', 'top', 'left', 'right']
 const placementLabel = (placement: DrawerPlacement) =>

@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { tagVariants } from '@misaki-mei-q/heroui-vue-styles'
+import type { tagVariants } from '@misaki-mei/heroui-vue-styles'
 
 export interface TagContext {
   remove?: () => void

@@ -1,21 +1,21 @@
-# @misaki-mei-q/heroui-vue-styles
+# @misaki-mei/heroui-vue-styles
 
-Styles and CSS entrypoints for `@misaki-mei-q/heroui-vue`.
+Styles and CSS entrypoints for `@misaki-mei/heroui-vue`.
 
 Most users should not use this package by itself. Install it together with the Vue component package:
 
 ```bash
-npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+npm install @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+pnpm add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+yarn add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -38,7 +38,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@misaki-mei-q/heroui-vue-styles/styles.css";
+@import "@misaki-mei/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -46,7 +46,7 @@ Import order matters. Always import `tailwindcss` first.
 Advanced users can also import variant helpers directly:
 
 ```ts
-import { buttonVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { buttonVariants } from '@misaki-mei/heroui-vue-styles'
 ```
 
 ## Links

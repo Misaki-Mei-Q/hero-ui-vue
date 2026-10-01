@@ -6,10 +6,10 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img src="https://img.shields.io/npm/l/@misaki-mei-q/heroui-vue?style=flat" alt="License">
+    <img src="https://img.shields.io/npm/l/@misaki-mei/heroui-vue?style=flat" alt="License">
   </a>
-  <a href="https://www.npmjs.com/package/@misaki-mei-q/heroui-vue">
-    <img src="https://img.shields.io/npm/dm/@misaki-mei-q/heroui-vue.svg?style=flat-round" alt="npm downloads">
+  <a href="https://www.npmjs.com/package/@misaki-mei/heroui-vue">
+    <img src="https://img.shields.io/npm/dm/@misaki-mei/heroui-vue.svg?style=flat-round" alt="npm downloads">
   </a>
 </p>
 
@@ -23,7 +23,7 @@ Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q
 
 - 🎨 **Beautiful by Default** - Stunning components out of the box
 - 🎯 **Customizable by Design** - Easy to customize with Tailwind CSS v4
-- �?**Accessible** - Built on Radix Vue primitives with full ARIA support
+- �?**Accessible** - Built on Radix Vue primitives with full ARIA support
 - 🔧 **TypeScript** - Full TypeScript support with strict types
 - 🚀 **Modern** - Vue 3 Composition API
 - 📦 **Tree-shakeable** - Import only what you need
@@ -44,15 +44,15 @@ Install HeroUI Vue and required styles:
 
 ```bash
 # npm
-npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+npm install @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 
 # pnpm
-pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+pnpm add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 
 # yarn
-yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+yarn add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -75,7 +75,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@misaki-mei-q/heroui-vue-styles/styles.css";
+@import "@misaki-mei/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -90,7 +90,7 @@ import './style.css'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@misaki-mei-q/heroui-vue';
+import { Button } from '@misaki-mei/heroui-vue';
 </script>
 
 <template>
@@ -147,11 +147,11 @@ pnpm lint
 ```
 hero-ui-vue/
 ├── packages/
-│   ├── vue/          # Main component library
-│   ├── styles/       # Tailwind CSS styles and variants
-│   └── standard/     # Shared configurations
+�?  ├── vue/          # Main component library
+�?  ├── styles/       # Tailwind CSS styles and variants
+�?  └── standard/     # Shared configurations
 ├── apps/
-│   └── docs/         # Documentation site (VitePress)
+�?  └── docs/         # Documentation site (VitePress)
 ├── scripts/          # Maintenance and release scripts
 └── .github/          # CI workflows (lint, test, publish)
 ```
@@ -168,7 +168,7 @@ This project is a Vue 3 port of [HeroUI](https://github.com/heroui-inc/heroui) b
 
 ## License
 
-Apache-2.0 �?see [LICENSE](LICENSE)
+Apache-2.0 �?see [LICENSE](LICENSE)
 
 ## Acknowledgments
 

@@ -1,5 +1,5 @@
 {
-  "name": "@misaki-mei-q/heroui-vue",
+  "name": "@misaki-mei/heroui-vue",
   "version": "0.0.5",
   "description": "Beautiful and modern Vue 3 UI library built with Tailwind CSS 4.0",
   "keywords": [
@@ -44,7 +44,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@misaki-mei-q/heroui-vue-styles": "workspace:*",
+    "@misaki-mei/heroui-vue-styles": "workspace:*",
     "@internationalized/date": "^3.12.1",
     "@vueuse/core": "^11.3.0",
     "radix-vue": "^1.9.11",
@@ -52,7 +52,7 @@
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
-    "@misaki-mei-q/heroui-vue-standard": "workspace:*",
+    "@misaki-mei/heroui-vue-standard": "workspace:*",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "tailwindcss": "^4.1.18",

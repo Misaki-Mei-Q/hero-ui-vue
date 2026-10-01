@@ -64,7 +64,7 @@ component-name/
 ```typescript
 // [component-name].stories.ts
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { ComponentName } from '@misaki-mei-q/heroui-vue';
+import { ComponentName } from '@misaki-mei/heroui-vue';
 
 const meta: Meta<typeof ComponentName> = {
   title: 'Components/ComponentName',
@@ -171,7 +171,7 @@ When porting components from HeroUI React:
 2. **Check Radix Vue**: Find the equivalent Radix Vue primitive
 3. **Maintain API compatibility**: Keep props similar to React version
 4. **Use Vue idioms**: Use `v-model`, slots, and composables appropriately
-5. **Port styles**: Copy CSS from `@misaki-mei-q/heroui-vue-styles` and adapt if needed
+5. **Port styles**: Copy CSS from `@misaki-mei/heroui-vue-styles` and adapt if needed
 6. **Write tests**: Ensure behavior matches React version
 7. **Document differences**: Note any Vue-specific changes
 

@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor, Separator } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Badge, BadgeAnchor, Separator } from '@misaki-mei/heroui-vue'
 
 const avatarUrl = 'https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/green.jpg'
 const variants = ['primary', 'secondary', 'soft'] as const

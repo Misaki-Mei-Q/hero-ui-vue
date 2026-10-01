@@ -5,7 +5,7 @@ Checkboxes allow users to select individual boolean options.
 ## Import
 
 ```ts
-import { Button, Checkbox, Description, Label } from '@misaki-mei-q/heroui-vue'
+import { Button, Checkbox, Description, Label } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

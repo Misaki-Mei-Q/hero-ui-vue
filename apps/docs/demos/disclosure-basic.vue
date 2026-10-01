@@ -61,7 +61,7 @@ import {
   DisclosureHeading,
   DisclosureIndicator,
   DisclosureTrigger,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const expanded = ref(true)
 </script>

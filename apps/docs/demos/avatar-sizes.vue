@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei/heroui-vue'
 </script>
 
 <style lang="less">

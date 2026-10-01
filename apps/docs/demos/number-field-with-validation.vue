@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Description, FieldError, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@misaki-mei-q/heroui-vue'
+import { Description, FieldError, Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@misaki-mei/heroui-vue'
 
 const value = ref<number | undefined>()
 const isInvalid = computed(() => value.value !== undefined && (value.value < 0 || value.value > 100))

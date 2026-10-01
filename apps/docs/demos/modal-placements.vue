@@ -49,7 +49,7 @@ import {
   ModalHeading,
   ModalIcon,
   type ModalPlacement,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const placements: ModalPlacement[] = ['auto', 'top', 'center', 'bottom']
 

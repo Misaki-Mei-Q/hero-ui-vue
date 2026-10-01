@@ -6,7 +6,7 @@ Display a small indicator relative to another element, commonly used for notific
 
 ```vue
 <script setup lang="ts">
-import { Badge, BadgeAnchor, BadgeLabel } from '@misaki-mei-q/heroui-vue'
+import { Badge, BadgeAnchor, BadgeLabel } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

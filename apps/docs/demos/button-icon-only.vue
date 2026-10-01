@@ -24,5 +24,5 @@
 </template>
 
 <script setup>
-import { Button } from '@misaki-mei-q/heroui-vue'
+import { Button } from '@misaki-mei/heroui-vue'
 </script>

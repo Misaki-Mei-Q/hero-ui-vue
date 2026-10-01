@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { textAreaVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { textAreaVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 
 interface TextareaProps {

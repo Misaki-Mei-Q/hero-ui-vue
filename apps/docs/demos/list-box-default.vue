@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage, Description, Label, ListBox, ListBoxItem, ListBoxItemIndicator } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Description, Label, ListBox, ListBoxItem, ListBoxItemIndicator } from '@misaki-mei/heroui-vue'
 </script>
 
 <style lang="less">

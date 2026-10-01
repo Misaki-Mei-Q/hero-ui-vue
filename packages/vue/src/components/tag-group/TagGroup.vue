@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, provide, ref, watch } from 'vue'
-import { tagGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { tagGroupVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 import { TAG_GROUP_CONTEXT_KEY } from './context'
 import type { TagGroupKey, TagGroupSelectionMode } from './context'

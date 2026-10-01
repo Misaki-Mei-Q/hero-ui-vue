@@ -12,17 +12,17 @@ Install HeroUI Vue and required styles:
 ::: code-group
 
 ```bash [npm]
-npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+npm install @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash [pnpm]
-pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+pnpm add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash [yarn]
-yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+yarn add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -47,7 +47,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@misaki-mei-q/heroui-vue-styles/styles.css";
+@import "@misaki-mei/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -62,7 +62,7 @@ import './style.css'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@misaki-mei-q/heroui-vue'
+import { Button } from '@misaki-mei/heroui-vue'
 </script>
 
 <template>

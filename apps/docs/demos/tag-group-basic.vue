@@ -31,5 +31,5 @@
 </template>
 
 <script setup lang="ts">
-import { Tag, TagGroup } from '@misaki-mei-q/heroui-vue'
+import { Tag, TagGroup } from '@misaki-mei/heroui-vue'
 </script>

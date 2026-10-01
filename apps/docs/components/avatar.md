@@ -6,7 +6,7 @@ Display user or entity profile images with a fallback when the image is missing 
 
 ```vue
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

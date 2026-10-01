@@ -6,7 +6,7 @@ A component for visually separating content sections.
 
 ```vue
 <script setup lang="ts">
-import { Separator } from '@misaki-mei-q/heroui-vue'
+import { Separator } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

@@ -44,7 +44,7 @@ import {
   ModalHeader,
   ModalHeading,
   ModalIcon,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 </script>
 
 <style lang="less">

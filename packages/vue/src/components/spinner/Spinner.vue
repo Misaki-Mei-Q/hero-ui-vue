@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, useId } from 'vue'
-import { spinnerVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { spinnerVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
 interface SpinnerProps {

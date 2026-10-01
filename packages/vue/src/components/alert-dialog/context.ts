@@ -1,5 +1,5 @@
 import type { ComputedRef, InjectionKey } from 'vue'
-import type { alertDialogVariants } from '@misaki-mei-q/heroui-vue-styles'
+import type { alertDialogVariants } from '@misaki-mei/heroui-vue-styles'
 
 export type AlertDialogPlacement = 'auto' | 'top' | 'center' | 'bottom'
 export type AlertDialogStatus = 'default' | 'accent' | 'success' | 'warning' | 'danger'

@@ -6,7 +6,7 @@ Small informational label for statuses, categories, and compact metadata.
 
 ```vue
 <script setup lang="ts">
-import { Chip, ChipLabel } from '@misaki-mei-q/heroui-vue'
+import { Chip, ChipLabel } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

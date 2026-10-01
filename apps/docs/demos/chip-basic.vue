@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { Chip } from '@misaki-mei-q/heroui-vue'
+import { Chip } from '@misaki-mei/heroui-vue'
 </script>
 
 <style lang="less">

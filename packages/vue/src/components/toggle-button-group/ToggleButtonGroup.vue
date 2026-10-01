@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, ref } from 'vue'
-import { toggleButtonGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { toggleButtonGroupVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { TOGGLE_BUTTON_GROUP_CONTEXT_KEY } from './context'
 

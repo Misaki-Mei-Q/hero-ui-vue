@@ -69,7 +69,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Button, ButtonGroup, ButtonGroupSeparator } from '@misaki-mei-q/heroui-vue'
+import { Button, ButtonGroup, ButtonGroupSeparator } from '@misaki-mei/heroui-vue'
 
 const iconPaths: Record<string, string[]> = {
   'chevron-down': ['M6 9l6 6 6-6'],

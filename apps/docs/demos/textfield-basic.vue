@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { TextField } from '@misaki-mei-q/heroui-vue'
+import { TextField } from '@misaki-mei/heroui-vue'
 </script>

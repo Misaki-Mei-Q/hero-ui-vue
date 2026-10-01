@@ -60,7 +60,7 @@ import {
   Radio,
   RadioGroup,
   type ModalScroll,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const scroll = ref<ModalScroll>('inside')
 const scrollLabel = computed(() => scroll.value.charAt(0).toUpperCase() + scroll.value.slice(1))

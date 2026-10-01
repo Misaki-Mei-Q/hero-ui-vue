@@ -15,4 +15,4 @@ export type {
   ModalScroll,
   ModalSize,
 } from './context'
-export type { ModalVariants } from '@misaki-mei-q/heroui-vue-styles'
+export type { ModalVariants } from '@misaki-mei/heroui-vue-styles'

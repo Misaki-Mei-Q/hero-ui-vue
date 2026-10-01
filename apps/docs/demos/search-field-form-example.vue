@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Button, Description, FieldError, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon, Spinner } from '@misaki-mei-q/heroui-vue'
+import { Button, Description, FieldError, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon, Spinner } from '@misaki-mei/heroui-vue'
 
 const value = ref('')
 const isSubmitting = ref(false)

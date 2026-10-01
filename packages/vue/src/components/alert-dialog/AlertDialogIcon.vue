@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { alertDialogVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { alertDialogVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 import type { AlertDialogStatus } from './context'
 

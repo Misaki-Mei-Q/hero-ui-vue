@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, provide, ref, watch } from 'vue'
-import { numberFieldVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { numberFieldVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { NUMBER_FIELD_CONTEXT_KEY } from './context'
 

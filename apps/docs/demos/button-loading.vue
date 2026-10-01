@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import { Button, Spinner } from '@misaki-mei-q/heroui-vue'
+import { Button, Spinner } from '@misaki-mei/heroui-vue'
 </script>

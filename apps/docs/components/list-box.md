@@ -5,7 +5,7 @@ A listbox displays a list of options and allows a user to select one or more of 
 ## Import
 
 ```ts
-import { ListBox, ListBoxItem, ListBoxItemIndicator, ListBoxSection } from '@misaki-mei-q/heroui-vue'
+import { ListBox, ListBoxItem, ListBoxItemIndicator, ListBoxSection } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

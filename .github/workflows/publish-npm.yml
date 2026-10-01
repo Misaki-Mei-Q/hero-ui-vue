@@ -80,16 +80,16 @@ jobs:
 
       - name: Verify package contents
         run: |
-          STYLES_TARBALL="$(ls .release/misaki-mei-q-heroui-vue-styles-*.tgz)"
-          VUE_TARBALL="$(ls .release/misaki-mei-q-heroui-vue-*.tgz | grep -v styles)"
+          STYLES_TARBALL="$(ls .release/misaki-mei-heroui-vue-styles-*.tgz)"
+          VUE_TARBALL="$(ls .release/misaki-mei-heroui-vue-*.tgz | grep -v styles)"
           tar -tzf "$STYLES_TARBALL" | grep -qx 'package/README.md'
           tar -tzf "$VUE_TARBALL" | grep -qx 'package/README.md'
 
       - name: Publish styles
-        run: npm publish "$(ls .release/misaki-mei-q-heroui-vue-styles-*.tgz)" --access public --tag "$DIST_TAG"
+        run: npm publish "$(ls .release/misaki-mei-heroui-vue-styles-*.tgz)" --access public --tag "$DIST_TAG"
 
       - name: Publish Vue package
-        run: npm publish "$(ls .release/misaki-mei-q-heroui-vue-*.tgz | grep -v styles)" --access public --tag "$DIST_TAG"
+        run: npm publish "$(ls .release/misaki-mei-heroui-vue-*.tgz | grep -v styles)" --access public --tag "$DIST_TAG"
 
       - name: Create GitHub Release
         if: github.event_name == 'push'

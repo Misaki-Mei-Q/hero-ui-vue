@@ -11,7 +11,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
   REGEXP_ONLY_CHARS,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

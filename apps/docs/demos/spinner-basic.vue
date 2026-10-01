@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { Spinner } from '@misaki-mei-q/heroui-vue'
+import { Spinner } from '@misaki-mei/heroui-vue'
 </script>

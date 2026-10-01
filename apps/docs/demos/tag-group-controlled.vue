@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Description, Tag, TagGroup } from '@misaki-mei-q/heroui-vue'
+import { Description, Tag, TagGroup } from '@misaki-mei/heroui-vue'
 
 const selectedKeys = ref<Array<string | number>>(['travel', 'gaming'])
 const selectedLabel = computed(() => selectedKeys.value.length ? selectedKeys.value.join(', ') : 'none')

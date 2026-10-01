@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, ref, watch } from 'vue'
 import { SwitchRoot, SwitchThumb } from 'radix-vue'
-import { switchVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { switchVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr, useInteractionStates } from '../../utils'
 
 interface SwitchProps {

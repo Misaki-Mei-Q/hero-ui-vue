@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, ref, watch } from 'vue'
-import { accordionVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { accordionVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { ACCORDION_CONTEXT_KEY } from './context'
 

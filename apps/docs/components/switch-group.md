@@ -5,7 +5,7 @@ Layout wrapper for related switches.
 ## Import
 
 ```ts
-import { SwitchGroup } from '@misaki-mei-q/heroui-vue'
+import { SwitchGroup } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

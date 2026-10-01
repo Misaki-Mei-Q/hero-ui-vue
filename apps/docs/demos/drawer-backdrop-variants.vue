@@ -39,7 +39,7 @@ import {
   DrawerHeader,
   DrawerHeading,
   type DrawerBackdropVariant,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const variants: DrawerBackdropVariant[] = ['opaque', 'blur', 'transparent']
 const variantLabel = (variant: DrawerBackdropVariant) =>

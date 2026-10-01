@@ -43,7 +43,7 @@ import {
   AlertDialogTrigger,
   Button,
   type AlertDialogSize,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const sizes: AlertDialogSize[] = ['xs', 'sm', 'md', 'lg']
 </script>

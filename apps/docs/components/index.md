@@ -85,7 +85,7 @@ All components follow a consistent API pattern:
 
 ```vue
 <script setup lang="ts">
-import { ComponentName } from '@misaki-mei-q/heroui-vue'
+import { ComponentName } from '@misaki-mei/heroui-vue'
 </script>
 
 <template>

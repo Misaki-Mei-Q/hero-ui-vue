@@ -49,7 +49,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Avatar, AvatarFallback, AvatarImage, Separator } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Separator } from '@misaki-mei/heroui-vue'
 
 const colors = ['accent', 'default', 'success', 'warning', 'danger'] as const
 const images = [

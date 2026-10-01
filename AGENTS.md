@@ -6,4 +6,4 @@
 - Interactive label/title areas inside selectable controls must share the same pointer/hover behavior as the control. Do not leave only the small checkbox/radio/switch control or description area clickable-looking when the upstream component makes the whole option/title area interactive.
 - Prefer fixing component CSS/API behavior in `packages/vue` and `packages/styles`. Use docs-only styles only for multi-component demo layout, and include those styles in the visible demo source.
 - When component coverage changes, update `README.md` in the same commit so the public component list and project status stay current.
-- When publishing to npm under `@misaki-mei-q/*`, the GitHub repository referenced in package metadata must stay `Misaki-Mei-Q/hero-ui-vue`. The `upstream` remote (`rysinal/hero-ui-vue`) is read-only and used for cherry-picking maintenance fixes; never push to it.
+- When publishing to npm under `@misaki-mei/*`, the GitHub repository referenced in package metadata must stay `Misaki-Mei-Q/hero-ui-vue`. The `upstream` remote (`rysinal/hero-ui-vue`) is read-only and used for cherry-picking maintenance fixes; never push to it.

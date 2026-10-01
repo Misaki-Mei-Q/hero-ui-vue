@@ -6,7 +6,7 @@ A component for displaying descriptive text associated with form fields or other
 
 ```vue
 <script setup lang="ts">
-import { Description } from '@misaki-mei-q/heroui-vue'
+import { Description } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

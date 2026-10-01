@@ -11,7 +11,7 @@ import {
   SearchFieldGroup,
   SearchFieldInput,
   SearchFieldSearchIcon,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

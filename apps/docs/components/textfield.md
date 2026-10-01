@@ -6,7 +6,7 @@ A complete form field component that combines input, label, description, and err
 
 ```vue
 <script setup lang="ts">
-import { TextField } from '@misaki-mei-q/heroui-vue'
+import { TextField } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

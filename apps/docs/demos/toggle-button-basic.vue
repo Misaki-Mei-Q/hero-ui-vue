@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import { ToggleButton } from '@misaki-mei-q/heroui-vue'
+import { ToggleButton } from '@misaki-mei/heroui-vue'
 </script>

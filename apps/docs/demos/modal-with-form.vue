@@ -55,7 +55,7 @@ import {
   ModalIcon,
   Surface,
   TextField,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const submitForm = (close) => {
   const form = document.getElementById('demo-modal-contact-form')

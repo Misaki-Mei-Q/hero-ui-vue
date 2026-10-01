@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { avatarVariants } from '@misaki-mei-q/heroui-vue-styles'
+import type { avatarVariants } from '@misaki-mei/heroui-vue-styles'
 
 export interface AvatarContext {
   slots: ReturnType<typeof avatarVariants>

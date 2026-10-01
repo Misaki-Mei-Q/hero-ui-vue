@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback } from '@misaki-mei/heroui-vue'
 
 const colors = [
   { color: 'default', label: 'DF' },

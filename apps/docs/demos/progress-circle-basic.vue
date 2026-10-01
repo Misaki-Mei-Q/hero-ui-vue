@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { ProgressCircle } from '@misaki-mei-q/heroui-vue'
+import { ProgressCircle } from '@misaki-mei/heroui-vue'
 </script>

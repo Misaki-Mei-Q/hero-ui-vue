@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
-import { textFieldVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { textFieldVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import Label from '../label/Label.vue'
 import Description from '../description/Description.vue'

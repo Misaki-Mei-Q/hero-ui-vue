@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { CloseButton } from '@misaki-mei-q/heroui-vue'
+import { CloseButton } from '@misaki-mei/heroui-vue'
 
 const count = ref(0)
 </script>

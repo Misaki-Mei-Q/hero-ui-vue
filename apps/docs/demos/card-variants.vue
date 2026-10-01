@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@misaki-mei-q/heroui-vue'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@misaki-mei/heroui-vue'
 
 const variants = [
   {

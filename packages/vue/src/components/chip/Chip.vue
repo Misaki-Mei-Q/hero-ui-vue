@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Comment, computed, Fragment, provide, Text, useSlots, type VNode } from 'vue'
-import { chipVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { chipVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 import { CHIP_CONTEXT_KEY } from './context'
 import ChipLabel from './ChipLabel.vue'

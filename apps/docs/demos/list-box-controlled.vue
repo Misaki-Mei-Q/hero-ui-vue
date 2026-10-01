@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Avatar, AvatarFallback, AvatarImage, Description, Label, ListBox, ListBoxItem, ListBoxItemIndicator, Surface } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Description, Label, ListBox, ListBoxItem, ListBoxItemIndicator, Surface } from '@misaki-mei/heroui-vue'
 
 const selected = ref<Array<string | number>>(['1'])
 const users = [

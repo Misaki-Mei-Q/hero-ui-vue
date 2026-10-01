@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { Text } from '@misaki-mei-q/heroui-vue'
+import { Text } from '@misaki-mei/heroui-vue'
 </script>

@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@misaki-mei-q/heroui-vue'
+import { Label, NumberField, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput } from '@misaki-mei/heroui-vue'
 
 const ChevronUpIcon = defineComponent({
   setup: () => () => h('svg', { 'aria-hidden': 'true', height: 11, viewBox: '0 0 16 16', width: 11 }, [

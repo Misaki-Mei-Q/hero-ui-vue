@@ -166,7 +166,7 @@ const canScrollWithinOverlay = (
 
 <script setup lang="ts">
 import { computed, inject, nextTick, onBeforeUnmount, provide, ref, watch } from 'vue'
-import { drawerVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { drawerVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { DRAWER_CONTEXT_KEY, type DrawerBackdropVariant } from './context'
 

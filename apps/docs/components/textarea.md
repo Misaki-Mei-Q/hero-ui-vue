@@ -5,7 +5,7 @@ Multi-line text input field for longer text entry.
 ## Import
 
 ```ts
-import { Textarea } from '@misaki-mei-q/heroui-vue'
+import { Textarea } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ demo-preview=../demos/textarea-basic.vue
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Textarea } from '@misaki-mei-q/heroui-vue'
+import { Textarea } from '@misaki-mei/heroui-vue'
 
 const message = ref('')
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* global MouseEvent */
 import { computed, provide, ref, watch } from 'vue'
-import { modalVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { modalVariants } from '@misaki-mei/heroui-vue-styles'
 import { MODAL_CONTEXT_KEY, type ModalPlacement } from './context'
 
 interface ModalProps {

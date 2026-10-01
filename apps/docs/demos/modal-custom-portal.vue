@@ -52,7 +52,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalHeading,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const portalContainer = useTemplateRef<HTMLElement>('portalContainer')
 </script>

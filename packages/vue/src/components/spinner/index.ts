@@ -1,2 +1,2 @@
 export { default as Spinner } from './Spinner.vue'
-export type { SpinnerVariants } from '@misaki-mei-q/heroui-vue-styles'
+export type { SpinnerVariants } from '@misaki-mei/heroui-vue-styles'

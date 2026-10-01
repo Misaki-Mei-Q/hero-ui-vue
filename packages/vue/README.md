@@ -1,4 +1,4 @@
-# @misaki-mei-q/heroui-vue
+# @misaki-mei/heroui-vue
 
 Beautiful and modern Vue 3 UI components inspired by HeroUI, built with Tailwind CSS 4.
 
@@ -20,17 +20,17 @@ Get started with HeroUI Vue in minutes.
 Install HeroUI Vue and required styles:
 
 ```bash
-npm install @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+npm install @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-pnpm add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+pnpm add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 pnpm add -D tailwindcss @tailwindcss/vite
 ```
 
 ```bash
-yarn add @misaki-mei-q/heroui-vue @misaki-mei-q/heroui-vue-styles
+yarn add @misaki-mei/heroui-vue @misaki-mei/heroui-vue-styles
 yarn add -D tailwindcss @tailwindcss/vite
 ```
 
@@ -53,7 +53,7 @@ Add to your main CSS file, for example `src/style.css`:
 
 ```css
 @import "tailwindcss";
-@import "@misaki-mei-q/heroui-vue-styles/styles.css";
+@import "@misaki-mei/heroui-vue-styles/styles.css";
 ```
 
 Import order matters. Always import `tailwindcss` first.
@@ -68,7 +68,7 @@ import './style.css'
 
 ```vue
 <script setup lang="ts">
-import { Button } from '@misaki-mei-q/heroui-vue'
+import { Button } from '@misaki-mei/heroui-vue'
 </script>
 
 <template>
@@ -83,8 +83,8 @@ import { Button } from '@misaki-mei-q/heroui-vue'
 
 ## Packages
 
-- `@misaki-mei-q/heroui-vue`: Vue 3 component library.
-- `@misaki-mei-q/heroui-vue-styles`: shared styles, Tailwind variants, and CSS entrypoints.
+- `@misaki-mei/heroui-vue`: Vue 3 component library.
+- `@misaki-mei/heroui-vue-styles`: shared styles, Tailwind variants, and CSS entrypoints.
 
 ## Links
 

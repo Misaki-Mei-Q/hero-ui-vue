@@ -6,7 +6,7 @@ CheckboxGroup groups related checkboxes and manages their selected values.
 
 ```vue
 <script setup lang="ts">
-import { Checkbox, CheckboxGroup } from '@misaki-mei-q/heroui-vue'
+import { Checkbox, CheckboxGroup } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

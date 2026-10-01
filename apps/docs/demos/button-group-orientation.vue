@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Button, ButtonGroup, ButtonGroupSeparator } from '@misaki-mei-q/heroui-vue'
+import { Button, ButtonGroup, ButtonGroupSeparator } from '@misaki-mei/heroui-vue'
 
 const alignment = ['left', 'center', 'right', 'justify'] as const
 

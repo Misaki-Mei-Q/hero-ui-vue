@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, nextTick, provide, ref, watch, type ComponentPublicInstance } from 'vue'
-import { inputOTPVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { inputOTPVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { INPUT_OTP_CONTEXT_KEY } from './context'
 

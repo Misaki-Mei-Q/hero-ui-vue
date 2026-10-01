@@ -6,7 +6,7 @@ A component for labeling form fields and other UI elements.
 
 ```vue
 <script setup lang="ts">
-import { Label } from '@misaki-mei-q/heroui-vue'
+import { Label } from '@misaki-mei/heroui-vue'
 </script>
 ```
 

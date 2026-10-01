@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import { Checkbox, Description, Label } from '@misaki-mei-q/heroui-vue'
+import { Checkbox, Description, Label } from '@misaki-mei/heroui-vue'
 </script>

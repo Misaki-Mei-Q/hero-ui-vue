@@ -158,15 +158,15 @@ export default defineConfig({
     resolve: {
       alias: [
         {
-          find: '@misaki-mei-q/heroui-vue',
+          find: '@misaki-mei/heroui-vue',
           replacement: path.resolve(__dirname, '../../../packages/vue/src')
         },
         {
-          find: '@misaki-mei-q/heroui-vue-styles',
+          find: '@misaki-mei/heroui-vue-styles',
           replacement: path.resolve(__dirname, '../../../packages/styles/src')
         },
         {
-          find: '@misaki-mei-q/heroui-vue-styles',
+          find: '@misaki-mei/heroui-vue-styles',
           replacement: path.resolve(__dirname, '../../../packages/styles/src')
         }
       ],

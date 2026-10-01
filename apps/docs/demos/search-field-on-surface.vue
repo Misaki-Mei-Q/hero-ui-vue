@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { Description, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon, Surface } from '@misaki-mei-q/heroui-vue'
+import { Description, Label, SearchField, SearchFieldClearButton, SearchFieldGroup, SearchFieldInput, SearchFieldSearchIcon, Surface } from '@misaki-mei/heroui-vue'
 </script>
 
 <style lang="less">

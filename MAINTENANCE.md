@@ -5,7 +5,7 @@ This document describes how to maintain this fork of `rysinal/hero-ui-vue`. Read
 ## Repository Identity
 
 - **GitHub**: <https://github.com/Misaki-Mei-Q/hero-ui-vue>
-- **npm scope**: `@misaki-mei-q/*`
+- **npm scope**: `@misaki-mei/*`
 - **upstream** (read-only): `https://github.com/rysinal/hero-ui-vue.git`
 
 The `upstream` git remote must never receive a push. It is configured as read-only and exists only so we can fetch and cherry-pick maintenance fixes from the original author. Use `origin` for all normal GitHub operations.
@@ -34,16 +34,16 @@ When this fork was created, every occurrence of the upstream npm scope was rewri
 
 | Before                        | After                              |
 | ----------------------------- | ---------------------------------- |
-| `@rysinal/heroui-vue`         | `@misaki-mei-q/heroui-vue`         |
-| `@rysinal/heroui-vue-styles`  | `@misaki-mei-q/heroui-vue-styles`  |
-| `@rysinal/heroui-vue-docs`    | `@misaki-mei-q/heroui-vue-docs`    |
-| `@rysinal/heroui-vue-standard`| `@misaki-mei-q/heroui-vue-standard`|
+| `@rysinal/heroui-vue`         | `@misaki-mei/heroui-vue`         |
+| `@rysinal/heroui-vue-styles`  | `@misaki-mei/heroui-vue-styles`  |
+| `@rysinal/heroui-vue-docs`    | `@misaki-mei/heroui-vue-docs`    |
+| `@rysinal/heroui-vue-standard`| `@misaki-mei/heroui-vue-standard`|
 | `rysinal/hero-ui-vue` (URL)   | `Misaki-Mei-Q/hero-ui-vue` (URL)   |
 | `hero-ui-vue.pages.dev`       | `misaki-mei-q.github.io/hero-ui-vue` |
 
 `docs/` site publishing now uses GitHub Pages (see `apps/docs/.vitepress/config.ts`). The previous Cloudflare Pages deployment is gone.
 
-If you ever need to re-run this rename, use `sed -i '' -e 's/@rysinal/@misaki-mei-q/g'` plus the URL table above.
+If you ever need to re-run this rename, use `sed -i '' -e 's/@rysinal/@misaki-mei/g'` plus the URL table above.
 
 ## Branches and Releases
 
@@ -86,8 +86,8 @@ The `AGENTS.md` file in the repository root summarises the constraints our agent
 
 ## Scripts
 
-- `scripts/maintenance/fix-truncated-utf8.py` â€” replaces incomplete UTF-8 byte sequences in `apps/docs/demos` introduced by an upstream commit. Idempotent.
-- `scripts/maintenance/fix-truncated-key-binding-kbd.py` â€” repairs the same upstream bug specifically in `:keys=` bindings on `<Kbd>` components.
+- `scripts/maintenance/fix-truncated-utf8.py` â€?replaces incomplete UTF-8 byte sequences in `apps/docs/demos` introduced by an upstream commit. Idempotent.
+- `scripts/maintenance/fix-truncated-key-binding-kbd.py` â€?repairs the same upstream bug specifically in `:keys=` bindings on `<Kbd>` components.
 
 These scripts were needed once to unblock the docs build after forking; they are kept here for reference and in case the bug ever reappears in an upstream cherry-pick.
 

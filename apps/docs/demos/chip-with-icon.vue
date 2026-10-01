@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { defineComponent, h } from 'vue'
-import { Chip, ChipLabel } from '@misaki-mei-q/heroui-vue'
+import { Chip, ChipLabel } from '@misaki-mei/heroui-vue'
 
 const iconPaths: Record<string, string[]> = {
   dot: ['M12 12h.01'],

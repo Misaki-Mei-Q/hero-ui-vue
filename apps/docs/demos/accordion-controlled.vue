@@ -55,7 +55,7 @@ import {
   AccordionPanel,
   AccordionTrigger,
   Button,
-} from '@misaki-mei-q/heroui-vue'
+} from '@misaki-mei/heroui-vue'
 
 const items = [
   {

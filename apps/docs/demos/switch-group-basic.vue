@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import { Switch, SwitchGroup } from '@misaki-mei-q/heroui-vue'
+import { Switch, SwitchGroup } from '@misaki-mei/heroui-vue'
 </script>

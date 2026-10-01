@@ -5,7 +5,7 @@ Scrollable region with edge shadows.
 ## Import
 
 ```ts
-import { ScrollShadow } from '@misaki-mei-q/heroui-vue'
+import { ScrollShadow } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

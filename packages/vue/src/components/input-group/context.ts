@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { inputGroupVariants } from '@misaki-mei-q/heroui-vue-styles'
+import type { inputGroupVariants } from '@misaki-mei/heroui-vue-styles'
 
 export interface InputGroupContextValue {
   slots: ReturnType<typeof inputGroupVariants>

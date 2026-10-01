@@ -5,7 +5,7 @@ Toolbar container for related actions.
 ## Import
 
 ```ts
-import { Toolbar } from '@misaki-mei-q/heroui-vue'
+import { Toolbar } from '@misaki-mei/heroui-vue'
 ```
 
 ## Usage

@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Button, Description, FieldError, Label, Radio, RadioGroup } from '@misaki-mei-q/heroui-vue'
+import { Button, Description, FieldError, Label, Radio, RadioGroup } from '@misaki-mei/heroui-vue'
 
 const plan = ref('')
 const submitted = ref(false)

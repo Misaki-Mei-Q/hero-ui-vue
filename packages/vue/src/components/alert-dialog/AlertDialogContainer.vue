@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, provide, watchEffect } from 'vue'
-import { alertDialogVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { alertDialogVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import {
   ALERT_DIALOG_CONTEXT_KEY,

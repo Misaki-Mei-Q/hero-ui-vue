@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, useSlots } from 'vue'
-import { badgeVariants } from '@misaki-mei-q/heroui-vue-styles'
+import { badgeVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 import { BADGE_CONTEXT_KEY } from './context'
 import BadgeLabel from './BadgeLabel.vue'

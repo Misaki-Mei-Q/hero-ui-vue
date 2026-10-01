@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage, Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@misaki-mei-q/heroui-vue'
+import { Avatar, AvatarFallback, AvatarImage, Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@misaki-mei/heroui-vue'
 
 const communities = [
   {

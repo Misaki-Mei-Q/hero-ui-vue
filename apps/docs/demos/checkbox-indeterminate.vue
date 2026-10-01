@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Checkbox, Description, Label } from '@misaki-mei-q/heroui-vue'
+import { Checkbox, Description, Label } from '@misaki-mei/heroui-vue'
 
 const checked = ref(false)
 const isIndeterminate = ref(true)
