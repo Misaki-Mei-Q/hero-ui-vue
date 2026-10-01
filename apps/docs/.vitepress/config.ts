@@ -218,6 +218,7 @@ const zhCNSidebar = {
         { text: 'Slider 滑块', link: '/zh-CN/components/slider' },
         { text: 'Switch 开关', link: '/zh-CN/components/switch' },
         { text: 'Switch Group 开关组', link: '/zh-CN/components/switch-group' },
+        { text: 'Table 表格', link: '/zh-CN/components/table' },
         { text: 'DateField 日期字段', link: '/zh-CN/components/date-field' },
         { text: 'DatePicker 日期选择器', link: '/zh-CN/components/date-picker' },
         { text: 'Date Range Picker 日期范围选择器', link: '/zh-CN/components/date-range-picker' },
@@ -257,8 +258,8 @@ const zhCNSidebar = {
         { text: 'Separator 分隔符', link: '/zh-CN/components/separator' },
         { text: 'Spinner 加载指示', link: '/zh-CN/components/spinner' },
         { text: 'Text 文本', link: '/zh-CN/components/text' },
-        { text: 'Tooltip 提示', link: '/zh-CN/components/tooltip' },
-        { text: 'Toast 提示', link: '/zh-CN/components/toast' },
+        { text: 'Tooltip 提示框', link: '/zh-CN/components/tooltip' },
+        { text: 'Toast 吐司', link: '/zh-CN/components/toast' },
         { text: 'Toggle Button 切换按钮', link: '/zh-CN/components/toggle-button' },
         { text: 'Toggle Button Group 切换按钮组', link: '/zh-CN/components/toggle-button-group' },
         { text: 'Toolbar 工具栏', link: '/zh-CN/components/toolbar' }
@@ -294,8 +295,7 @@ export default defineConfig({
         ...sharedThemeConfig,
         nav: [
           { text: 'Getting Started', link: '/guide/quick-start', activeMatch: '^/guide/' },
-          { text: 'Components', link: '/components/' },
-          { text: 'GitHub', link: 'https://github.com/Misaki-Mei-Q/heroui-vue' }
+          { text: 'Components', link: '/components/', activeMatch: '^/components/' }
         ],
         sidebar: sharedSidebar
       }
@@ -307,13 +307,16 @@ export default defineConfig({
         ...sharedThemeConfig,
         nav: [
           { text: '入门', link: '/zh-CN/guide/quick-start', activeMatch: '^/zh-CN/guide/' },
-          { text: '组件', link: '/zh-CN/components/' },
-          { text: 'GitHub', link: 'https://github.com/Misaki-Mei-Q/heroui-vue' }
+          { text: '组件', link: '/zh-CN/components/', activeMatch: '^/zh-CN/components/' }
         ],
         sidebar: zhCNSidebar,
         editLink: {
           pattern: 'https://github.com/Misaki-Mei-Q/heroui-vue/edit/master/apps/docs/zh-CN/:path',
           text: '在 GitHub 上编辑此页'
+        },
+        footer: {
+          message: '基于 Apache-2.0 许可证发布。',
+          copyright: 'Copyright © 2024-present HeroUI Vue'
         }
       }
     }
