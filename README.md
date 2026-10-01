@@ -13,6 +13,8 @@
   </a>
 </p>
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
 **HeroUI Vue** is a beautiful and modern Vue 3 UI library - a complete port of HeroUI React to Vue 3 with Composition API.
 
 Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q.github.io/hero-ui-vue)
@@ -23,7 +25,7 @@ Documentation: [https://misaki-mei-q.github.io/hero-ui-vue](https://misaki-mei-q
 
 - 🎨 **Beautiful by Default** - Stunning components out of the box
 - 🎯 **Customizable by Design** - Easy to customize with Tailwind CSS v4
-- �?**Accessible** - Built on Radix Vue primitives with full ARIA support
+- ♿ **Accessible** - Built on Radix Vue primitives with full ARIA support
 - 🔧 **TypeScript** - Full TypeScript support with strict types
 - 🚀 **Modern** - Vue 3 Composition API
 - 📦 **Tree-shakeable** - Import only what you need
@@ -147,11 +149,11 @@ pnpm lint
 ```
 hero-ui-vue/
 ├── packages/
-�?  ├── vue/          # Main component library
-�?  ├── styles/       # Tailwind CSS styles and variants
-�?  └── standard/     # Shared configurations
+│   ├── vue/          # Main component library
+│   ├── styles/       # Tailwind CSS styles and variants
+│   └── standard/     # Shared configurations
 ├── apps/
-�?  └── docs/         # Documentation site (VitePress)
+│   └── docs/         # Documentation site (VitePress)
 ├── scripts/          # Maintenance and release scripts
 └── .github/          # CI workflows (lint, test, publish)
 ```
@@ -168,7 +170,7 @@ This project is a Vue 3 port of [HeroUI](https://github.com/heroui-inc/heroui) b
 
 ## License
 
-Apache-2.0 �?see [LICENSE](LICENSE)
+Apache-2.0 — see [LICENSE](LICENSE)
 
 ## Acknowledgments
 
