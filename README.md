@@ -123,9 +123,7 @@ EmptyState, Header, Radio, SwitchGroup, Tag.
 
 ### Remaining React parity gaps (0)
 
-All 71 React components have a Vue equivalent. Calendar / RangeCalendar / DatePicker / DateRangePicker ship behind Radix Vue's `CalendarRoot` which has an open upstream bug (https://github.com/unovue/reka-ui) causing the integrated tests to be skipped in jsdom. They render correctly in real browsers.
-
-### Vue-specific components
+All 71 React components have a Vue equivalent. Calendar / RangeCalendar / DatePicker / DateRangePicker are built on Radix Vue's `CalendarRoot` and are covered by jsdom regression tests.
 
 ### Vue-specific components
 

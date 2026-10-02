@@ -9,6 +9,15 @@ export const datePickerVariants = tv({
     trigger: 'date-picker__trigger',
     triggerIndicator: 'date-picker__trigger-indicator',
   },
+  variants: {
+    fullWidth: {
+      false: '',
+      true: 'date-picker--full-width',
+    },
+  },
+  defaultVariants: {
+    fullWidth: false,
+  },
 })
 
 export type DatePickerVariants = VariantProps<typeof datePickerVariants>

@@ -5,6 +5,7 @@ import { composeTwClasses } from '../../utils'
 
 interface ListBoxSectionProps {
   class?: string
+  title?: string
 }
 
 const props = defineProps<ListBoxSectionProps>()
@@ -12,7 +13,19 @@ const sectionClass = computed(() => composeTwClasses(props.class, listboxSection
 </script>
 
 <template>
-  <div :class="sectionClass" data-slot="list-box-section" role="group">
+  <div
+    :aria-label="props.title"
+    :class="sectionClass"
+    data-slot="list-box-section"
+    role="group"
+  >
+    <div
+      v-if="props.title || $slots.title"
+      data-slot="list-box-section-title"
+      role="presentation"
+    >
+      <slot name="title">{{ props.title }}</slot>
+    </div>
     <slot />
   </div>
 </template>

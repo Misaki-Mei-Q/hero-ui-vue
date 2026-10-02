@@ -9,6 +9,8 @@ export const calendarVariants = tv({
     base: 'calendar',
     /** Calendar cell (td) */
     cell: 'calendar__cell',
+    /** Interactive trigger rendered inside each cell */
+    cellButton: 'calendar__cell-button',
     /** Cell indicator (small dot at bottom of cell) */
     cellIndicator: 'calendar__cell-indicator',
     /** Calendar grid (table) */

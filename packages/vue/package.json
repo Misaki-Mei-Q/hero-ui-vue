@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@misaki-mei/heroui-vue-styles": "workspace:*",
-    "@internationalized/date": "^3.12.1",
+    "@internationalized/date": "^3.12.4",
     "@vueuse/core": "^11.3.0",
     "radix-vue": "^1.9.11",
     "tailwind-merge": "^3.4.0",

@@ -1,6 +1,6 @@
 # ColorField
 
-A hex code input paired with a native color picker swatch.
+A hex color text input paired with a live color swatch preview.
 
 ## Import
 
@@ -12,7 +12,7 @@ import { ColorField } from '@misaki-mei/heroui-vue'
 
 ## Usage
 
-Use `ColorField` to capture a `#rrggbb` value with a native `<input type="color">` picker and a hex display.
+Use `ColorField` to capture a `#rgb`, `#rgba`, `#rrggbb` or `#rrggbbaa` value. The swatch prefix reflects the current value, and updates are only emitted once the typed value is a valid hex color.
 
 ## API
 
@@ -22,10 +22,10 @@ Use `ColorField` to capture a `#rrggbb` value with a native `<input type="color"
 |------|------|---------|-------------|
 | `modelValue` | `string` | `undefined` | Controlled hex value. |
 | `defaultValue` | `string` | `undefined` | Initial uncontrolled value. |
-| `placeholder` | `string` | `undefined` | Trigger placeholder text. |
+| `placeholder` | `string` | `undefined` | Input placeholder text. |
 | `label` | `string` | `undefined` | Label above the field. |
 | `description` | `string` | `undefined` | Helper text below. |
-| `errorMessage` | `string` | `undefined` | Error message below. |
+| `errorMessage` | `string` | `undefined` | Error message below (replaces the description). |
 | `isDisabled` | `boolean` | `false` | Disable interaction. |
 | `isInvalid` | `boolean` | `false` | Mark as invalid. |
 | `isRequired` | `boolean` | `false` | Mark as required. |
@@ -35,9 +35,18 @@ Use `ColorField` to capture a `#rrggbb` value with a native `<input type="color"
 
 | Event | Payload | Description |
 |-------|---------|-------------|
-| `update:modelValue` | `string` | Emitted when the value changes. |
+| `update:modelValue` | `string` | Emitted when a valid hex value is entered. |
+
+### ColorField Slots
+
+| Slot | Description |
+|------|-------------|
+| `label` | Custom label content. |
+| `prefix` | Replaces the color swatch prefix. |
+| `description` | Custom description content. |
+| `error-message` | Custom error message content. |
 
 ## Accessibility
 
-- The native color input keeps all platform keyboard / screen-reader behavior.
+- The label is linked to the input through `for`/`id`.
 - `aria-invalid` is set when `isInvalid` is true.

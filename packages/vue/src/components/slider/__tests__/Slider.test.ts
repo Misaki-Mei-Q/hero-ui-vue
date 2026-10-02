@@ -1,6 +1,8 @@
-import { describe, expect, it } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { afterEach, describe, expect, it } from 'vitest'
+import { enableAutoUnmount, mount } from '@vue/test-utils'
 import Slider from '../Slider.vue'
+
+enableAutoUnmount(afterEach)
 
 describe('Slider', () => {
   it('renders with default props', () => {
@@ -131,5 +133,36 @@ describe('Slider', () => {
     const root = wrapper.find('[data-slot="slider"]')
     expect(root.classes()).toContain('rounded-full')
     expect(root.classes()).toContain('slider')
+  })
+
+  it('updates the uncontrolled output through keyboard interaction', async () => {
+    const wrapper = mount(Slider, {
+      attachTo: document.body,
+      props: { label: 'Volume', defaultValue: [35] },
+    })
+    expect(wrapper.text()).toContain('35')
+    await wrapper.find('[data-slot="slider-thumb"]').trigger('keydown', { key: 'ArrowRight' })
+    expect(wrapper.text()).toContain('36')
+    expect(wrapper.emitted('update:modelValue')?.at(-1)).toEqual([36])
+  })
+
+  it('marks fill edges on the track when the value reaches the max', () => {
+    const wrapper = mount(Slider, {
+      attachTo: document.body,
+      props: { modelValue: 100 },
+    })
+    const track = wrapper.find('[data-slot="slider-track"]')
+    expect(track.attributes('data-fill-start')).toBe('true')
+    expect(track.attributes('data-fill-end')).toBe('true')
+  })
+
+  it('marks the fill start on a range track', () => {
+    const wrapper = mount(Slider, {
+      attachTo: document.body,
+      props: { modelValue: [0, 50] },
+    })
+    const track = wrapper.find('[data-slot="slider-track"]')
+    expect(track.attributes('data-fill-start')).toBe('true')
+    expect(track.attributes('data-fill-end')).toBeUndefined()
   })
 })

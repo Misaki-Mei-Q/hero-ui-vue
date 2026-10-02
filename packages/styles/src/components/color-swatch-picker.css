@@ -39,7 +39,7 @@
 
   /* Selected state */
   &[data-selected="true"] {
-    border-color: var(--swatch-current);
+    border-color: var(--color-swatch-current);
     box-shadow: var(--field-shadow);
     /* Shrink the swatch to reveal the white gap */
     .color-swatch-picker__swatch {

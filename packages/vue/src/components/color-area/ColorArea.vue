@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { colorAreaVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
+
+type ColorAreaChannel = 'saturation' | 'lightness'
 
 interface ColorAreaProps {
   class?: string
   hue?: number
   saturation?: number
   lightness?: number
-  xChannel?: 'saturation' | 'lightness'
-  yChannel?: 'lightness' | 'saturation'
+  xChannel?: ColorAreaChannel
+  yChannel?: ColorAreaChannel
   isDisabled?: boolean
+  label?: string
+  step?: number
 }
 
 const props = withDefaults(defineProps<ColorAreaProps>(), {
@@ -20,6 +24,8 @@ const props = withDefaults(defineProps<ColorAreaProps>(), {
   xChannel: 'saturation',
   yChannel: 'lightness',
   isDisabled: undefined,
+  label: 'Color area',
+  step: 1,
 })
 
 const emit = defineEmits<{
@@ -29,29 +35,116 @@ const emit = defineEmits<{
 }>()
 
 const slots = computed(() => colorAreaVariants({ showDots: false }))
-const baseClass = computed(() => composeTwClasses(props.class, (slots.value as unknown as { base: () => string }).base()))
-const thumbClass = computed(() => (slots.value as unknown as { thumb: () => string }).thumb())
+const baseClass = computed(() =>
+  composeTwClasses(
+    props.class,
+    (slots.value as unknown as { base: () => string }).base(),
+  ),
+)
+const thumbClass = computed(
+  () => (slots.value as unknown as { thumb: () => string }).thumb(),
+)
+
+function clampPercent(value: number) {
+  return Math.max(0, Math.min(100, value))
+}
+
+function channelColor(channel: ColorAreaChannel, value: number) {
+  const saturation = channel === 'saturation' ? value : props.saturation
+  const lightness = channel === 'lightness' ? value : props.lightness
+  return `hsl(${props.hue}, ${saturation}%, ${lightness}%)`
+}
 
 const gradient = computed(() => {
-  const hueColor = `hsl(${props.hue}, 100%, 50%)`
-  return `linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, ${hueColor})`
+  const xMin = channelColor(props.xChannel, 0)
+  const xMax = channelColor(props.xChannel, 100)
+  const yMin = channelColor(props.yChannel, 0)
+  const yMax = channelColor(props.yChannel, 100)
+  return `linear-gradient(to right, ${xMin}, ${xMax}), linear-gradient(to bottom, ${yMax}, ${yMin})`
 })
 
-function onMove(event: PointerEvent) {
-  if (props.isDisabled) return
-  const el = event.currentTarget as HTMLElement
+const rootStyle = computed(() => ({ '--color-area-background': gradient.value }))
+
+const xValue = computed(() => (props.xChannel === 'saturation' ? props.saturation : props.lightness))
+const yValue = computed(() => (props.yChannel === 'saturation' ? props.saturation : props.lightness))
+
+const thumbStyle = computed(() => ({
+  left: `${xValue.value}%`,
+  top: `${100 - yValue.value}%`,
+  '--color-area-thumb-color': `hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%)`,
+}))
+
+const ariaValueText = computed(
+  () => `Saturation ${props.saturation}%, Lightness ${props.lightness}%`,
+)
+
+const dragging = ref(false)
+
+function pointFromEvent(event: PointerEvent) {
+  const el = event.currentTarget as HTMLElement | null
+  if (!el) return null
   const rect = el.getBoundingClientRect()
+  if (!rect.width || !rect.height) return null
   const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width))
   const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height))
-  const saturation = Math.round(x * 100)
-  const lightness = Math.round((1 - y) * 100)
-  emit('update:saturation', saturation)
-  emit('update:lightness', lightness)
-  emit('change', saturation, lightness)
+  return { x: Math.round(x * 100), y: Math.round((1 - y) * 100) }
+}
+
+function applyPoint(x: number, y: number) {
+  const next = {
+    saturation: props.saturation,
+    lightness: props.lightness,
+    [props.xChannel]: x,
+    [props.yChannel]: y,
+  }
+  emit('update:saturation', next.saturation)
+  emit('update:lightness', next.lightness)
+  emit('change', next.saturation, next.lightness)
+}
+
+function onPointerDown(event: PointerEvent) {
+  if (props.isDisabled) return
+  const point = pointFromEvent(event)
+  if (!point) return
+  dragging.value = true
+  ;(event.currentTarget as HTMLElement).setPointerCapture?.(event.pointerId)
+  applyPoint(point.x, point.y)
 }
 
 function onPointerMove(event: PointerEvent) {
-  if (event.buttons === 1) onMove(event)
+  if (!dragging.value || props.isDisabled) return
+  const point = pointFromEvent(event)
+  if (!point) return
+  applyPoint(point.x, point.y)
+}
+
+function endDrag(event: PointerEvent) {
+  dragging.value = false
+  ;(event.currentTarget as HTMLElement).releasePointerCapture?.(event.pointerId)
+}
+
+function onKeydown(event: KeyboardEvent) {
+  if (props.isDisabled) return
+  const step = event.shiftKey ? props.step * 10 : props.step
+  const next = { saturation: props.saturation, lightness: props.lightness }
+  switch (event.key) {
+    case 'ArrowLeft':
+      next[props.xChannel] -= step
+      break
+    case 'ArrowRight':
+      next[props.xChannel] += step
+      break
+    case 'ArrowUp':
+      next[props.yChannel] += step
+      break
+    case 'ArrowDown':
+      next[props.yChannel] -= step
+      break
+    default:
+      return
+  }
+  event.preventDefault()
+  applyPoint(clampPercent(next[props.xChannel]), clampPercent(next[props.yChannel]))
 }
 </script>
 
@@ -59,22 +152,28 @@ function onPointerMove(event: PointerEvent) {
   <div
     :class="baseClass"
     :data-disabled="dataAttr(props.isDisabled || undefined)"
+    :data-dragging="dataAttr(dragging)"
     data-slot="color-area"
-    :style="{ background: gradient }"
+    :style="rootStyle"
     role="slider"
+    tabindex="0"
     aria-valuemin="0"
     aria-valuemax="100"
-    @pointerdown.prevent="onMove"
+    :aria-valuetext="ariaValueText"
+    :aria-label="props.label"
+    :aria-disabled="props.isDisabled || undefined"
+    @pointerdown.prevent="onPointerDown"
     @pointermove="onPointerMove"
+    @pointerup="endDrag"
+    @pointercancel="endDrag"
+    @keydown="onKeydown"
   >
     <span
       :class="thumbClass"
       data-slot="color-area-thumb"
-      :style="{
-        left: `${props.saturation}%`,
-        top: `${100 - props.lightness}%`,
-        backgroundColor: `hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%)`,
-      }"
+      :data-dragging="dataAttr(dragging)"
+      :data-disabled="dataAttr(props.isDisabled || undefined)"
+      :style="thumbStyle"
     />
   </div>
 </template>

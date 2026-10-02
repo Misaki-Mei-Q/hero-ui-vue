@@ -28,6 +28,8 @@ demo-preview=../demos/color-picker-basic.vue
 |------|------|---------|-------------|
 | `modelValue` | `string` | `undefined` | Hex color (`#rrggbb` or `#rrggbbaa`). |
 | `defaultValue` | `string` | `undefined` | Initial uncontrolled value. |
+| `open` | `boolean` | `undefined` | Controlled popover open state. |
+| `defaultOpen` | `boolean` | `false` | Initial uncontrolled open state. |
 | `label` | `string` | `undefined` | Label rendered next to the swatch. |
 | `placement` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | Popover placement. |
 | `offset` | `number` | `8` | Distance from the trigger. |
@@ -41,7 +43,8 @@ demo-preview=../demos/color-picker-basic.vue
 |-------|---------|-------------|
 | `update:modelValue` | `string` | Emitted when the value changes. |
 | `change` | `string` | Convenience alias. |
-| `openChange` | `boolean` | Emitted when the popover opens or closes. |
+| `update:open` | `boolean` | Emitted when the popover opens or closes. |
+| `openChange` | `boolean` | Convenience alias for `update:open`. |
 
 ### ColorPicker Slots
 

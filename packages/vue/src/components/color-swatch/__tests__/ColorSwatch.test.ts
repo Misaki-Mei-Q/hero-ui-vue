@@ -9,6 +9,16 @@ describe('ColorSwatch', () => {
     expect(wrapper.element.style.backgroundColor).toContain('rgb')
   })
 
+  it('exposes the current color through a CSS custom property', () => {
+    const wrapper = mount(ColorSwatch, { props: { color: '#ff0000' } })
+    expect(wrapper.element.style.getPropertyValue('--color-swatch-current')).toBe('#ff0000')
+  })
+
+  it('uses role="img"', () => {
+    const wrapper = mount(ColorSwatch, { props: { color: '#ff0000' } })
+    expect(wrapper.find('[data-slot="color-swatch"]').attributes('role')).toBe('img')
+  })
+
   it('exposes aria-label', () => {
     const wrapper = mount(ColorSwatch, { props: { color: '#ff0000' } })
     expect(wrapper.find('[data-slot="color-swatch"]').attributes('aria-label')).toContain('#ff0000')

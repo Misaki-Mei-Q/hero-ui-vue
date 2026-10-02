@@ -25,6 +25,11 @@
       @apply pr-7;
     }
 
+    /* Reserve room for both the clear button and the chevron trigger */
+    &:has(+ .combo-box__clear + .combo-box__trigger) {
+      @apply pr-12;
+    }
+
     /* Focus state (input.css only has focus-visible, but combo-box also needs focus) */
     &:focus,
     &[data-focus] {
@@ -85,6 +90,15 @@
   /* Rotate icon when trigger is open */
   &[data-open="true"] [data-slot="combo-box-trigger-default-icon"] {
     @apply rotate-180;
+  }
+}
+
+/* Clear button — sits to the left of the chevron trigger */
+.combo-box__clear {
+  @apply right-7 pr-1;
+
+  svg {
+    @apply size-4;
   }
 }
 

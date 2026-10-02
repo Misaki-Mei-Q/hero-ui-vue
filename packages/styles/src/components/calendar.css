@@ -14,6 +14,22 @@
   container-type: inline-size;
 }
 
+/* Multi-month layout: shrink to fit the requested number of month columns */
+.calendar--multi {
+  container-type: normal;
+  @apply w-max max-w-none;
+}
+
+/* Months are laid out side by side, each column keeps the fixed single-month width */
+.calendar__months {
+  @apply flex min-w-0;
+  gap: 1.5rem;
+}
+
+.calendar__month {
+  @apply w-63 flex flex-col;
+}
+
 /* -----------------------------------------------------------------------------
  * Calendar Header
  * -------------------------------------------------------------------------- */
@@ -49,7 +65,7 @@
 
   cursor: var(--cursor-interactive);
 
-  /* Hover state â€“ only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover,
     &[data-hovered="true"] {
@@ -71,7 +87,7 @@
 
   /* Disabled state */
   &:disabled,
-  &[data-disabled="true"] {
+  &[data-disabled] {
     @apply status-disabled;
   }
 }
@@ -156,7 +172,7 @@
   }
 
   /* Today indicator */
-  &[data-today="true"] {
+  &[data-today] {
     @apply text-accent;
   }
 
@@ -176,7 +192,7 @@
     }
   }
 
-  /* Hover state â€“ only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover:not([data-selected="true"]),
     &[data-hovered="true"]:not([data-selected="true"]) {
@@ -194,17 +210,22 @@
   }
 
   /* Unavailable dates */
-  &[data-unavailable="true"] {
+  &[data-unavailable] {
     @apply status-disabled;
   }
 
   /* Disabled state */
   &:disabled:not([data-outside-month="true"]),
-  &[data-disabled="true"]:not([data-outside-month="true"]) {
+  &[data-disabled]:not([data-outside-month="true"]) {
     @apply status-disabled;
 
     text-decoration: line-through;
   }
+}
+
+/* Interactive day trigger rendered inside each cell */
+.calendar__cell-button {
+  @apply flex items-center justify-center;
 }
 
 /* Cell indicator - small dot at bottom center of cell */

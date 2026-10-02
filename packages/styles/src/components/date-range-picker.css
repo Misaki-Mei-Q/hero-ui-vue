@@ -91,3 +91,15 @@
     @apply will-change-[opacity,transform];
   }
 }
+
+/* Full width modifier */
+.date-range-picker--full-width {
+  @apply w-full;
+}
+
+/* Disabled state propagates from the root to the trigger button */
+.date-range-picker[data-disabled="true"] {
+  .date-range-picker__trigger {
+    @apply status-disabled;
+  }
+}

@@ -104,13 +104,16 @@
   .table__cell {
     @apply border-b border-separator-tertiary/50 bg-transparent;
   }
+}
 
-  @media (hover: hover) {
-    &:hover .table__cell,
-    &[data-hovered="true"] .table__cell {
-      @apply bg-default/50;
-    }
+@media (hover: hover) {
+  .table-root--secondary .table__body[data-hoverable="true"] .table__row:hover .table__cell {
+    @apply bg-default/50;
   }
+}
+
+.table-root--secondary .table__row[data-hovered="true"] .table__cell {
+  @apply bg-default/50;
 }
 
 /* --------------------------------------------------------------------------
@@ -209,12 +212,18 @@
     @apply border-b-0;
   }
 
-  /* Hover state — applied to cells so Firefox clips bg to border-radius */
+  /* Hover state — only when the body opts in via data-hoverable.
+     Applied to cells so Firefox clips bg to border-radius */
   @media (hover: hover) {
-    &:hover .table__cell,
+    .table__body[data-hoverable="true"] &.table__row:hover .table__cell,
     &[data-hovered="true"] .table__cell {
       @apply bg-surface/40;
     }
+  }
+
+  /* Striped rows — alternate background on even body rows */
+  .table__body[data-striped="true"] &.table__row:nth-child(even) .table__cell {
+    @apply bg-surface-secondary/60;
   }
 
   /* Selected state */

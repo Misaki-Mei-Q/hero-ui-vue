@@ -1,10 +1,9 @@
 import { afterEach, describe, expect, it } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { nextTick } from 'vue'
+import { enableAutoUnmount, mount } from '@vue/test-utils'
 import { ColorPicker } from '../index'
 
-afterEach(() => {
-  document.body.innerHTML = ''
-})
+enableAutoUnmount(afterEach)
 
 describe('ColorPicker', () => {
   it('renders the trigger', () => {
@@ -13,17 +12,10 @@ describe('ColorPicker', () => {
       props: { modelValue: '#ff0000' },
     })
     expect(wrapper.find('[data-slot="color-picker"]').exists()).toBe(true)
+    expect(wrapper.find('[data-slot="color-picker-trigger"]').exists()).toBe(true)
   })
 
   it('renders a ColorSwatch inside the trigger', () => {
-    const wrapper = mount(ColorPicker, {
-      attachTo: document.body,
-      props: { modelValue: '#ff0000' },
-    })
-    expect(wrapper.find('[data-slot="color-swatch"]').exists()).toBe(true)
-  })
-
-  it('renders the color-swatch trigger with modelValue', () => {
     const wrapper = mount(ColorPicker, {
       attachTo: document.body,
       props: { modelValue: '#ff0000' },
@@ -45,6 +37,43 @@ describe('ColorPicker', () => {
       props: { isDisabled: true, modelValue: '#ff0000' },
     })
     expect(wrapper.find('[data-slot="color-picker-trigger"]').attributes('disabled')).toBeDefined()
+  })
+
+  it('opens the popover when defaultOpen is true', async () => {
+    mount(ColorPicker, {
+      attachTo: document.body,
+      props: { modelValue: '#ff0000', defaultOpen: true },
+    })
+    await nextTick()
+    expect(document.querySelector('[data-slot="color-picker-popover"]')).not.toBeNull()
+  })
+
+  it('stays closed when defaultOpen is omitted', async () => {
+    mount(ColorPicker, {
+      attachTo: document.body,
+      props: { modelValue: '#ff0000' },
+    })
+    await nextTick()
+    expect(document.querySelector('[data-slot="color-picker-popover"]')).toBeNull()
+  })
+
+  it('honors the controlled open prop', async () => {
+    mount(ColorPicker, {
+      attachTo: document.body,
+      props: { modelValue: '#ff0000', open: true },
+    })
+    await nextTick()
+    expect(document.querySelector('[data-slot="color-picker-popover"]')).not.toBeNull()
+  })
+
+  it('emits open change events when the trigger is clicked', async () => {
+    const wrapper = mount(ColorPicker, {
+      attachTo: document.body,
+      props: { modelValue: '#ff0000' },
+    })
+    await wrapper.find('[data-slot="color-picker-trigger"]').trigger('click')
+    expect(wrapper.emitted('update:open')?.at(-1)).toEqual([true])
+    expect(wrapper.emitted('openChange')?.at(-1)).toEqual([true])
   })
 
   it('merges custom class with color-picker base class', () => {

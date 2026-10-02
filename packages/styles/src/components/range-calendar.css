@@ -14,6 +14,22 @@
   container-type: inline-size;
 }
 
+/* Multi-month layout: shrink to fit the requested number of month columns */
+.range-calendar--multi {
+  container-type: normal;
+  @apply w-max max-w-none;
+}
+
+/* Months are laid out side by side, each column keeps the fixed single-month width */
+.range-calendar__months {
+  @apply flex min-w-0;
+  gap: 1.5rem;
+}
+
+.range-calendar__month {
+  @apply w-63 flex flex-col;
+}
+
 /* -----------------------------------------------------------------------------
  * RangeCalendar Header
  * -------------------------------------------------------------------------- */
@@ -49,7 +65,7 @@
 
   cursor: var(--cursor-interactive);
 
-  /* Hover state â€“ only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover,
     &[data-hovered="true"] {
@@ -71,7 +87,7 @@
 
   /* Disabled state */
   &:disabled,
-  &[data-disabled="true"] {
+  &[data-disabled] {
     @apply status-disabled;
   }
 }
@@ -167,7 +183,7 @@
   }
 
   /* Today indicator */
-  &[data-today="true"] {
+  &[data-today] {
     .range-calendar__cell-button {
       @apply text-accent;
     }
@@ -253,13 +269,13 @@
   }
 
   /* Unavailable dates */
-  &[data-unavailable="true"] {
+  &[data-unavailable] {
     @apply status-disabled;
   }
 
   /* Disabled state */
   &:disabled:not([data-outside-month="true"]),
-  &[data-disabled="true"]:not([data-outside-month="true"]) {
+  &[data-disabled]:not([data-outside-month="true"]) {
     @apply status-disabled;
 
     text-decoration: line-through;

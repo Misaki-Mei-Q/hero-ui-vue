@@ -21,12 +21,17 @@ const slots = computed(() =>
 const swatchClass = computed(() =>
   composeTwClasses(props.class, (slots.value as unknown as string)),
 )
+const swatchStyle = computed(() => ({
+  backgroundColor: props.color,
+  '--color-swatch-current': props.color,
+}))
 </script>
 
 <template>
   <span
     :class="swatchClass"
-    :style="{ backgroundColor: props.color }"
+    :style="swatchStyle"
+    role="img"
     :aria-label="`Color swatch: ${props.color}`"
     data-slot="color-swatch"
     :data-shape="props.shape"

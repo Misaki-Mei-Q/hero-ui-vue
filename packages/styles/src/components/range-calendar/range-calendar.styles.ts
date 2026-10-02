@@ -9,6 +9,8 @@ export const rangeCalendarVariants = tv({
     base: 'range-calendar',
     /** Calendar cell (td) */
     cell: 'range-calendar__cell',
+    /** Interactive trigger rendered inside each cell */
+    cellButton: 'range-calendar__cell-button',
     /** Cell indicator (small dot at bottom of cell) */
     cellIndicator: 'range-calendar__cell-indicator',
     /** Calendar grid (table) */

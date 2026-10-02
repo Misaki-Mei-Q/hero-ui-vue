@@ -1,9 +1,9 @@
 <template>
   <Tabs default-value="preview" class="w-full max-w-xl">
     <TabList>
-      <Tab value="preview">Preview</Tab>
-      <Tab value="code">Code</Tab>
-      <Tab value="api">API</Tab>
+      <Tab value="preview">Preview<TabIndicator /></Tab>
+      <Tab value="code">Code<TabIndicator /></Tab>
+      <Tab value="api">API<TabIndicator /></Tab>
     </TabList>
     <TabPanel value="preview">
       <Card variant="secondary">
@@ -24,5 +24,5 @@
 </template>
 
 <script setup>
-import { Card, CardContent, Tab, TabList, TabPanel, Tabs } from '@misaki-mei/heroui-vue'
+import { Card, CardContent, Tab, TabIndicator, TabList, TabPanel, Tabs } from '@misaki-mei/heroui-vue'
 </script>

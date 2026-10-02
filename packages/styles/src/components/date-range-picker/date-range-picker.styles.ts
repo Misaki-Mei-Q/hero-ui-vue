@@ -10,6 +10,15 @@ export const dateRangePickerVariants = tv({
     trigger: 'date-range-picker__trigger',
     triggerIndicator: 'date-range-picker__trigger-indicator',
   },
+  variants: {
+    fullWidth: {
+      false: '',
+      true: 'date-range-picker--full-width',
+    },
+  },
+  defaultVariants: {
+    fullWidth: false,
+  },
 })
 
 export type DateRangePickerVariants = VariantProps<typeof dateRangePickerVariants>

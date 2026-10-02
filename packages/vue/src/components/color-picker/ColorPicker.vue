@@ -16,6 +16,7 @@ interface ColorPickerProps {
   class?: string
   modelValue?: string
   defaultValue?: string
+  open?: boolean
   defaultOpen?: boolean
   label?: string
   isDisabled?: boolean
@@ -31,12 +32,14 @@ const props = withDefaults(defineProps<ColorPickerProps>(), {
   isDisabled: undefined,
   isInvalid: undefined,
   showHexInput: true,
+  open: undefined,
   defaultOpen: undefined,
 })
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
   change: [value: string]
+  'update:open': [value: boolean]
   openChange: [value: boolean]
 }>()
 
@@ -45,10 +48,12 @@ const baseClass = computed(() => composeTwClasses(props.class, (slots.value as u
 const triggerClass = computed(() => (slots.value as unknown as { trigger: () => string }).trigger())
 const popoverClass = computed(() => (slots.value as unknown as { popover: () => string }).popover())
 
-const internalOpen = ref(false)
+const internalOpen = ref(props.defaultOpen ?? false)
+const isOpen = computed(() => (props.open !== undefined ? props.open : internalOpen.value))
 
 function onOpenChange(value: boolean) {
-  internalOpen.value = value
+  if (props.open === undefined) internalOpen.value = value
+  emit('update:open', value)
   emit('openChange', value)
 }
 
@@ -60,7 +65,7 @@ function onHexInput(event: Event) {
 
 <template>
   <PopoverRoot
-  :open="internalOpen"
+  :open="isOpen"
   :default-open="props.defaultOpen"
   @update:open="onOpenChange"
 >

@@ -21,16 +21,18 @@ import { ColorArea } from '@misaki-mei/heroui-vue'
 | `lightness` | `number` | `50` | Y-axis lightness (0-100). |
 | `xChannel` | `'saturation' \| 'lightness'` | `'saturation'` | Channel mapped to X. |
 | `yChannel` | `'saturation' \| 'lightness'` | `'lightness'` | Channel mapped to Y. |
+| `step` | `number` | `1` | Keyboard step (shift multiplies by 10). |
+| `label` | `string` | `'Color area'` | Accessible label for the slider. |
 | `isDisabled` | `boolean` | `false` | Disable interaction. |
 
 ### ColorArea Events
 
 | Event | Payload | Description |
 |-------|---------|-------------|
-| `update:saturation` | `number` | Emitted when the X position changes. |
-| `update:lightness` | `number` | Emitted when the Y position changes. |
+| `update:saturation` | `number` | Emitted when the saturation changes. |
+| `update:lightness` | `number` | Emitted when the lightness changes. |
 | `change` | `[saturation, lightness]` | Combined emitted change event. |
 
 ## Accessibility
 
-- The root element has `role="slider"` and `aria-valuemin/max=100`.
+- The root element has `role="slider"`, `aria-valuemin/max=100`, `aria-valuetext`, and is keyboard adjustable with the arrow keys.

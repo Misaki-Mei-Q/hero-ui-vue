@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { DateValue } from '@internationalized/date'
 import { DateField as DateFieldRootNS } from 'radix-vue/namespaced'
 import { DateFieldInput } from 'radix-vue'
-import { dateFieldVariants } from '@misaki-mei/heroui-vue-styles'
+import { timeFieldVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 
 interface TimeFieldProps {
@@ -44,7 +44,7 @@ const emit = defineEmits<{
   'update:placeholder': [date: DateValue]
 }>()
 
-const slots = computed(() => dateFieldVariants({ fullWidth: props.fullWidth }))
+const slots = computed(() => timeFieldVariants({ fullWidth: props.fullWidth }))
 const baseClass = computed(() => composeTwClasses(props.class, (slots.value as unknown as string)))
 const inputClass = computed(() =>
   composeTwClasses(

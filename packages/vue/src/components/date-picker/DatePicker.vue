@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 import type { DateValue } from '@internationalized/date'
 import { DatePicker as DatePickerNS } from 'radix-vue/namespaced'
 import { datePickerVariants } from '@misaki-mei/heroui-vue-styles'
@@ -28,6 +28,9 @@ interface DatePickerProps {
   labelText?: string
   isDateDisabled?: (date: DateValue) => boolean
   isDateUnavailable?: (date: DateValue) => boolean
+  open?: boolean
+  defaultOpen?: boolean
+  modal?: boolean
 }
 
 const props = withDefaults(defineProps<DatePickerProps>(), {
@@ -44,15 +47,19 @@ const props = withDefaults(defineProps<DatePickerProps>(), {
   numberOfMonths: undefined,
   isDateDisabled: undefined,
   isDateUnavailable: undefined,
+  open: undefined,
+  defaultOpen: false,
+  modal: false,
 })
 
 const emit = defineEmits<{
   'update:modelValue': [value: DateValue | undefined]
   'update:placeholder': [value: DateValue]
+  'update:open': [value: boolean]
   openChange: [value: boolean]
 }>()
 
-const slots = computed(() => datePickerVariants())
+const slots = computed(() => datePickerVariants({ fullWidth: props.fullWidth }))
 const baseClass = computed(() => composeTwClasses(props.class, (slots.value as unknown as { base: () => string }).base()))
 const triggerClass = computed(() => (slots.value as unknown as { trigger: () => string }).trigger())
 const popoverClass = computed(() => (slots.value as unknown as { popover: () => string }).popover())
@@ -62,16 +69,79 @@ const finalIsDisabled = computed(() => props.isDisabled ?? false)
 const finalIsInvalid = computed(() => props.isInvalid ?? false)
 const finalIsRequired = computed(() => props.isRequired ?? false)
 
+const internalValue = shallowRef<DateValue | undefined>(props.modelValue ?? props.defaultValue)
+
+watch(
+  () => props.modelValue,
+  (value) => {
+    if (value !== undefined) internalValue.value = value
+  },
+)
+
+const resolvedValue = computed(() => props.modelValue ?? internalValue.value)
+
+const openState = shallowRef(props.defaultOpen)
+
+watch(
+  () => props.open,
+  (value) => {
+    if (value !== undefined) openState.value = value
+  },
+)
+
+const isOpen = computed(() => props.open ?? openState.value)
+
+const dateFormatter = computed(() =>
+  new Intl.DateTimeFormat(props.locale, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    ...(props.granularity !== 'day'
+      ? {
+          hour: '2-digit',
+          minute: '2-digit',
+          ...(props.granularity === 'second' ? { second: '2-digit' } : {}),
+        }
+      : {}),
+  }),
+)
+
+function toLocalDate(date: DateValue) {
+  return new Date(
+    date.year,
+    date.month - 1,
+    date.day,
+    'hour' in date ? date.hour : 0,
+    'minute' in date ? date.minute : 0,
+    'second' in date ? date.second : 0,
+  )
+}
+
+const triggerLabel = computed(() => {
+  const value = resolvedValue.value
+  if (!value) return 'Select a date'
+  return dateFormatter.value.format(toLocalDate(value))
+})
+
+function onOpenChange(value: boolean) {
+  openState.value = value
+  emit('update:open', value)
+  emit('openChange', value)
+}
+
 function onUpdateModelValue(value: DateValue | undefined) {
+  if (props.modelValue === undefined) internalValue.value = value
   emit('update:modelValue', value)
+  onOpenChange(false)
+}
+
+function onCalendarModelValue(value: DateValue | DateValue[] | undefined) {
+  if (Array.isArray(value)) return
+  onUpdateModelValue(value)
 }
 
 function onUpdatePlaceholder(value: DateValue) {
   emit('update:placeholder', value)
-}
-
-function onOpenChange(value: boolean) {
-  emit('openChange', value)
 }
 </script>
 
@@ -105,6 +175,8 @@ function onOpenChange(value: boolean) {
       :weekday-format="props.weekdayFormat"
       :fixed-weeks="props.fixedWeeks"
       :number-of-months="props.numberOfMonths"
+      :open="isOpen"
+      :modal="props.modal"
       data-slot="date-picker-root"
       @update:model-value="onUpdateModelValue"
       @update:placeholder="onUpdatePlaceholder"
@@ -121,7 +193,7 @@ function onOpenChange(value: boolean) {
             class="flex w-full items-center gap-2 rounded-field border bg-field px-3 py-2 text-sm shadow-field outline-none"
           >
             <span class="flex-1 text-left">
-              {{ props.modelValue?.toString() ?? 'Select a date' }}
+              {{ triggerLabel }}
             </span>
             <span
               v-if="indicatorClass"
@@ -144,6 +216,7 @@ function onOpenChange(value: boolean) {
       >
         <Calendar
           :model-value="props.modelValue"
+          :default-value="props.defaultValue"
           :default-placeholder="props.defaultPlaceholder ?? props.placeholder"
           :placeholder="props.placeholder"
           :locale="props.locale"
@@ -155,6 +228,8 @@ function onOpenChange(value: boolean) {
           :is-date-disabled="props.isDateDisabled"
           :is-date-unavailable="props.isDateUnavailable"
           :number-of-months="props.numberOfMonths ?? 1"
+          @update:model-value="onCalendarModelValue"
+          @update:placeholder="onUpdatePlaceholder"
         />
       </DatePickerNS.Content>
     </DatePickerNS.Root>

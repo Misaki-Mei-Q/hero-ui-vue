@@ -4,7 +4,14 @@ import type { tabsVariants } from '@misaki-mei/heroui-vue-styles'
 
 export interface TabsContext {
   selectedValue: ComputedRef<string | undefined>
+  orientation: 'horizontal' | 'vertical'
   slots: ReturnType<typeof tabsVariants>
 }
 
 export const TABS_CONTEXT_KEY: InjectionKey<TabsContext> = Symbol('TabsContext')
+
+export interface TabItemContext {
+  isSelected: ComputedRef<boolean>
+}
+
+export const TAB_ITEM_KEY: InjectionKey<TabItemContext> = Symbol('TabItemContext')

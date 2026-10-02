@@ -68,7 +68,7 @@
 
   .color-slider__thumb {
     /* Flex container for centering */
-    @apply absolute flex cursor-grab items-center justify-center rounded-full no-highlight;
+    @apply pointer-events-none absolute flex cursor-grab items-center justify-center rounded-full no-highlight;
 
     /* Border to create white ring around the thumb */
     @apply border-3 border-white shadow-overlay;

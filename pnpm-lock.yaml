@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@internationalized/date': 3.12.4
+
 importers:
 
   .:
@@ -115,7 +118,7 @@ importers:
   apps/docs:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.4
+        specifier: 3.12.4
         version: 3.12.4
       '@misaki-mei/heroui-vue':
         specifier: workspace:*
@@ -204,8 +207,8 @@ importers:
   packages/vue:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.12.1
-        version: 3.12.1
+        specifier: 3.12.4
+        version: 3.12.4
       '@misaki-mei/heroui-vue-styles':
         specifier: workspace:*
         version: link:../styles
@@ -899,7 +902,7 @@ packages:
   '@heroui/react@3.2.6':
     resolution: {integrity: sha512-KBhUUUdX4571SSjwpuBPEFZTYAw/tmGezTIsTnjIOlXDZkjWACfhFe6ibtReO+xTkUcfxCV1r3cF00/3OPlhhw==}
     peerDependencies:
-      '@internationalized/date': ^3.12.4
+      '@internationalized/date': 3.12.4
       '@react-aria/ssr': ^3.10.1
       '@react-aria/utils': ^3.34.1
       react: '>=19.0.0'
@@ -938,9 +941,6 @@ packages:
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-
-  '@internationalized/date@3.12.1':
-    resolution: {integrity: sha512-6IedsVWXyq4P9Tj+TxuU8WGWM70hYLl12nbYU8jkikVpa6WXapFazPUcHUMDMoWftIDE2ILDkFFte6W2nFCkRQ==}
 
   '@internationalized/date@3.12.4':
     resolution: {integrity: sha512-M1dEn4c1U1HsSlaVR8upZtSqvXrTkHDfv18H01uCSJyjVLDxnBR38v/fMxecmlwXKR4i9HeZcmgQAPE6A+aGJQ==}
@@ -3833,10 +3833,6 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
-
-  '@internationalized/date@3.12.1':
-    dependencies:
-      '@swc/helpers': 0.5.21
 
   '@internationalized/date@3.12.4':
     dependencies:

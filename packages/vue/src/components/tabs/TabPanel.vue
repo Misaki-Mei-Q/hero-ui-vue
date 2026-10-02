@@ -15,7 +15,12 @@ const panelClass = computed(() => composeTwClasses(props.class, tabsContext?.slo
 </script>
 
 <template>
-  <TabsContent :class="panelClass" :value="props.value" data-slot="tab-panel">
+  <TabsContent
+    :class="panelClass"
+    :value="props.value"
+    :data-orientation="tabsContext?.orientation"
+    data-slot="tab-panel"
+  >
     <slot />
   </TabsContent>
 </template>

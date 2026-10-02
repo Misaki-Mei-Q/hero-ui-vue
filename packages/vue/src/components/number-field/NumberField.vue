@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance, provide, ref, watch } from 'vue'
+import { computed, getCurrentInstance, provide, ref, useId, watch } from 'vue'
 import { numberFieldVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { NUMBER_FIELD_CONTEXT_KEY } from './context'
@@ -68,7 +68,8 @@ const value = computed(() =>
       ? props.value
       : internalValue.value,
 )
-const id = computed(() => props.id || `number-field-${Math.random().toString(36).slice(2, 9)}`)
+const generatedId = useId()
+const id = computed(() => props.id || `number-field-${generatedId}`)
 const finalIsDisabled = computed(() => props.disabled ?? props.isDisabled)
 const finalIsInvalid = computed(() => props.isInvalid)
 const finalIsRequired = computed(() => props.required ?? props.isRequired)
@@ -190,6 +191,13 @@ watch(
     if (!hasProp('modelValue') && !hasProp('value')) {
       internalValue.value = defaultValue
     }
+  },
+)
+
+watch(
+  () => (hasProp('modelValue') ? props.modelValue : hasProp('value') ? props.value : undefined),
+  (nextValue) => {
+    if (isFocused.value) inputDraft.value = getEditableValue(nextValue)
   },
 )
 

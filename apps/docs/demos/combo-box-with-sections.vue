@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ComboBox, ListBoxItem, ListBoxSection } from '@misaki-mei/heroui-vue'
+import { ComboBox } from '@misaki-mei/heroui-vue'
 
 const value = ref<string | null>(null)
 
@@ -25,11 +25,5 @@ const items = [
 </script>
 
 <template>
-  <ComboBox v-model="value" label="Food" :items="items">
-    <ListBoxSection v-for="section in items" :key="section.title" :title="section.title">
-      <ListBoxItem v-for="item in section.children" :key="item.key" :value="item.key">
-        {{ item.label }}
-      </ListBoxItem>
-    </ListBoxSection>
-  </ComboBox>
+  <ComboBox v-model="value" label="Food" :items="items" placeholder="Pick an option" />
 </template>

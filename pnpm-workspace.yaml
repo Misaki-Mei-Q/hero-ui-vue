@@ -1,3 +1,6 @@
 packages:
   - 'packages/*'
   - 'apps/*'
+
+overrides:
+  '@internationalized/date': 3.12.4

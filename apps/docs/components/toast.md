@@ -36,11 +36,15 @@ demo-preview=../demos/toast-variants.vue
 |------|------|---------|-------------|
 | `placement` | `'top' \| 'top start' \| 'top end' \| 'bottom' \| 'bottom start' \| 'bottom end'` | `'bottom end'` | Viewport position. |
 | `duration` | `number` | `5000` | Default duration in ms. |
+| `gap` | `number` | `12` | Vertical gap between stacked toasts, in px. |
+| `maxVisibleToasts` | `number` | `3` | Max visible toasts before older ones are hidden. |
+| `scaleFactor` | `number` | `0.05` | Scale reduction per stacked toast. |
+| `width` | `number \| string` | `460` | Region minimum width. |
 | `class` | `string` | `undefined` | Extra class on the viewport. |
 
 ### `useToast()` Composable
 
-Returns `null` outside of a `<ToastProvider>`, otherwise an object:
+Backed by a module-level queue, so it can be called anywhere (including in the parent of `<ToastProvider>`):
 
 ```ts
 interface ToastApi {
@@ -64,4 +68,4 @@ interface ToastEntry {
 
 - The viewport is announced as a polite live region.
 - `aria-label="Close"` is set on the dismiss button.
-- Each toast uses `role="status"`.
+- Only the frontmost toast is interactive; the rest collapse into a stack and expand on hover/focus.

@@ -32,7 +32,10 @@ demo-preview=../demos/color-swatch-picker-basic.vue
 | `layout` | `'grid' \| 'stack'` | `'grid'` | Layout mode. |
 | `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Swatch size. |
 | `variant` | `'circle' \| 'square'` | `'circle'` | Swatch shape. |
+| `label` | `string` | `'Color swatch picker'` | Accessible label for the listbox. |
 | `isDisabled` | `boolean` | `false` | Disable interaction. |
+
+Each item renders a color swatch and a checkmark indicator that is revealed when selected. The checkmark switches to black on light colors through `data-light-color`.
 
 ### ColorSwatchPicker Events
 

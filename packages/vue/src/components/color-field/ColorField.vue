@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { colorFieldVariants } from '@misaki-mei/heroui-vue-styles'
+import { computed, ref, useId, watch } from 'vue'
+import { colorFieldVariants, colorInputGroupVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
+import ColorSwatch from '../color-swatch/ColorSwatch.vue'
 
 interface ColorFieldProps {
   class?: string
@@ -31,12 +32,48 @@ const emit = defineEmits<{
 const slots = computed(() =>
   colorFieldVariants({ fullWidth: props.fullWidth }),
 )
+const groupSlots = computed(() =>
+  colorInputGroupVariants({ fullWidth: props.fullWidth, variant: 'primary' }),
+)
 const baseClass = computed(() =>
   composeTwClasses(props.class, (slots.value as unknown as string)),
 )
+const groupClass = computed(() => (groupSlots.value as unknown as { base: () => string }).base())
+const inputClass = computed(() => (groupSlots.value as unknown as { input: () => string }).input())
+const prefixClass = computed(() => (groupSlots.value as unknown as { prefix: () => string }).prefix())
+
+const HEX_PATTERN = /^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i
+
+const internalValue = ref<string | undefined>(props.defaultValue)
+const committedValue = computed(() => props.modelValue ?? internalValue.value)
+const text = ref<string>(committedValue.value ?? '')
+
+watch(committedValue, (next) => {
+  text.value = next ?? ''
+})
+
+const inputId = useId()
+
+function isValidHex(value: string): boolean {
+  return HEX_PATTERN.test(value.trim())
+}
 
 function onInput(event: Event) {
-  emit('update:modelValue', (event.target as HTMLInputElement).value)
+  const raw = (event.target as HTMLInputElement).value
+  text.value = raw
+  if (!isValidHex(raw)) return
+  if (props.modelValue === undefined) internalValue.value = raw.trim()
+  emit('update:modelValue', raw.trim())
+}
+
+function onChange(event: Event) {
+  const raw = (event.target as HTMLInputElement).value
+  if (isValidHex(raw)) {
+    if (props.modelValue === undefined) internalValue.value = raw.trim()
+    emit('update:modelValue', raw.trim())
+  } else {
+    text.value = committedValue.value ?? ''
+  }
 }
 </script>
 
@@ -48,34 +85,41 @@ function onInput(event: Event) {
     :data-required="dataAttr(props.isRequired || undefined)"
     data-slot="color-field"
   >
-    <label v-if="props.label" data-slot="label">
+    <label
+      v-if="props.label || $slots.label"
+      :for="inputId"
+      data-slot="label"
+    >
       <slot name="label">{{ props.label }}</slot>
     </label>
 
-    <div class="flex items-center gap-2">
-      <span
-        v-if="props.modelValue"
-        class="inline-block size-6 rounded-full border border-default"
-        data-slot="color-field-preview"
-        :style="{ backgroundColor: props.modelValue }"
-      />
+    <div
+      :class="groupClass"
+      :data-disabled="dataAttr(props.isDisabled || undefined)"
+      :data-invalid="dataAttr(props.isInvalid || undefined)"
+      data-slot="color-input-group"
+    >
+      <slot name="prefix">
+        <span :class="prefixClass" data-slot="color-input-group-prefix">
+          <ColorSwatch :color="committedValue || '#fff0'" size="xs" />
+        </span>
+      </slot>
+
       <input
-        type="color"
-        class="h-9 w-12 cursor-pointer rounded border border-default bg-transparent"
-        :value="props.modelValue ?? props.defaultValue ?? '#000000'"
+        :id="inputId"
+        type="text"
+        :class="inputClass"
+        :value="text"
         :placeholder="props.placeholder"
         :disabled="props.isDisabled"
         :required="props.isRequired"
-        :aria-invalid="props.isInvalid"
-        data-slot="color-field-input"
+        :aria-invalid="dataAttr(props.isInvalid || undefined)"
+        autocomplete="off"
+        spellcheck="false"
+        data-slot="color-input-group-input"
         @input="onInput"
+        @change="onChange"
       />
-      <span
-        class="rounded-field border border-default px-2 py-1 text-sm tabular-nums"
-        data-slot="color-field-trigger"
-      >
-        {{ props.modelValue ?? props.placeholder ?? '' }}
-      </span>
     </div>
 
     <span v-if="props.description && !props.errorMessage" data-slot="description">

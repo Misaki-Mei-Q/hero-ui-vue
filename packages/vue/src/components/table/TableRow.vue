@@ -16,7 +16,6 @@ const props = withDefaults(defineProps<TableRowProps>(), {
 
 const slots = computed(() => tableVariants())
 const rowClass = computed(() => composeTwClasses(props.class, (slots.value as unknown as { row: () => string }).row()))
-const cellClass = computed(() => (slots.value as unknown as { cell: () => string }).cell())
 </script>
 
 <template>
@@ -26,9 +25,6 @@ const cellClass = computed(() => (slots.value as unknown as { cell: () => string
     :data-disabled="props.isDisabled"
     data-slot="table-row"
   >
-    <td v-for="(cell, idx) in $slots.default?.()" :key="idx" :class="cellClass" data-slot="table-cell">
-      <component :is="cell" />
-    </td>
     <slot />
   </tr>
 </template>

@@ -39,6 +39,7 @@ watch(
 
 provide(TABS_CONTEXT_KEY, {
   selectedValue,
+  orientation: props.orientation,
   slots: slots.value,
 })
 

@@ -5,3 +5,11 @@
 .list-box-section {
   @apply flex flex-col items-start gap-0;
 }
+
+/* ==========================================================================
+   Section title
+   ========================================================================== */
+
+.list-box-section [data-slot="list-box-section-title"] {
+  @apply px-2.5 pt-2 pb-1 text-xs font-medium text-muted;
+}

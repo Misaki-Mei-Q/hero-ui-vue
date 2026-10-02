@@ -111,4 +111,34 @@ describe('Table', () => {
     })
     expect(wrapper.find('[data-slot="table-row"]').attributes('data-disabled')).toBe('true')
   })
+
+  it('TableRow renders each cell exactly once', () => {
+    const wrapper = mount(TableRow, {
+      slots: {
+        default: '<td>A</td><td>B</td><td>C</td>',
+      },
+    })
+    expect(wrapper.element.querySelectorAll('td').length).toBe(3)
+  })
+
+  it('does not nest td inside td when cells are TableCell components', () => {
+    const wrapper = mount(Table, {
+      slots: {
+        default: `<TableRow><TableCell>A</TableCell><TableCell>B</TableCell></TableRow>`,
+      },
+      global: { components: { TableRow, TableCell } },
+    })
+    expect(wrapper.element.querySelectorAll('tbody tr').length).toBe(1)
+    expect(wrapper.element.querySelectorAll('td').length).toBe(2)
+    expect(wrapper.element.querySelector('td td')).toBeNull()
+  })
+
+  it('applies striped and hoverable data attributes only when enabled', () => {
+    const wrapper = mount(Table, {
+      props: { striped: true, hoverable: false },
+    })
+    const body = wrapper.find('[data-slot="table-body"]')
+    expect(body.attributes('data-striped')).toBe('true')
+    expect(body.attributes('data-hoverable')).toBeUndefined()
+  })
 })

@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 import type { DateValue } from '@internationalized/date'
 import { Calendar } from 'radix-vue/namespaced'
 import { calendarVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses } from '../../utils'
 
+interface CalendarMonth {
+  value: DateValue
+  cells: DateValue[]
+  rows: DateValue[][]
+}
+
 interface CalendarProps {
   class?: string
   modelValue?: DateValue | DateValue[] | undefined
-  defaultValue?: DateValue
+  defaultValue?: DateValue | DateValue[]
   defaultPlaceholder?: DateValue
   placeholder?: DateValue
   weekStartsOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6
@@ -50,7 +56,14 @@ const emit = defineEmits<{
 }>()
 
 const slots = computed(() => calendarVariants())
-const baseClass = computed(() => composeTwClasses(props.class, slots.value.base()))
+const baseClass = computed(() =>
+  composeTwClasses(
+    props.class,
+    props.numberOfMonths > 1
+      ? `${slots.value.base()} calendar--multi`
+      : slots.value.base(),
+  ),
+)
 const headerClass = computed(() => slots.value.header())
 const headingClass = computed(() => slots.value.heading())
 const navButtonClass = computed(() => slots.value.navButton())
@@ -61,13 +74,63 @@ const gridBodyClass = computed(() => slots.value.gridBody())
 const gridRowClass = computed(() => slots.value.gridRow())
 const headerCellClass = computed(() => slots.value.headerCell())
 const cellClass = computed(() => slots.value.cell())
+const cellButtonClass = computed(() => slots.value.cellButton())
+
+const internalValue = shallowRef<DateValue | DateValue[] | undefined>(props.modelValue ?? props.defaultValue)
+
+watch(
+  () => props.modelValue,
+  (value) => {
+    if (value !== undefined) internalValue.value = value
+  },
+)
+
+const resolvedValue = computed(() => (props.modelValue !== undefined ? props.modelValue : internalValue.value))
+
+function isSameDay(a: DateValue, b: DateValue) {
+  return a.compare(b) === 0
+}
+
+function isSelected(day: DateValue) {
+  const value = resolvedValue.value
+  if (!value) return false
+  if (Array.isArray(value)) return value.some((date) => date && isSameDay(date, day))
+  return isSameDay(value, day)
+}
+
+function isToday(day: DateValue) {
+  const today = new Date()
+  return day.year === today.getFullYear() && day.month === today.getMonth() + 1 && day.day === today.getDate()
+}
+
+function isOutsideMonth(day: DateValue, month: DateValue) {
+  return day.year !== month.year || day.month !== month.month
+}
+
+function cellAttrs(day: DateValue, month: DateValue) {
+  return {
+    'data-outside-month': isOutsideMonth(day, month) ? 'true' : undefined,
+    'data-selected': isSelected(day) ? 'true' : undefined,
+    'data-today': isToday(day) ? 'true' : undefined,
+    'data-unavailable': props.isDateUnavailable?.(day) ? 'true' : undefined,
+  }
+}
+
+const formatter = computed(
+  () => new Intl.DateTimeFormat(props.locale, { month: 'long', year: 'numeric' }),
+)
+
+function monthLabel(date: DateValue) {
+  return formatter.value.format(new Date(date.year, date.month - 1, 1))
+}
 
 function onUpdateModelValue(value: DateValue | DateValue[] | undefined) {
+  if (props.modelValue === undefined) internalValue.value = value
   emit('update:modelValue', value)
 }
 
-function onUpdatePlaceholder(value: DateValue) {
-  emit('update:placeholder', value)
+function onUpdatePlaceholder(date: DateValue) {
+  emit('update:placeholder', date)
 }
 </script>
 
@@ -75,7 +138,7 @@ function onUpdatePlaceholder(value: DateValue) {
   <Calendar.Root
     :class="baseClass"
     :model-value="props.modelValue"
-    :default-value="props.defaultValue"
+    :default-value="(props.defaultValue as DateValue | undefined)"
     :default-placeholder="props.defaultPlaceholder"
     :placeholder="props.placeholder"
     :week-starts-on="props.weekStartsOn"
@@ -97,79 +160,105 @@ function onUpdatePlaceholder(value: DateValue) {
     @update:model-value="onUpdateModelValue"
     @update:placeholder="onUpdatePlaceholder"
   >
-<template #default="slotScope">
-      <Calendar.Header :class="headerClass" data-slot="calendar-header">
-        <Calendar.Prev :class="navButtonClass" data-slot="calendar-prev">
-          <slot name="prev-icon">
-            <svg
-              :class="navButtonIconClass"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
+    <template #default="slotScope">
+      <div class="calendar__months" data-slot="calendar-months">
+        <div
+          v-for="(month, mIdx) in (slotScope.grid as unknown as CalendarMonth[])"
+          :key="`month-${mIdx}`"
+          class="calendar__month"
+          data-slot="calendar-month"
+        >
+          <Calendar.Header :class="headerClass" data-slot="calendar-header">
+            <Calendar.Prev
+              v-if="mIdx === 0"
+              :class="navButtonClass"
+              data-slot="calendar-prev"
             >
-              <path d="M10 4l-3 4 3 4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </slot>
-        </Calendar.Prev>
-        <Calendar.Heading :class="headingClass" data-slot="calendar-heading">
-          <slot name="heading" :date="slotScope.date">{{ (slotScope.date as DateValue).toString() }}</slot>
-        </Calendar.Heading>
-        <Calendar.Next :class="navButtonClass" data-slot="calendar-next">
-          <slot name="next-icon">
-            <svg
-              :class="navButtonIconClass"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <path d="M6 4l3 4-3 4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </slot>
-        </Calendar.Next>
-      </Calendar.Header>
-
-      <Calendar.Grid :class="gridClass" data-slot="calendar-grid">
-        <Calendar.GridHead :class="gridHeaderClass" data-slot="calendar-grid-header">
-          <Calendar.GridRow :class="gridRowClass" data-slot="calendar-grid-row">
-            <Calendar.HeadCell
-              v-for="(day, idx) in slotScope.weekDays"
-              :key="`head-${idx}`"
-              :class="headerCellClass"
-              data-slot="calendar-header-cell"
-            >
-              {{ day }}
-            </Calendar.HeadCell>
-          </Calendar.GridRow>
-        </Calendar.GridHead>
-        <Calendar.GridBody :class="gridBodyClass" data-slot="calendar-grid-body">
-          <Calendar.GridRow
-            v-for="(week, wIdx) in slotScope.grid"
-            :key="`row-${wIdx}`"
-            :class="gridRowClass"
-            data-slot="calendar-grid-row"
-          >
-            <Calendar.Cell
-              v-for="(day, dIdx) in week"
-              :key="`cell-${wIdx}-${dIdx}`"
-              :class="cellClass"
-              :date="day as DateValue"
-              data-slot="calendar-cell"
-            >
-              <Calendar.CellTrigger
-                :day="day as DateValue"
-                :month="slotScope.date as DateValue"
-                data-slot="cell-trigger"
+              <slot name="prev-icon">
+                <svg
+                  :class="navButtonIconClass"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M10 4l-3 4 3 4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </slot>
+            </Calendar.Prev>
+            <Calendar.Heading :class="headingClass" data-slot="calendar-heading">
+              <slot
+                name="heading"
+                :date="slotScope.date"
+                :month="month.value"
+                :heading-value="monthLabel(month.value)"
               >
-                <slot name="cell" :day="day">
-                  {{ (day as DateValue).day }}
-                </slot>
-              </Calendar.CellTrigger>
-            </Calendar.Cell>
-          </Calendar.GridRow>
-        </Calendar.GridBody>
-      </Calendar.Grid>
+                {{ monthLabel(month.value) }}
+              </slot>
+            </Calendar.Heading>
+            <Calendar.Next
+              v-if="mIdx === (slotScope.grid as unknown as CalendarMonth[]).length - 1"
+              :class="navButtonClass"
+              data-slot="calendar-next"
+            >
+              <slot name="next-icon">
+                <svg
+                  :class="navButtonIconClass"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M6 4l3 4-3 4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </slot>
+            </Calendar.Next>
+          </Calendar.Header>
+
+          <Calendar.Grid :class="gridClass" data-slot="calendar-grid">
+            <Calendar.GridHead :class="gridHeaderClass" data-slot="calendar-grid-header">
+              <Calendar.GridRow :class="gridRowClass" data-slot="calendar-grid-row">
+                <Calendar.HeadCell
+                  v-for="(day, idx) in slotScope.weekDays"
+                  :key="`head-${idx}`"
+                  :class="headerCellClass"
+                  data-slot="calendar-header-cell"
+                >
+                  {{ day }}
+                </Calendar.HeadCell>
+              </Calendar.GridRow>
+            </Calendar.GridHead>
+            <Calendar.GridBody :class="gridBodyClass" data-slot="calendar-grid-body">
+              <Calendar.GridRow
+                v-for="(week, wIdx) in month.rows"
+                :key="`row-${wIdx}`"
+                :class="gridRowClass"
+                data-slot="calendar-grid-row"
+              >
+                <Calendar.Cell
+                  v-for="(day, dIdx) in week"
+                  :key="`cell-${wIdx}-${dIdx}`"
+                  :class="cellClass"
+                  :date="day"
+                  v-bind="cellAttrs(day, month.value)"
+                  data-slot="calendar-cell"
+                >
+                  <Calendar.CellTrigger
+                    :day="day"
+                    :month="month.value"
+                    :class="cellButtonClass"
+                    data-slot="cell-trigger"
+                  >
+                    <slot name="cell" :day="day">
+                      {{ day.day }}
+                    </slot>
+                  </Calendar.CellTrigger>
+                </Calendar.Cell>
+              </Calendar.GridRow>
+            </Calendar.GridBody>
+          </Calendar.Grid>
+        </div>
+      </div>
     </template>
   </Calendar.Root>
 </template>

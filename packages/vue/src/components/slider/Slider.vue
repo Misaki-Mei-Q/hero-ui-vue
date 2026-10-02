@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import {
   SliderRoot,
   SliderTrack,
@@ -70,8 +70,18 @@ function toArray(v: SliderValue | undefined, fallback: number): number[] {
   return Array.isArray(v) ? v : [v]
 }
 
-const normalisedValue = computed(() =>
-  toArray(props.modelValue ?? props.defaultValue, 0),
+const internalValue = ref<number[]>(toArray(props.defaultValue, 0))
+const currentValues = computed(() =>
+  props.modelValue !== undefined
+    ? toArray(props.modelValue, 0)
+    : internalValue.value,
+)
+
+watch(
+  () => props.defaultValue,
+  (next) => {
+    if (props.modelValue === undefined) internalValue.value = toArray(next, 0)
+  },
 )
 
 const numberFormatter = computed<Intl.NumberFormat | null>(() => {
@@ -96,10 +106,11 @@ function formatNumber(value: number): string {
 
 const valueLabel = computed(() => {
   if (props.getValue) {
-    const v = props.modelValue ?? props.defaultValue ?? 0
-    return props.getValue(v)
+    const values = currentValues.value
+    const source: SliderValue = values.length === 1 ? values[0]! : values
+    return props.getValue(source)
   }
-  return normalisedValue.value.map(formatNumber).join(' – ')
+  return currentValues.value.map(formatNumber).join(' – ')
 })
 
 const rootProps = computed<SliderRootProps>(() => ({
@@ -124,12 +135,14 @@ const rootProps = computed<SliderRootProps>(() => ({
 
 function onUpdateModelValue(payload: number[] | undefined) {
   const arr = payload ?? []
+  if (props.modelValue === undefined) internalValue.value = arr
   const next: SliderValue = arr.length === 1 ? arr[0]! : arr
   emit('update:modelValue', next)
   emit('change', next)
 }
 
 function onValueCommit(payload: number[]) {
+  if (props.modelValue === undefined) internalValue.value = payload
   const next: SliderValue = payload.length === 1 ? payload[0]! : payload
   emit('update:modelValue', next)
   emit('change-end', next)
@@ -143,10 +156,36 @@ const thumbClass = computed(() => slots.value.thumb())
 const marksClass = computed(() => slots.value.marks())
 
 const hasSteps = computed(() => props.showSteps || props.marks.length > 0)
+
 const totalSteps = computed(() => {
   const range = props.maxValue - props.minValue
   if (range <= 0 || props.step <= 0) return 0
   return Math.round(range / props.step)
+})
+
+const fillAttrs = computed(() => {
+  const range = props.maxValue - props.minValue
+  const percent = (value: number) => {
+    if (range <= 0) return 0
+    return Math.max(0, Math.min(1, (value - props.minValue) / range))
+  }
+  const values = currentValues.value
+  const percents = values.map(percent)
+  if (values.length <= 1) {
+    const end = percents[0] ?? 0
+    const fillWidth = end * 100
+    return {
+      'data-fill-start': fillWidth > 0 ? 'true' : undefined,
+      'data-fill-end': fillWidth === 100 ? 'true' : undefined,
+    }
+  }
+  const start = Math.min(...percents)
+  const end = Math.max(...percents)
+  const fillWidth = (end - start) * 100
+  return {
+    'data-fill-start': start === 0 ? 'true' : undefined,
+    'data-fill-end': start * 100 + fillWidth === 100 ? 'true' : undefined,
+  }
 })
 
 function stepStyle(index: number): Record<string, string> {
@@ -165,7 +204,7 @@ function stepStyle(index: number): Record<string, string> {
 
 function stepInRange(index: number): boolean {
   const value = props.minValue + index * props.step
-  const arr = normalisedValue.value
+  const arr = currentValues.value
   if (arr.length === 1) {
     if (props.fillOffset > 0) {
       return value >= props.fillOffset && value <= arr[0]!
@@ -201,13 +240,13 @@ function stepInRange(index: number): boolean {
       <slot name="output">{{ valueLabel }}</slot>
     </span>
 
-    <SliderTrack :class="trackClass" data-slot="slider-track">
+    <SliderTrack v-bind="fillAttrs" :class="trackClass" data-slot="slider-track">
       <SliderRange :class="fillClass" data-slot="slider-fill" />
     </SliderTrack>
 
     <SliderThumb
-      v-for="(value, index) in normalisedValue"
-      :key="`${value}-${index}`"
+      v-for="(value, index) in currentValues"
+      :key="index"
       :class="thumbClass"
       data-slot="slider-thumb"
     >

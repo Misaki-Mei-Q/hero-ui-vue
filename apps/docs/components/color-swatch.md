@@ -22,4 +22,8 @@ import { ColorSwatch } from '@misaki-mei/heroui-vue'
 
 ## Accessibility
 
-- The swatch exposes `aria-label="Color swatch: #rrggbb"`.
+- The swatch exposes `role="img"` and `aria-label="Color swatch: #rrggbb"`.
+
+## Transparency
+
+- The current color is exposed through the `--color-swatch-current` CSS custom property, so translucent colors render over a checkerboard.
