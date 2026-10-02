@@ -163,7 +163,7 @@
   z-index: 1000;
   max-height: 20rem;
 
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--overlay-shadow);
 
   /* Focus state */
   &:focus-visible:not(:focus),

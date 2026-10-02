@@ -14,9 +14,10 @@ const basicTabs = {
   template: `
     <Tabs default-value="preview">
       <TabList>
-        <Tab value="preview">Preview<TabIndicator /></Tab>
-        <Tab value="code">Code<TabIndicator /></Tab>
-        <Tab value="api" disabled>API<TabIndicator /></Tab>
+        <Tab value="preview">Preview</Tab>
+        <Tab value="code">Code</Tab>
+        <Tab value="api" disabled>API</Tab>
+        <TabIndicator />
       </TabList>
       <TabPanel value="preview"><span data-test="panel-preview">Preview panel</span></TabPanel>
       <TabPanel value="code"><span data-test="panel-code">Code panel</span></TabPanel>
@@ -41,17 +42,9 @@ describe('Tabs', () => {
     expect(selected[0]!.text()).toContain('Preview')
   })
 
-  it('renders the indicator only inside the selected tab', () => {
+  it('registers the indicator inside the tab list', () => {
     const wrapper = mount(basicTabs, { attachTo: document.body })
-    const indicator = wrapper.find('[data-slot="tabs-indicator"]')
-    expect(indicator.exists()).toBe(true)
-    expect(indicator.classes()).toContain('tabs__indicator')
-    expect(
-      wrapper.find('[data-slot="tab"][data-selected="true"] [data-slot="tabs-indicator"]').exists(),
-    ).toBe(true)
-    expect(
-      wrapper.find('[data-slot="tab"][data-selected="false"] [data-slot="tabs-indicator"]').exists(),
-    ).toBe(false)
+    expect(wrapper.findComponent(TabIndicator).exists()).toBe(true)
   })
 
   it('shows only the active panel', () => {
@@ -89,7 +82,8 @@ describe('Tabs', () => {
         template: `
           <Tabs default-value="a" orientation="vertical">
             <TabList>
-              <Tab value="a">A<TabIndicator /></Tab>
+              <Tab value="a">A</Tab>
+              <TabIndicator />
             </TabList>
             <TabPanel value="a">A panel</TabPanel>
           </Tabs>

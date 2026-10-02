@@ -149,16 +149,17 @@
   }
 }
 
-/* Tab indicator - React Aria's SelectionIndicator */
+/* Tab indicator - slides to the active tab via Radix's measured size/position */
 .tabs__indicator {
-  box-shadow: var(--shadow-surface);
+  box-shadow: var(--surface-shadow);
   position: absolute;
-  top: 0;
+  inset-block: 0.25rem;
   left: 0;
   z-index: -1;
   border-radius: var(--radius-3xl);
-  width: 100%;
-  height: 100%;
+  width: var(--radix-tabs-indicator-size, 0px);
+
+  translate: var(--radix-tabs-indicator-position, 0px) 0;
 
   @apply bg-segment;
 
@@ -170,6 +171,16 @@
   transition-property: translate, width, height;
   transition-timing-function: var(--ease-out-fluid);
   @apply motion-reduce:transition-none;
+}
+
+/* Vertical orientation - slide on the Y axis */
+.tabs[data-orientation="vertical"] .tabs__indicator {
+  inset-block: 0;
+  inset-inline: 0.25rem;
+  width: 100%;
+  height: var(--radix-tabs-indicator-size, 0px);
+
+  translate: 0 var(--radix-tabs-indicator-position, 0px);
 }
 
 /* ==========================================================================
@@ -228,6 +239,7 @@
 
   /* Horizontal orientation - bottom line indicator */
   &[data-orientation="horizontal"] > .tabs__list-container .tabs__indicator {
+    inset-block: auto;
     top: auto;
     bottom: 0;
     height: 2px;
@@ -235,9 +247,13 @@
 
   /* Vertical orientation - left line indicator */
   &[data-orientation="vertical"] > .tabs__list-container .tabs__indicator {
+    inset-block: 0;
+    inset-inline: auto;
     left: 0;
     top: 0;
     width: 2px;
     height: 100%;
+
+    translate: 0 var(--radix-tabs-indicator-position, 0px);
   }
 }

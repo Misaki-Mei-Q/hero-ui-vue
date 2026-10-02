@@ -65,7 +65,7 @@
 
   cursor: var(--cursor-interactive);
 
-  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state ï¿½?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover,
     &[data-hovered="true"] {
@@ -115,22 +115,14 @@
 .range-calendar__grid-header {
   /* Grid header (thead) styles */
   display: contents;
-
-  & > tr {
-    display: contents;
-  }
 }
 
 .range-calendar__grid-body {
   /* Grid body (tbody) styles */
   display: contents;
 
-  & > tr {
-    display: contents;
-  }
-
   /* Add top spacing between header and first body row */
-  & > tr:first-child > td {
+  & > .range-calendar__grid-row:first-child > .range-calendar__cell-wrapper {
     @apply mt-1;
   }
 }
@@ -195,14 +187,20 @@
   }
 
   /* Round row boundaries so the range track looks continuous across weeks */
-  &[data-selected="true"]:is(td:first-child > *, [aria-disabled] + td > *) {
+  &[data-selected="true"]:is(
+      .range-calendar__cell-wrapper:first-child > *,
+      [aria-disabled] + .range-calendar__cell-wrapper > *
+    ) {
     @apply rounded-ss-lg rounded-es-lg;
     &[data-selection-start="true"] {
       @apply rounded-ss-full rounded-es-full;
     }
   }
 
-  &[data-selected="true"]:is(td:last-child > *, td:has(+ [aria-disabled]) > *) {
+  &[data-selected="true"]:is(
+      .range-calendar__cell-wrapper:last-child > *,
+      .range-calendar__cell-wrapper:has(+ [aria-disabled]) > *
+    ) {
     @apply rounded-se-lg rounded-ee-lg;
     &[data-selection-end="true"] {
       @apply rounded-se-full rounded-ee-full;
@@ -282,10 +280,10 @@
   }
 }
 
-/* Outside-month cell followed by selected cell across adjacent table cells */
+/* Outside-month cell followed by selected cell across adjacent grid cells */
 .range-calendar__grid-body
-  td:has(> .range-calendar__cell[data-outside-month="true"])
-  + td
+  .range-calendar__cell-wrapper:has(> .range-calendar__cell[data-outside-month="true"])
+  + .range-calendar__cell-wrapper
   > .range-calendar__cell[data-selected="true"] {
   @apply rounded-ss-lg rounded-es-lg;
 
@@ -295,10 +293,10 @@
   }
 }
 
-/* Selected cell followed by outside-month cell across adjacent table cells */
+/* Selected cell followed by outside-month cell across adjacent grid cells */
 .range-calendar__grid-body
-  td:has(> .range-calendar__cell[data-selected="true"]):has(
-    + td > .range-calendar__cell[data-outside-month="true"]
+  .range-calendar__cell-wrapper:has(> .range-calendar__cell[data-selected="true"]):has(
+    + .range-calendar__cell-wrapper > .range-calendar__cell[data-outside-month="true"]
   )
   > .range-calendar__cell[data-selected="true"] {
   @apply rounded-se-lg rounded-ee-lg;

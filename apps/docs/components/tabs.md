@@ -16,7 +16,7 @@ demo-preview=../demos/tabs-basic.vue
 
 :::
 
-Place `<TabIndicator />` inside each `Tab` to render the animated active tab pill (primary variant) or underline (secondary variant).
+Place `<TabIndicator />` inside the `TabList` to render the animated active tab pill (primary variant) or underline (secondary variant).
 
 ## API
 

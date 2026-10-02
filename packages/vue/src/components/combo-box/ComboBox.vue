@@ -518,7 +518,7 @@ defineExpose({ focus: () => inputEl.value?.focus() })
           <button
             v-if="hasSelection && !finalIsDisabled"
             type="button"
-            :class="[triggerClass, clearClass]"
+            :class="clearClass"
             aria-label="Clear selection"
             data-slot="combo-box-clear"
             @click="clearSelection"

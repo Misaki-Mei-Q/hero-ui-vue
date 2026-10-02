@@ -10,6 +10,16 @@ import { ColorSlider } from '@misaki-mei/heroui-vue'
 </script>
 ```
 
+## Usage
+
+### Basic
+
+:::preview
+
+demo-preview=../demos/color-slider-basic.vue
+
+:::
+
 ## API
 
 ### ColorSlider Props

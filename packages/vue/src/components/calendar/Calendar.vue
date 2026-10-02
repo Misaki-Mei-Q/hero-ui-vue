@@ -215,12 +215,18 @@ function onUpdatePlaceholder(date: DateValue) {
             </Calendar.Next>
           </Calendar.Header>
 
-          <Calendar.Grid :class="gridClass" data-slot="calendar-grid">
-            <Calendar.GridHead :class="gridHeaderClass" data-slot="calendar-grid-header">
-              <Calendar.GridRow :class="gridRowClass" data-slot="calendar-grid-row">
+          <Calendar.Grid as="div" :class="gridClass" data-slot="calendar-grid">
+            <Calendar.GridHead as="div" :class="gridHeaderClass" data-slot="calendar-grid-header">
+              <Calendar.GridRow
+                as="div"
+                role="row"
+                :class="gridRowClass"
+                data-slot="calendar-grid-row"
+              >
                 <Calendar.HeadCell
                   v-for="(day, idx) in slotScope.weekDays"
                   :key="`head-${idx}`"
+                  as="div"
                   :class="headerCellClass"
                   data-slot="calendar-header-cell"
                 >
@@ -228,16 +234,19 @@ function onUpdatePlaceholder(date: DateValue) {
                 </Calendar.HeadCell>
               </Calendar.GridRow>
             </Calendar.GridHead>
-            <Calendar.GridBody :class="gridBodyClass" data-slot="calendar-grid-body">
+            <Calendar.GridBody as="div" :class="gridBodyClass" data-slot="calendar-grid-body">
               <Calendar.GridRow
                 v-for="(week, wIdx) in month.rows"
                 :key="`row-${wIdx}`"
+                as="div"
+                role="row"
                 :class="gridRowClass"
                 data-slot="calendar-grid-row"
               >
                 <Calendar.Cell
                   v-for="(day, dIdx) in week"
                   :key="`cell-${wIdx}-${dIdx}`"
+                  as="div"
                   :class="cellClass"
                   :date="day"
                   v-bind="cellAttrs(day, month.value)"

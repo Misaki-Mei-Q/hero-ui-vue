@@ -19,8 +19,8 @@ interface ColorAreaProps {
 
 const props = withDefaults(defineProps<ColorAreaProps>(), {
   hue: 0,
-  saturation: 100,
-  lightness: 50,
+  saturation: undefined,
+  lightness: undefined,
   xChannel: 'saturation',
   yChannel: 'lightness',
   isDisabled: undefined,
@@ -33,6 +33,10 @@ const emit = defineEmits<{
   'update:lightness': [value: number]
   change: [saturation: number, lightness: number]
 }>()
+
+const internal = ref({ saturation: 100, lightness: 50 })
+const currentSaturation = computed(() => props.saturation ?? internal.value.saturation)
+const currentLightness = computed(() => props.lightness ?? internal.value.lightness)
 
 const slots = computed(() => colorAreaVariants({ showDots: false }))
 const baseClass = computed(() =>
@@ -50,8 +54,8 @@ function clampPercent(value: number) {
 }
 
 function channelColor(channel: ColorAreaChannel, value: number) {
-  const saturation = channel === 'saturation' ? value : props.saturation
-  const lightness = channel === 'lightness' ? value : props.lightness
+  const saturation = channel === 'saturation' ? value : currentSaturation.value
+  const lightness = channel === 'lightness' ? value : currentLightness.value
   return `hsl(${props.hue}, ${saturation}%, ${lightness}%)`
 }
 
@@ -65,17 +69,21 @@ const gradient = computed(() => {
 
 const rootStyle = computed(() => ({ '--color-area-background': gradient.value }))
 
-const xValue = computed(() => (props.xChannel === 'saturation' ? props.saturation : props.lightness))
-const yValue = computed(() => (props.yChannel === 'saturation' ? props.saturation : props.lightness))
+const xValue = computed(() =>
+  props.xChannel === 'saturation' ? currentSaturation.value : currentLightness.value,
+)
+const yValue = computed(() =>
+  props.yChannel === 'saturation' ? currentSaturation.value : currentLightness.value,
+)
 
 const thumbStyle = computed(() => ({
   left: `${xValue.value}%`,
   top: `${100 - yValue.value}%`,
-  '--color-area-thumb-color': `hsl(${props.hue}, ${props.saturation}%, ${props.lightness}%)`,
+  '--color-area-thumb-color': `hsl(${props.hue}, ${currentSaturation.value}%, ${currentLightness.value}%)`,
 }))
 
 const ariaValueText = computed(
-  () => `Saturation ${props.saturation}%, Lightness ${props.lightness}%`,
+  () => `Saturation ${currentSaturation.value}%, Lightness ${currentLightness.value}%`,
 )
 
 const dragging = ref(false)
@@ -92,11 +100,13 @@ function pointFromEvent(event: PointerEvent) {
 
 function applyPoint(x: number, y: number) {
   const next = {
-    saturation: props.saturation,
-    lightness: props.lightness,
+    saturation: currentSaturation.value,
+    lightness: currentLightness.value,
     [props.xChannel]: x,
     [props.yChannel]: y,
   }
+  if (props.saturation === undefined) internal.value.saturation = next.saturation
+  if (props.lightness === undefined) internal.value.lightness = next.lightness
   emit('update:saturation', next.saturation)
   emit('update:lightness', next.lightness)
   emit('change', next.saturation, next.lightness)
@@ -126,7 +136,7 @@ function endDrag(event: PointerEvent) {
 function onKeydown(event: KeyboardEvent) {
   if (props.isDisabled) return
   const step = event.shiftKey ? props.step * 10 : props.step
-  const next = { saturation: props.saturation, lightness: props.lightness }
+  const next = { saturation: currentSaturation.value, lightness: currentLightness.value }
   switch (event.key) {
     case 'ArrowLeft':
       next[props.xChannel] -= step

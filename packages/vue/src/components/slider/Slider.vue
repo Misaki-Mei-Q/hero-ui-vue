@@ -242,16 +242,15 @@ function stepInRange(index: number): boolean {
 
     <SliderTrack v-bind="fillAttrs" :class="trackClass" data-slot="slider-track">
       <SliderRange :class="fillClass" data-slot="slider-fill" />
+      <SliderThumb
+        v-for="(value, index) in currentValues"
+        :key="index"
+        :class="thumbClass"
+        data-slot="slider-thumb"
+      >
+        <slot name="thumb" :value="value" :index="index" />
+      </SliderThumb>
     </SliderTrack>
-
-    <SliderThumb
-      v-for="(value, index) in currentValues"
-      :key="index"
-      :class="thumbClass"
-      data-slot="slider-thumb"
-    >
-      <slot name="thumb" :value="value" :index="index" />
-    </SliderThumb>
 
     <div
       v-if="hasSteps"

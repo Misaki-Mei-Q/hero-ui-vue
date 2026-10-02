@@ -10,6 +10,18 @@ import { ColorArea } from '@misaki-mei/heroui-vue'
 </script>
 ```
 
+## Usage
+
+### Basic
+
+:::preview
+
+demo-preview=../demos/color-area-basic.vue
+
+:::
+
+Drag inside the area, or focus it and use the arrow keys, to change saturation and lightness.
+
 ## API
 
 ### ColorArea Props

@@ -1,9 +1,10 @@
 <template>
   <Tabs default-value="preview" class="w-full max-w-xl">
     <TabList>
-      <Tab value="preview">Preview<TabIndicator /></Tab>
-      <Tab value="code">Code<TabIndicator /></Tab>
-      <Tab value="api">API<TabIndicator /></Tab>
+      <Tab value="preview">Preview</Tab>
+      <Tab value="code">Code</Tab>
+      <Tab value="api">API</Tab>
+      <TabIndicator />
     </TabList>
     <TabPanel value="preview">
       <Card variant="secondary">

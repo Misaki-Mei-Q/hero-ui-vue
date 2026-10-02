@@ -3,7 +3,7 @@
 /* Base tooltip styles */
 .tooltip {
   @apply max-w-xs origin-(--trigger-anchor-point) rounded-xl bg-overlay px-2 py-1 text-xs break-all;
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--overlay-shadow);
 
   /* Entering animations */
   &[data-entering="true"],

@@ -65,7 +65,7 @@
 
   cursor: var(--cursor-interactive);
 
-  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state ï¿½?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover,
     &[data-hovered="true"] {
@@ -115,22 +115,14 @@
 .calendar__grid-header {
   /* Grid header (thead) styles */
   display: contents;
-
-  & > tr {
-    display: contents;
-  }
 }
 
 .calendar__grid-body {
   /* Grid body (tbody) styles */
   display: contents;
 
-  & > tr {
-    display: contents;
-  }
-
   /* Add top spacing between header and first body row */
-  & > tr:first-child > td {
+  & > .calendar__grid-row:first-child > .calendar__cell {
     @apply mt-1;
   }
 }
@@ -192,7 +184,7 @@
     }
   }
 
-  /* Hover state â€?only on devices that support hover (avoids false triggers on touch) */
+  /* Hover state ï¿½?only on devices that support hover (avoids false triggers on touch) */
   @media (hover: hover) {
     &:hover:not([data-selected="true"]),
     &[data-hovered="true"]:not([data-selected="true"]) {

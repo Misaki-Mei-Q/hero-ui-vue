@@ -186,12 +186,18 @@ function onUpdatePlaceholder(date: DateValue) {
             </RangeCalendar.Next>
           </RangeCalendar.Header>
 
-          <RangeCalendar.Grid :class="gridClass" data-slot="range-calendar-grid">
-            <RangeCalendar.GridHead :class="gridHeaderClass" data-slot="range-calendar-grid-header">
-              <RangeCalendar.GridRow :class="gridRowClass" data-slot="range-calendar-grid-row">
+          <RangeCalendar.Grid as="div" :class="gridClass" data-slot="range-calendar-grid">
+            <RangeCalendar.GridHead as="div" :class="gridHeaderClass" data-slot="range-calendar-grid-header">
+              <RangeCalendar.GridRow
+                as="div"
+                role="row"
+                :class="gridRowClass"
+                data-slot="range-calendar-grid-row"
+              >
                 <RangeCalendar.HeadCell
                   v-for="(day, idx) in slotScope.weekDays"
                   :key="`head-${idx}`"
+                  as="div"
                   :class="headerCellClass"
                   data-slot="range-calendar-header-cell"
                 >
@@ -199,16 +205,20 @@ function onUpdatePlaceholder(date: DateValue) {
                 </RangeCalendar.HeadCell>
               </RangeCalendar.GridRow>
             </RangeCalendar.GridHead>
-            <RangeCalendar.GridBody :class="gridBodyClass" data-slot="range-calendar-grid-body">
+            <RangeCalendar.GridBody as="div" :class="gridBodyClass" data-slot="range-calendar-grid-body">
               <RangeCalendar.GridRow
                 v-for="(week, wIdx) in month.rows"
                 :key="`row-${wIdx}`"
+                as="div"
+                role="row"
                 :class="gridRowClass"
                 data-slot="range-calendar-grid-row"
               >
                 <RangeCalendar.Cell
                   v-for="(day, dIdx) in week"
                   :key="`cell-${wIdx}-${dIdx}`"
+                  as="div"
+                  class="range-calendar__cell-wrapper"
                   :date="day"
                   data-slot="range-calendar-cell"
                 >

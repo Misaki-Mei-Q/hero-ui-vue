@@ -103,17 +103,17 @@ function onHexInput(event: Event) {
         :side-offset="props.offset"
         data-slot="color-picker-popover"
       >
-        <div v-if="props.showHexInput" class="flex flex-col gap-2">
-          <slot name="selector">
-            <input
-              type="text"
-              class="w-full rounded border border-default bg-field px-2 py-1 text-sm"
-              :value="props.modelValue ?? ''"
-              placeholder="#000000"
-              data-slot="color-picker-hex"
-              @change="onHexInput"
-            />
-          </slot>
+        <div v-if="props.showHexInput || $slots.selector" class="flex flex-col gap-3">
+          <slot name="selector" />
+          <input
+            v-if="props.showHexInput"
+            type="text"
+            class="w-full rounded border border-default bg-field px-2 py-1 text-sm"
+            :value="props.modelValue ?? ''"
+            placeholder="#000000"
+            data-slot="color-picker-hex"
+            @change="onHexInput"
+          />
         </div>
         <slot />
       </PopoverContent>

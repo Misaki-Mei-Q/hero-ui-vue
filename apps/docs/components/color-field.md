@@ -12,6 +12,14 @@ import { ColorField } from '@misaki-mei/heroui-vue'
 
 ## Usage
 
+### Basic
+
+:::preview
+
+demo-preview=../demos/color-field-basic.vue
+
+:::
+
 Use `ColorField` to capture a `#rgb`, `#rgba`, `#rrggbb` or `#rrggbbaa` value. The swatch prefix reflects the current value, and updates are only emitted once the typed value is a valid hex color.
 
 ## API

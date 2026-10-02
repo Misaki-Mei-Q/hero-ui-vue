@@ -44,7 +44,7 @@ demo-preview=../demos/toast-variants.vue
 
 ### `useToast()` Composable
 
-Backed by a module-level queue, so it can be called anywhere (including in the parent of `<ToastProvider>`):
+Returns `null` outside of a `<ToastProvider>`, otherwise an object. Call it from a component nested inside the provider:
 
 ```ts
 interface ToastApi {

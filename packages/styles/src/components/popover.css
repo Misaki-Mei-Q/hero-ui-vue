@@ -3,7 +3,7 @@
 /* Base popover styles */
 .popover {
   @apply origin-(--trigger-anchor-point) rounded-3xl bg-overlay p-0 text-sm;
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--overlay-shadow);
 
   /* Entering animations */
   &[data-entering="true"],

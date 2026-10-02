@@ -10,6 +10,7 @@ interface ToastItemProps {
   placement: ToastPlacement
   index: number
   expanded: boolean
+  exiting: boolean
   frontMost: boolean
   hidden: boolean
   offsetCollapsed: string
@@ -102,9 +103,12 @@ function onOpenChange(open: boolean) {
   <ToastNS.Root
     :ref="setRootEl"
     :duration="props.toast.duration ?? 5000"
+    :open="!props.exiting"
+    force-mount
     :class="toastClass"
     :style="rootStyle"
     :data-entering="dataAttr(entering)"
+    :data-exiting="dataAttr(props.exiting)"
     :data-expanded="dataAttr(props.expanded)"
     :data-frontmost="dataAttr(props.frontMost)"
     :data-hidden="dataAttr(props.hidden)"

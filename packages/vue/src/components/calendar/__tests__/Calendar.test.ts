@@ -49,9 +49,9 @@ describe('Calendar', () => {
     const triggers = queryAll('[data-slot="cell-trigger"]')
     expect(triggers.length).toBeGreaterThanOrEqual(28)
     expect(triggers.length % 7).toBe(0)
-    expect(document.querySelector('[data-slot="calendar-grid"]')?.tagName).toBe('TABLE')
-    expect(document.querySelector('[data-slot="calendar-grid-row"]')?.tagName).toBe('TR')
-    expect(document.querySelector('[data-slot="calendar-cell"]')?.tagName).toBe('TD')
+    expect(document.querySelector('[data-slot="calendar-grid"]')?.tagName).toBe('DIV')
+    expect(document.querySelector('[data-slot="calendar-grid-row"]')?.tagName).toBe('DIV')
+    expect(document.querySelector('[data-slot="calendar-cell"]')?.tagName).toBe('DIV')
   })
 
   it('marks the selected date', () => {

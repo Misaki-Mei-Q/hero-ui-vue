@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue'
+import { computed, onBeforeUnmount, provide, ref } from 'vue'
 import { Toast as ToastNS } from 'radix-vue/namespaced'
 import { toastVariants } from '@misaki-mei/heroui-vue-styles'
 import { composeTwClasses, dataAttr } from '../../utils'
 import { TOAST_API_KEY } from './context'
-import type { ToastPlacement } from './context'
-import { toastQueue } from './queue'
+import type { ToastApi, ToastEntry, ToastPlacement } from './context'
 import ToastItem from './ToastItem.vue'
 
 interface ToastProviderProps {
@@ -35,9 +34,70 @@ const viewportClass = computed(() =>
   ),
 )
 
-provide(TOAST_API_KEY, toastQueue)
-
+const toasts = ref<ToastEntry[]>([])
 const heights = ref<Record<string, number>>({})
+const exiting = ref<Record<string, boolean>>({})
+const exitTimers = new Map<string, ReturnType<typeof setTimeout>>()
+
+function generateId() {
+  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+    return (crypto as { randomUUID?: () => string }).randomUUID!()
+  }
+  return `toast-${Math.random().toString(36).slice(2, 10)}`
+}
+
+function show(entry: Omit<ToastEntry, 'id'> & { id?: string }): string {
+  const id = entry.id ?? generateId()
+  toasts.value = [
+    ...toasts.value,
+    { ...entry, id, duration: entry.duration ?? props.duration },
+  ]
+  return id
+}
+
+function update(id: string, patch: Partial<Omit<ToastEntry, 'id'>>) {
+  toasts.value = toasts.value.map((toast) => (toast.id === id ? { ...toast, ...patch } : toast))
+}
+
+function clearExit(id: string) {
+  const timer = exitTimers.get(id)
+  if (timer) {
+    clearTimeout(timer)
+    exitTimers.delete(id)
+  }
+  if (id in exiting.value) {
+    const next = { ...exiting.value }
+    delete next[id]
+    exiting.value = next
+  }
+}
+
+function removeToast(id: string) {
+  clearExit(id)
+  removeHeight(id)
+  toasts.value = toasts.value.filter((toast) => toast.id !== id)
+}
+
+function close(id?: string) {
+  if (!id) {
+    for (const toast of toasts.value) startExit(toast.id)
+    return
+  }
+  startExit(id)
+}
+
+function closeAll() {
+  close()
+}
+
+function startExit(id: string) {
+  if (exiting.value[id] || !toasts.value.some((toast) => toast.id === id)) return
+  exiting.value = { ...exiting.value, [id]: true }
+  exitTimers.set(
+    id,
+    setTimeout(() => removeToast(id), 320),
+  )
+}
 
 function setHeight(id: string, height: number) {
   if (heights.value[id] === height) return
@@ -51,9 +111,17 @@ function removeHeight(id: string) {
   heights.value = next
 }
 
+onBeforeUnmount(() => {
+  for (const timer of exitTimers.values()) clearTimeout(timer)
+  exitTimers.clear()
+})
+
+const api: ToastApi = { toasts, show, update, close, closeAll }
+provide(TOAST_API_KEY, api)
+
 const expandedByInteraction = ref(false)
 const isExpanded = computed(
-  () => expandedByInteraction.value && toastQueue.toasts.value.length > 1,
+  () => expandedByInteraction.value && toasts.value.filter((toast) => !exiting.value[toast.id]).length > 1,
 )
 
 const regionStyle = computed(() => ({
@@ -63,7 +131,7 @@ const regionStyle = computed(() => ({
   '--toast-width': typeof props.width === 'number' ? `${props.width}px` : props.width,
 }))
 
-const orderedToasts = computed(() => [...toastQueue.toasts.value].reverse())
+const orderedToasts = computed(() => [...toasts.value].reverse())
 
 function frontHeight() {
   const frontId = orderedToasts.value[0]?.id
@@ -86,8 +154,7 @@ function offsetExpanded(index: number) {
 }
 
 function onClose(id: string) {
-  removeHeight(id)
-  toastQueue.close(id)
+  startExit(id)
 }
 </script>
 
@@ -112,6 +179,7 @@ function onClose(id: string) {
         :placement="props.placement"
         :index="index"
         :expanded="isExpanded"
+        :exiting="!!exiting[toast.id]"
         :front-most="index === 0"
         :hidden="index >= props.maxVisibleToasts"
         :offset-collapsed="offsetCollapsed(index)"

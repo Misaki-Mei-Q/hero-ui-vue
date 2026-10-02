@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import { TabsIndicator } from 'radix-vue'
 import { composeTwClasses } from '../../utils'
-import { TAB_ITEM_KEY, TABS_CONTEXT_KEY } from './context'
+import { TABS_CONTEXT_KEY } from './context'
 
 interface TabIndicatorProps {
   class?: string
@@ -9,19 +10,12 @@ interface TabIndicatorProps {
 
 const props = defineProps<TabIndicatorProps>()
 const tabsContext = inject(TABS_CONTEXT_KEY, null)
-const tabItem = inject(TAB_ITEM_KEY, null)
 
 const indicatorClass = computed(() =>
   composeTwClasses(props.class, tabsContext?.slots.tabIndicator()),
 )
-const isSelected = computed(() => tabItem?.isSelected.value ?? false)
 </script>
 
 <template>
-  <span
-    v-if="isSelected"
-    :class="indicatorClass"
-    data-slot="tabs-indicator"
-    aria-hidden="true"
-  />
+  <TabsIndicator :class="indicatorClass" data-slot="tabs-indicator" aria-hidden="true" />
 </template>

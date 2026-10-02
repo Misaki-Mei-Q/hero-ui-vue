@@ -1,28 +1,31 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import { enableAutoUnmount, mount } from '@vue/test-utils'
 import { defineComponent, h, nextTick } from 'vue'
 import { ToastProvider, useToast } from '../index'
-import { toastQueue } from '../queue'
 
 enableAutoUnmount(afterEach)
 
-beforeEach(() => {
-  toastQueue.closeAll()
-})
+type ToastApiShape = NonNullable<ReturnType<typeof useToast>>
 
-function mountWithToastApi() {
-  let api: ReturnType<typeof useToast> | null = null
+let api: ToastApiShape | null = null
+
+function mountProvider() {
+  api = null
   const Child = defineComponent({
     setup() {
       api = useToast()
       return () => h('span', 'child')
     },
   })
-  mount(ToastProvider, {
+  const wrapper = mount(ToastProvider, {
     slots: { default: () => h(Child) },
     attachTo: document.body,
   })
-  return api as unknown as ReturnType<typeof useToast>
+  return wrapper
+}
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 describe('Toast', () => {
@@ -51,18 +54,27 @@ describe('Toast', () => {
     expect(region?.classList.contains('toast-region--top')).toBe(true)
   })
 
-  it('exposes a global toast api outside the provider', () => {
-    const api = mountWithToastApi()
+  it('exposes the toast api inside the provider', () => {
+    mountProvider()
     expect(api).not.toBeNull()
-    expect(typeof api.show).toBe('function')
+    expect(typeof api!.show).toBe('function')
   })
 
-  it('renders a toast added through the global api', async () => {
-    const wrapper = mount(ToastProvider, {
-      slots: { default: '<div>app</div>' },
-      attachTo: document.body,
+  it('returns null when useToast is called outside the provider', () => {
+    let returned: ReturnType<typeof useToast> = null
+    const Child = defineComponent({
+      setup() {
+        returned = useToast()
+        return () => h('span')
+      },
     })
-    toastQueue.show({ title: 'Hi', description: 'World' })
+    mount(Child, { attachTo: document.body })
+    expect(returned).toBeNull()
+  })
+
+  it('renders a toast added through show()', async () => {
+    mountProvider()
+    api!.show({ title: 'Hi', description: 'World' })
     await nextTick()
     const toast = document.querySelector('[data-slot="toast"]')
     expect(toast).not.toBeNull()
@@ -70,12 +82,11 @@ describe('Toast', () => {
     expect(toast?.textContent).toContain('World')
     expect(toast?.getAttribute('data-frontmost')).toBe('true')
     expect(toast?.getAttribute('data-index')).toBe('0')
-    void wrapper
   })
 
-  it('applies the variant class to a toast', async () => {
-    mount(ToastProvider, { slots: { default: '<div>app</div>' }, attachTo: document.body })
-    toastQueue.show({ title: 'Saved', variant: 'success' })
+  it('applies the variant class and indicator', async () => {
+    mountProvider()
+    api!.show({ title: 'Saved', variant: 'success' })
     await nextTick()
     const toast = document.querySelector('[data-slot="toast"]')
     expect(toast?.classList.contains('toast--success')).toBe(true)
@@ -83,45 +94,49 @@ describe('Toast', () => {
   })
 
   it('stacks toasts with increasing indexes and a single frontmost', async () => {
-    mount(ToastProvider, { slots: { default: '<div>app</div>' }, attachTo: document.body })
-    toastQueue.show({ title: 'A' })
-    toastQueue.show({ title: 'B' })
+    mountProvider()
+    api!.show({ title: 'A' })
+    api!.show({ title: 'B' })
     await nextTick()
     const toasts = document.querySelectorAll('[data-slot="toast"]')
     expect(toasts).toHaveLength(2)
-    const frontmost = document.querySelectorAll('[data-slot="toast"][data-frontmost="true"]')
-    expect(frontmost).toHaveLength(1)
+    expect(document.querySelectorAll('[data-slot="toast"][data-frontmost="true"]')).toHaveLength(1)
     const indexes = Array.from(toasts).map((el) => el.getAttribute('data-index'))
     expect(new Set(indexes)).toEqual(new Set(['0', '1']))
   })
 
-  it('closes a toast through the api', async () => {
-    mount(ToastProvider, { slots: { default: '<div>app</div>' }, attachTo: document.body })
-    const id = toastQueue.show({ title: 'Hi' })
+  it('marks a dismissed toast with data-exiting before removing it', async () => {
+    mountProvider()
+    const id = api!.show({ title: 'Hi' })
     await nextTick()
-    expect(document.querySelectorAll('[data-slot="toast"]')).toHaveLength(1)
-    toastQueue.close(id)
+    api!.close(id)
+    await nextTick()
+    expect(document.querySelector('[data-slot="toast"]')?.getAttribute('data-exiting')).toBe('true')
+    await delay(400)
     await nextTick()
     expect(document.querySelectorAll('[data-slot="toast"]')).toHaveLength(0)
   })
 
   it('closes a toast via its close button', async () => {
-    mount(ToastProvider, { slots: { default: '<div>app</div>' }, attachTo: document.body })
-    toastQueue.show({ title: 'Hi' })
+    mountProvider()
+    api!.show({ title: 'Hi' })
     await nextTick()
-    const closeButton = document.querySelector<HTMLButtonElement>('[data-slot="toast-close"]')
-    closeButton?.click()
+    document.querySelector<HTMLButtonElement>('[data-slot="toast-close"]')?.click()
+    await nextTick()
+    expect(document.querySelector('[data-slot="toast"]')?.getAttribute('data-exiting')).toBe('true')
+    await delay(400)
     await nextTick()
     expect(document.querySelectorAll('[data-slot="toast"]')).toHaveLength(0)
   })
 
   it('closeAll clears every toast', async () => {
-    mount(ToastProvider, { slots: { default: '<div>app</div>' }, attachTo: document.body })
-    toastQueue.show({ title: 'A' })
-    toastQueue.show({ title: 'B' })
+    mountProvider()
+    api!.show({ title: 'A' })
+    api!.show({ title: 'B' })
     await nextTick()
     expect(document.querySelectorAll('[data-slot="toast"]')).toHaveLength(2)
-    toastQueue.closeAll()
+    api!.closeAll()
+    await delay(400)
     await nextTick()
     expect(document.querySelectorAll('[data-slot="toast"]')).toHaveLength(0)
   })

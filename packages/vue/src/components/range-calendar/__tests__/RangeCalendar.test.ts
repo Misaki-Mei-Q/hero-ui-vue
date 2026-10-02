@@ -30,7 +30,7 @@ describe('RangeCalendar', () => {
     expect(document.querySelector('[data-slot="range-calendar-next"]')).not.toBeNull()
     expect(queryAll('[data-slot="range-calendar-header-cell"]')).toHaveLength(7)
     expect(queryAll('[data-slot="cell-trigger"]').length % 7).toBe(0)
-    expect(document.querySelector('[data-slot="range-calendar-grid"]')?.tagName).toBe('TABLE')
+    expect(document.querySelector('[data-slot="range-calendar-grid"]')?.tagName).toBe('DIV')
   })
 
   it('marks the selection start, end and days in between', () => {

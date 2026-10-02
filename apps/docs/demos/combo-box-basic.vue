@@ -16,15 +16,18 @@ const items = [
 </script>
 
 <template>
-  <ComboBox
-    v-model="value"
-    label="Favorite fruit"
-    placeholder="Pick a fruit"
-    description="Search and pick one."
-    :items="items"
-  >
-    <template #item-apple="{ item }">{{ item.label }} 🍎</template>
-    <template #item-banana="{ item }">{{ item.label }} 🍌</template>
-    <template #item-cherry="{ item }">{{ item.label }} 🍒</template>
-  </ComboBox>
+  <div class="w-64">
+    <ComboBox
+      v-model="value"
+      label="Favorite fruit"
+      placeholder="Pick a fruit"
+      description="Search and pick one."
+      :items="items"
+      full-width
+    >
+      <template #item-apple="{ item }">{{ item.label }} 🍎</template>
+      <template #item-banana="{ item }">{{ item.label }} 🍌</template>
+      <template #item-cherry="{ item }">{{ item.label }} 🍒</template>
+    </ComboBox>
+  </div>
 </template>

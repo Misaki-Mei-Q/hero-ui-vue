@@ -9,9 +9,3 @@ export interface TabsContext {
 }
 
 export const TABS_CONTEXT_KEY: InjectionKey<TabsContext> = Symbol('TabsContext')
-
-export interface TabItemContext {
-  isSelected: ComputedRef<boolean>
-}
-
-export const TAB_ITEM_KEY: InjectionKey<TabItemContext> = Symbol('TabItemContext')

@@ -10,6 +10,16 @@ import { ColorSwatch } from '@misaki-mei/heroui-vue'
 </script>
 ```
 
+## Usage
+
+### Basic
+
+:::preview
+
+demo-preview=../demos/color-swatch-basic.vue
+
+:::
+
 ## API
 
 ### ColorSwatch Props

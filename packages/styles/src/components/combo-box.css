@@ -18,7 +18,7 @@
   }
 
   [data-slot="input"] {
-    @apply min-w-0 flex-1;
+    @apply min-w-0 flex-1 bg-transparent px-3 py-2 text-base outline-none placeholder:text-field-placeholder sm:text-sm;
 
     /* Add padding-right when trigger is present */
     &:has(+ .combo-box__trigger) {
@@ -48,7 +48,46 @@
 }
 
 .combo-box__input-group {
-  @apply relative isolate inline-flex items-center;
+  @apply relative isolate inline-flex min-h-9 w-full items-center rounded-field border bg-field text-sm text-field-foreground shadow-field outline-none;
+
+  border-width: var(--border-width-field);
+  border-color: var(--field-border);
+
+  /**
+   * Transitions
+   * CRITICAL: motion-reduce must be AFTER transition for correct override specificity
+   */
+  transition:
+    background-color 150ms var(--ease-smooth),
+    border-color 150ms var(--ease-smooth),
+    box-shadow 150ms var(--ease-out);
+  @apply motion-reduce:transition-none;
+
+  /* Hover state */
+  @media (hover: hover) {
+    &:hover:not(:focus-within) {
+      @apply bg-field-hover;
+      border-color: var(--field-border-hover);
+    }
+  }
+
+  /* Focus within state */
+  &:focus-within {
+    @apply status-focused-field;
+    border-color: var(--field-border-focus);
+    background-color: var(--field-focus);
+  }
+}
+
+.combo-box[data-invalid="true"] .combo-box__input-group {
+  @apply status-invalid-field;
+
+  background-color: var(--field-focus);
+  border-color: var(--field-border-invalid);
+}
+
+.combo-box[data-disabled="true"] .combo-box__input-group {
+  @apply status-disabled;
 }
 
 .combo-box__trigger {
@@ -93,9 +132,14 @@
   }
 }
 
-/* Clear button — sits to the left of the chevron trigger */
+/* Search field rendered inside the popover */
+.combo-box__popover [data-slot="combo-box-search"] {
+  @apply px-3 pt-2 pb-1;
+}
+
+/* Clear button - sits to the left of the chevron trigger */
 .combo-box__clear {
-  @apply right-7 pr-1;
+  @apply absolute end-7 top-1/2 flex -translate-y-1/2 items-center justify-center text-field-placeholder no-highlight;
 
   svg {
     @apply size-4;
@@ -105,7 +149,7 @@
 /* Similar to popover content styles */
 .combo-box__popover {
   @apply min-w-(--trigger-width) origin-(--trigger-anchor-point) scroll-py-1 overflow-y-auto overscroll-contain rounded-3xl bg-overlay p-0 text-sm;
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--overlay-shadow);
 
   /* Focus state */
   &:focus-visible:not(:focus),
